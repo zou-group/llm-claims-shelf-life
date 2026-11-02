@@ -1,0 +1,147 @@
+{
+ "id": "JR-02",
+ "topic": "judges_reviewers",
+ "claim": "LLM judges exhibit strong position bias in pairwise evaluation: simply swapping the order of two responses changes the verdict for a large fraction of items (GPT-4 conflict rate 46.3% for Vicuna-13B vs ChatGPT; ChatGPT judge 82.5%), enough to flip which model 'wins', even when the prompt tells the judge to ignore order.",
+ "paper": {
+  "title": "Large Language Models are not Fair Evaluators",
+  "authors": [
+   "Peiyi Wang",
+   "Lei Li",
+   "Liang Chen",
+   "Zefan Cai",
+   "Dawei Zhu",
+   "Binghuai Lin",
+   "Yunbo Cao",
+   "Qi Liu",
+   "Tianyu Liu",
+   "Zhifang Sui"
+  ],
+  "first_date": "2023-05-29",
+  "venue": "ACL 2024",
+  "url": "https://arxiv.org/abs/2305.17926",
+  "citation_count": 1327,
+  "citation_source": "Semantic Scholar Graph API POST https://api.semanticscholar.org/graph/v1/paper/batch?fields=title,citationCount,publicationDate,externalIds,venue (id arXiv:2305.17926)",
+  "citation_checked": "2026-09-29",
+  "s2_batch_citation_count": 1327,
+  "s2_batch_record_title": "Large Language Models are not Fair Evaluators",
+  "s2_batch_checked": "2026-09-29"
+ },
+ "experiment": {
+  "location_in_paper": "Section 2.2, Table 1 (template), Table 2, Figure 2; Section 4, Table 4",
+  "task_or_benchmark": "Vicuna Benchmark, 80 questions in 9 categories; response pairs Vicuna-13B vs ChatGPT and Vicuna-13B vs Alpaca-13B.",
+  "intervention_or_prompts": "Vicuna/Zheng et al. scoring template asking for two 1-10 scores with explicit instruction 'ensuring that the order in which the responses were presented does not affect your judgment'; each pair queried twice with positions swapped. Calibrations: Multiple Evidence Calibration (explain-then-score, k samples), Balanced Position Calibration (average both orders), Human-in-the-loop via entropy.",
+  "models_tested": [
+   "gpt-4 (API alias 'gpt-4', 2023)",
+   "gpt-3.5-turbo-0301 (ChatGPT)",
+   "Vicuna-13B (evaluated)",
+   "Alpaca-13B (evaluated)"
+  ],
+  "evaluation_procedure": "Conflict rate = share of items whose verdict differs between the two orders; win rate of Vicuna-13B when placed as Assistant 1 vs 2. For calibration: accuracy and kappa against majority of 3 author annotators (win/tie/lose). Temperature 0 for vanilla, 1 with k=3 for MEC; non-BPC methods averaged over 100 random orderings.",
+  "metric": "Conflict rate; win rate by position; accuracy/kappa vs human majority",
+  "main_comparison": "Same judge, same pair, response order swapped",
+  "main_result": "GPT-4 judge: Vicuna-13B win rate 51.3% as Assistant 1 vs 23.8% as Assistant 2, conflict 37/80 (46.3%); vs Alpaca 5.0% conflict. ChatGPT judge: 2.5% vs 82.5% win rate, conflict 66/80 (82.5%); vs Alpaca 52.5%. GPT-4 favors first position, ChatGPT second. Conflicts concentrate where score gap <=1. Vanilla GPT-4 accuracy vs humans 52.7% (kappa 0.24) -> 62.5% with MEC+BPC; ChatGPT 44.4% -> 58.7%; human annotators average 71.7%."
+ },
+ "models": [
+  {
+   "name": "gpt-4 (alias, mid-2023)",
+   "version_as_reported": "gpt-4 (alias, mid-2023)",
+   "organization": "OpenAI",
+   "release_date": "2023-03-14",
+   "release_date_source": "https://openai.com/index/gpt-4-research/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "provenance_note": "prior-run registry id 'gpt-4' (spot-checked URL form only); registry ambiguity: Family-first date only. Paper must supply exact checkpoint/version; do not replace unversioned paper names with a snapshot.; alias resolved to a 2023 snapshot (likely gpt-4-0314 or -0613); paper does not specify | central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct.",
+   "release_date_kind": "announcement"
+  },
+  {
+   "name": "gpt-3.5-turbo-0301",
+   "version_as_reported": "gpt-3.5-turbo-0301",
+   "organization": "OpenAI",
+   "release_date": "2023-03-01",
+   "release_date_source": "https://openai.com/index/introducing-chatgpt-and-whisper-apis/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "provenance_note": "prior-run registry id 'gpt-3.5-turbo-0301' (spot-checked URL form only) | central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct.",
+   "release_date_kind": "api_release"
+  },
+  {
+   "name": "Vicuna-13B",
+   "version_as_reported": "Vicuna-13B",
+   "organization": "LMSYS",
+   "release_date": "2023-03-30",
+   "release_date_source": "https://www.lmsys.org/blog/2023-03-30-vicuna/",
+   "parameters": "13B",
+   "parameters_source": "https://www.lmsys.org/blog/2023-03-30-vicuna/",
+   "provenance_note": "prior-run registry id 'Vicuna-13B-original' (spot-checked URL form only); registry ambiguity: Use only for explicitly original 13B; not all Vicuna 13B revisions."
+  },
+  {
+   "name": "Alpaca-13B",
+   "version_as_reported": "Alpaca-13B",
+   "organization": "Stanford/LMSYS answers",
+   "release_date": null,
+   "release_date_source": null,
+   "parameters": "unknown",
+   "parameters_source": "not disclosed (no official 13B release)",
+   "provenance_note": "answers taken from Vicuna benchmark release; 13B Alpaca provenance not verified | central provenance pass: Stanford officially released only Alpaca 7B (https://crfm.stanford.edu/2023/03/13/alpaca.html); the 13B checkpoint used is a third-party/replication model with no official release date. Size 13B is per name only."
+  }
+ ],
+ "reproducibility": {
+  "repo_url": "https://github.com/i-Eval/FairEval",
+  "repo_inspected": true,
+  "files_inspected": [
+   "FairEval.py",
+   "run.sh",
+   "question.jsonl",
+   "answer/answer_gpt35.jsonl",
+   "answer/answer_vicuna-13b.jsonl",
+   "review/review_gpt35_vicuna-13b_human.txt",
+   "README.md"
+  ],
+  "experiment_code": "yes",
+  "analysis_code": "partial",
+  "prompts_configs": "yes",
+  "data_or_outputs": "yes",
+  "procedure_described_precisely": "yes",
+  "difficulty": "low",
+  "missing": "Human labels released (review_gpt35_vicuna-13b_human.txt, 80 lines). No script for conflict-rate table, but trivial. Judges gpt-3.5-turbo-0301 / 2023 gpt-4 are deprecated; new judges can be run on the same 80 answer pairs."
+ },
+ "downstream": [
+  {
+   "title": "Judging the Judges: A Systematic Study of Position Bias in LLM-as-a-Judge",
+   "url": "https://arxiv.org/abs/2406.07791",
+   "year": 2024,
+   "relation": "extends_newer_models",
+   "summary": "15 judges on MT-Bench and DevBench: position bias persists and is not random (repetition stability >0.95 for Claude-3.5-Sonnet, GPT-4, Llama-3.3-70B), direction varies by task (e.g. Claude-3.5-Sonnet near-fair on MT-Bench, PF=0.01, but recency-biased on DevBench, PF=0.22); bias largest when answer quality gap is small (read abstract, Sec. results L62-65)."
+  },
+  {
+   "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+   "url": "https://arxiv.org/abs/2306.05685",
+   "year": 2023,
+   "relation": "replicates",
+   "summary": "Concurrent: on near-identical GPT-3.5 answer pairs, only GPT-4 is position-consistent in >60% of cases (65%); Claude-v1 75% biased toward first slot (Table 2)."
+  },
+  {
+   "title": "LLM Evaluators Recognize and Favor Their Own Generations",
+   "url": "https://arxiv.org/abs/2404.13076",
+   "year": 2024,
+   "relation": "replicates",
+   "summary": "GPT-4, GPT-3.5 and Llama-2 reverse pairwise preferences on order swap at 25%, 58% and 89% of summarization pairs."
+  },
+  {
+   "title": "Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge (CALM)",
+   "url": "https://arxiv.org/abs/2410.02736",
+   "year": 2024,
+   "relation": "extends_newer_models",
+   "summary": "Position bias tested among 12 biases on 2024 judges (GPT-4-Turbo, GPT-4o, Claude-3.5, etc.); robustness improves with capability but judges remain order-sensitive, especially with more than two candidates (abstract + Fig 6 caption read)."
+  }
+ ],
+ "downstream_verdict": "supported_on_newer_models",
+ "downstream_summary": "Position bias is one of the most replicated LLM-judge findings; newer, stronger judges are more consistent than ChatGPT-era judges but still show systematic, task-dependent order effects, especially for close pairs.",
+ "notability_notes": "Canonical position-bias paper for LLM evaluators; 1.3k citations; its balanced-position calibration became standard practice.",
+ "status_recommendation": "include",
+ "gaps": "Only 80 questions and 2 pairings; the 'gpt-4' alias snapshot is unspecified. Human ground truth from 3 authors only.",
+ "final_id": "C043",
+ "group": "LLM judges & evaluation validity",
+ "pool_id": "JR-02",
+ "audit_corrections": []
+}

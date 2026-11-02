@@ -1,0 +1,883 @@
+{
+  "schema_version": 1,
+  "updated": "2026-10-27",
+  "policy": "Release is the earliest publicly accessible version of the same paper, including preprints and full author reports. For arXiv use v1, never the latest revision. Earlier verified public versions take precedence over arXiv. Do not substitute date-written, private submission, acceptance, DOI-embedded or issue-year dates. Dates are earliest verified, not proof that no inaccessible earlier copy existed.",
+  "scope": "Papers behind the 50 claims in the blog post.",
+  "papers": [
+    {
+      "paper_id": "arxiv:2210.03350",
+      "title": "Measuring and Narrowing the Compositionality Gap in Language Models",
+      "first_public_date": "2022-10-07",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2210.03350v1",
+      "note": "arXiv v1 first submitted/posted 2022-10-07; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2210.03350"
+      ],
+      "claims": [
+        "C059",
+        "RSN-16"
+      ],
+      "arxiv_v1_date": "2022-10-07"
+    },
+    {
+      "paper_id": "arxiv:2211.09527",
+      "title": "Ignore Previous Prompt: Attack Techniques For Language Models",
+      "first_public_date": "2022-11-17",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2211.09527v1",
+      "note": "arXiv v1 first submitted/posted 2022-11-17; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2211.09527"
+      ],
+      "claims": [
+        "C102",
+        "PI-N01"
+      ],
+      "arxiv_v1_date": "2022-11-17"
+    },
+    {
+      "paper_id": "arxiv:2305.14610",
+      "title": "This Land is {Your, My} Land: Evaluating Geopolitical Biases in Language Models",
+      "first_public_date": "2023-05-24",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2305.14610v1",
+      "note": "arXiv v1 first submitted/posted 2023-05-24; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2305.14610"
+      ],
+      "claims": [
+        "C137",
+        "SB-N03"
+      ],
+      "arxiv_v1_date": "2023-05-24"
+    },
+    {
+      "paper_id": "arxiv:2305.17926",
+      "title": "Large Language Models are not Fair Evaluators",
+      "first_public_date": "2023-05-29",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2305.17926v1",
+      "note": "arXiv v1 first submitted/posted 2023-05-29; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2305.17926"
+      ],
+      "claims": [
+        "C043",
+        "JR-02"
+      ],
+      "arxiv_v1_date": "2023-05-29"
+    },
+    {
+      "paper_id": "arxiv:2305.18189",
+      "title": "Marked Personas: Using Natural Language Prompts to Measure Stereotypes in Language Models",
+      "first_public_date": "2023-05-29",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2305.18189v1",
+      "note": "arXiv v1 first submitted/posted 2023-05-29; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2305.18189"
+      ],
+      "claims": [
+        "BC-09",
+        "C080"
+      ],
+      "arxiv_v1_date": "2023-05-29"
+    },
+    {
+      "paper_id": "arxiv:2307.02477",
+      "title": "Reasoning or Reciting? Exploring the Capabilities and Limitations of Language Models Through Counterfactual Tasks",
+      "first_public_date": "2023-07-05",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2307.02477v1",
+      "note": "arXiv v1 first submitted/posted 2023-07-05; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2307.02477"
+      ],
+      "claims": [
+        "C058",
+        "RSN-15"
+      ],
+      "arxiv_v1_date": "2023-07-05"
+    },
+    {
+      "paper_id": "arxiv:2307.03172",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "first_public_date": "2023-07-06",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2307.03172v1",
+      "note": "arXiv v1 first submitted/posted 2023-07-06; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2307.03172"
+      ],
+      "claims": [
+        "C086",
+        "CAT-01"
+      ],
+      "arxiv_v1_date": "2023-07-06"
+    },
+    {
+      "paper_id": "arxiv:2308.01263",
+      "title": "XSTest: A Test Suite for Identifying Exaggerated Safety Behaviours in Large Language Models",
+      "first_public_date": "2023-08-02",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2308.01263v1",
+      "note": "arXiv v1 first submitted/posted 2023-08-02; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2308.01263"
+      ],
+      "claims": [
+        "C041",
+        "JB-15"
+      ],
+      "arxiv_v1_date": "2023-08-02"
+    },
+    {
+      "paper_id": "arxiv:2308.14921",
+      "title": "Gender bias and stereotypes in Large Language Models",
+      "first_public_date": "2023-08-28",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2308.14921v1",
+      "note": "arXiv v1 first submitted/posted 2023-08-28; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2308.14921"
+      ],
+      "claims": [
+        "BC-03",
+        "C077"
+      ],
+      "arxiv_v1_date": "2023-08-28"
+    },
+    {
+      "paper_id": "arxiv:2309.01431",
+      "title": "Benchmarking Large Language Models in Retrieval-Augmented Generation",
+      "first_public_date": "2023-09-04",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2309.01431v1",
+      "note": "arXiv v1 first submitted/posted 2023-09-04; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2309.01431"
+      ],
+      "claims": [
+        "C093",
+        "CAT-13"
+      ],
+      "arxiv_v1_date": "2023-09-04"
+    },
+    {
+      "paper_id": "arxiv:2309.03882",
+      "title": "Large Language Models Are Not Robust Multiple Choice Selectors",
+      "first_public_date": "2023-09-07",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2309.03882v1",
+      "note": "arXiv v1 first submitted/posted 2023-09-07; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2309.03882"
+      ],
+      "claims": [
+        "C073",
+        "prompting_robustness-06"
+      ],
+      "arxiv_v1_date": "2023-09-07"
+    },
+    {
+      "paper_id": "arxiv:2309.12288",
+      "title": "The Reversal Curse: LLMs trained on \"A is B\" fail to learn \"B is A\"",
+      "first_public_date": "2023-09-21",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2309.12288v1",
+      "note": "arXiv v1 first submitted/posted 2023-09-21; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2309.12288"
+      ],
+      "claims": [
+        "C049",
+        "C141",
+        "KS-10",
+        "RSN-01"
+      ],
+      "arxiv_v1_date": "2023-09-21"
+    },
+    {
+      "paper_id": "arxiv:2309.13638",
+      "title": "Embers of Autoregression: Understanding Large Language Models Through the Problem They are Trained to Solve",
+      "first_public_date": "2023-09-24",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2309.13638v1",
+      "note": "arXiv v1 first submitted/posted 2023-09-24; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2309.13638"
+      ],
+      "claims": [
+        "C057",
+        "RSN-14"
+      ],
+      "arxiv_v1_date": "2023-09-24"
+    },
+    {
+      "paper_id": "arxiv:2310.01798",
+      "title": "Large Language Models Cannot Self-Correct Reasoning Yet",
+      "first_public_date": "2023-10-03",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2310.01798v1",
+      "note": "arXiv v1 first submitted/posted 2023-10-03; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2310.01798"
+      ],
+      "claims": [
+        "C054",
+        "RSN-10"
+      ],
+      "arxiv_v1_date": "2023-10-03"
+    },
+    {
+      "paper_id": "arxiv:2310.13548",
+      "title": "Towards Understanding Sycophancy in Language Models",
+      "first_public_date": "2023-10-20",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2310.13548v1",
+      "note": "arXiv v1 first submitted/posted 2023-10-20; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2310.13548"
+      ],
+      "claims": [
+        "C024",
+        "C108",
+        "SH-N04",
+        "SYCD-01",
+        "SYCD-02"
+      ],
+      "arxiv_v1_date": "2023-10-20"
+    },
+    {
+      "paper_id": "arxiv:2310.17884",
+      "title": "Can LLMs Keep a Secret? Testing Privacy Implications of Language Models via Contextual Integrity Theory",
+      "first_public_date": "2023-10-27",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2310.17884v1",
+      "note": "arXiv v1 first submitted/posted 2023-10-27; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2310.17884"
+      ],
+      "claims": [
+        "C161"
+      ],
+      "arxiv_v1_date": "2023-10-27"
+    },
+    {
+      "paper_id": "arxiv:2311.07590",
+      "title": "Large Language Models can Strategically Deceive their Users when Put Under Pressure",
+      "first_public_date": "2023-11-09",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2311.07590v1",
+      "note": "arXiv v1 first submitted/posted 2023-11-09; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2311.07590"
+      ],
+      "claims": [
+        "C029",
+        "SYCD-10"
+      ],
+      "arxiv_v1_date": "2023-11-09"
+    },
+    {
+      "paper_id": "arxiv:2311.08398",
+      "title": "Are Large Language Models Temporally Grounded?",
+      "first_public_date": "2023-11-14",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2311.08398v1",
+      "note": "arXiv v1 first submitted/posted 2023-11-14; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2311.08398"
+      ],
+      "claims": [
+        "C162"
+      ],
+      "arxiv_v1_date": "2023-11-14"
+    },
+    {
+      "paper_id": "arxiv:2312.09085",
+      "title": "The Earth is Flat because...: Investigating LLMs' Belief towards Misinformation via Persuasive Conversation",
+      "first_public_date": "2023-12-14",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2312.09085v1",
+      "note": "arXiv v1 first submitted/posted 2023-12-14; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2312.09085"
+      ],
+      "claims": [
+        "C139",
+        "SH-N01"
+      ],
+      "arxiv_v1_date": "2023-12-14"
+    },
+    {
+      "paper_id": "arxiv:2401.01301",
+      "title": "Large Legal Fictions: Profiling Legal Hallucinations in Large Language Models",
+      "first_public_date": "2024-01-02",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2401.01301v1",
+      "note": "arXiv v1 first submitted/posted 2024-01-02; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2401.01301"
+      ],
+      "claims": [
+        "C067",
+        "FC-15"
+      ],
+      "arxiv_v1_date": "2024-01-02"
+    },
+    {
+      "paper_id": "arxiv:2402.01789",
+      "title": "The Political Preferences of LLMs",
+      "first_public_date": "2024-02-02",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2402.01789v1",
+      "note": "arXiv v1 first submitted/posted 2024-02-02; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2402.01789"
+      ],
+      "claims": [
+        "BC-13",
+        "C083"
+      ],
+      "arxiv_v1_date": "2024-02-02"
+    },
+    {
+      "paper_id": "arxiv:2402.04105",
+      "title": "Measuring Implicit Bias in Explicitly Unbiased Large Language Models",
+      "first_public_date": "2024-02-06",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2402.04105v1",
+      "note": "arXiv v1 first submitted/posted 2024-02-06; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2402.04105"
+      ],
+      "claims": [
+        "BC-06",
+        "C079"
+      ],
+      "arxiv_v1_date": "2024-02-06"
+    },
+    {
+      "paper_id": "arxiv:2402.08939",
+      "title": "Premise Order Matters in Reasoning with Large Language Models",
+      "first_public_date": "2024-02-14",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2402.08939v1",
+      "note": "arXiv v1 first submitted/posted 2024-02-14; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2402.08939"
+      ],
+      "claims": [
+        "C051",
+        "RSN-05"
+      ],
+      "arxiv_v1_date": "2024-02-14"
+    },
+    {
+      "paper_id": "arxiv:2402.10669",
+      "title": "Humans or LLMs as the Judge? A Study on Judgement Biases",
+      "first_public_date": "2024-02-16",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2402.10669v1",
+      "note": "arXiv v1 first submitted/posted 2024-02-16; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2402.10669"
+      ],
+      "claims": [
+        "C047",
+        "JR-07"
+      ],
+      "arxiv_v1_date": "2024-02-16"
+    },
+    {
+      "paper_id": "arxiv:2403.00742",
+      "title": "Dialect prejudice predicts AI decisions about people's character, employability, and criminality",
+      "first_public_date": "2024-03-01",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2403.00742v1",
+      "note": "arXiv v1 first submitted/posted 2024-03-01; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2403.00742"
+      ],
+      "claims": [
+        "BC-04",
+        "BC-05",
+        "C078"
+      ],
+      "arxiv_v1_date": "2024-03-01"
+    },
+    {
+      "paper_id": "arxiv:2403.02691",
+      "title": "InjecAgent: Benchmarking Indirect Prompt Injections in Tool-Integrated Large Language Model Agents",
+      "first_public_date": "2024-03-05",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2403.02691v1",
+      "note": "arXiv v1 first submitted/posted 2024-03-05; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2403.02691"
+      ],
+      "claims": [
+        "C120",
+        "PI-N06"
+      ],
+      "arxiv_v1_date": "2024-03-05"
+    },
+    {
+      "paper_id": "arxiv:2404.04475",
+      "title": "Length-Controlled AlpacaEval: A Simple Way to Debias Automatic Evaluators",
+      "first_public_date": "2024-04-06",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2404.04475v1",
+      "note": "arXiv v1 first submitted/posted 2024-04-06; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2404.04475"
+      ],
+      "claims": [
+        "C046",
+        "JR-06"
+      ],
+      "arxiv_v1_date": "2024-04-06"
+    },
+    {
+      "paper_id": "arxiv:2404.10859",
+      "title": "Forcing Diffuse Distributions out of Language Models",
+      "first_public_date": "2024-04-16",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2404.10859v1",
+      "note": "arXiv v1 first submitted/posted 2024-04-16; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2404.10859"
+      ],
+      "claims": [
+        "C023",
+        "CH-12"
+      ],
+      "arxiv_v1_date": "2024-04-16"
+    },
+    {
+      "paper_id": "arxiv:2404.13076",
+      "title": "LLM Evaluators Recognize and Favor Their Own Generations",
+      "first_public_date": "2024-04-15",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2404.13076v1",
+      "note": "arXiv v1 first submitted/posted 2024-04-15; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2404.13076"
+      ],
+      "claims": [
+        "C044",
+        "JR-03",
+        "KS-04"
+      ],
+      "arxiv_v1_date": "2024-04-15"
+    },
+    {
+      "paper_id": "arxiv:2406.10279",
+      "title": "We Have a Package for You! A Comprehensive Analysis of Package Hallucinations by Code Generating LLMs",
+      "first_public_date": "2024-06-12",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2406.10279v1",
+      "note": "arXiv v1 first submitted/posted 2024-06-12; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2406.10279"
+      ],
+      "claims": [
+        "C104",
+        "HL-N01"
+      ],
+      "arxiv_v1_date": "2024-06-12"
+    },
+    {
+      "paper_id": "arxiv:2406.16253",
+      "title": "LLMs Assist NLP Researchers: Critique Paper (Meta-)Reviewing",
+      "first_public_date": "2024-06-24",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2406.16253v1",
+      "note": "arXiv v1 first submitted/posted 2024-06-24; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2406.16253"
+      ],
+      "claims": [
+        "C014",
+        "JR-13"
+      ],
+      "arxiv_v1_date": "2024-06-24"
+    },
+    {
+      "paper_id": "arxiv:2407.06866",
+      "title": "ChatGPT Doesn't Trust Chargers Fans: Guardrail Sensitivity in Context",
+      "first_public_date": "2024-07-09",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2407.06866v1",
+      "note": "arXiv v1 first submitted/posted 2024-07-09; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2407.06866"
+      ],
+      "claims": [
+        "C138",
+        "PB-N02"
+      ],
+      "arxiv_v1_date": "2024-07-09"
+    },
+    {
+      "paper_id": "arxiv:2407.12856",
+      "title": "AI-AI Bias: large language models favor communications generated by large language models",
+      "first_public_date": "2024-07-09",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2407.12856v1",
+      "note": "arXiv v1 first submitted/posted 2024-07-09; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2407.12856"
+      ],
+      "claims": [
+        "C157",
+        "R4-N06"
+      ],
+      "arxiv_v1_date": "2024-07-09"
+    },
+    {
+      "paper_id": "arxiv:2409.20385",
+      "title": "Wait, but Tylenol is Acetaminophen... Investigating and Improving Language Models' Ability to Resist Requests for Misinformation",
+      "first_public_date": "2024-09-30",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2409.20385v1",
+      "note": "arXiv v1 first submitted/posted 2024-09-30; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2409.20385",
+        "https://doi.org/10.1038/s41746-025-02008-z"
+      ],
+      "claims": [
+        "C109",
+        "SH-N03"
+      ],
+      "arxiv_v1_date": "2024-09-30"
+    },
+    {
+      "paper_id": "arxiv:2412.01708",
+      "title": "Are We There Yet? Revealing the Risks of Utilizing Large Language Models in Scholarly Peer Review",
+      "first_public_date": "2024-12-02",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2412.01708v1",
+      "note": "arXiv v1 first submitted/posted 2024-12-02; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2412.01708"
+      ],
+      "claims": [
+        "C013",
+        "JR-11",
+        "R3-N04",
+        "R4-N05",
+        "R6-N05",
+        "SR-N06"
+      ],
+      "arxiv_v1_date": "2024-12-02"
+    },
+    {
+      "paper_id": "arxiv:2412.18626",
+      "title": "Why Do Large Language Models (LLMs) Struggle to Count Letters?",
+      "first_public_date": "2024-12-19",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2412.18626v1",
+      "note": "arXiv v1 first submitted/posted 2024-12-19; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2412.18626"
+      ],
+      "claims": [
+        "C101",
+        "KS-16",
+        "TOY-01"
+      ],
+      "arxiv_v1_date": "2024-12-19",
+      "caveat": "This dates the related letter-counting paper only. TOY-01/C101 is an informal claim with no established first-appearance date."
+    },
+    {
+      "paper_id": "arxiv:2412.21187",
+      "title": "Do NOT Think That Much for 2+3=? On the Overthinking of o1-Like LLMs",
+      "first_public_date": "2024-12-30",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2412.21187v1",
+      "note": "arXiv v1 first submitted/posted 2024-12-30; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2412.21187"
+      ],
+      "claims": [
+        "C055",
+        "RSN-11"
+      ],
+      "arxiv_v1_date": "2024-12-30"
+    },
+    {
+      "paper_id": "arxiv:2502.07963",
+      "title": "Caught in the Web of Words: Do LLMs Fall for Spin in Medical Literature?",
+      "first_public_date": "2025-02-11",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2502.07963v1",
+      "note": "arXiv v1 first submitted/posted 2025-02-11; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2502.07963"
+      ],
+      "claims": [
+        "C129",
+        "R6-N07",
+        "SR-N01"
+      ],
+      "arxiv_v1_date": "2025-02-11"
+    },
+    {
+      "paper_id": "arxiv:2503.03750",
+      "title": "The MASK Benchmark: Disentangling Honesty From Accuracy in AI Systems",
+      "first_public_date": "2025-03-05",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2503.03750v1",
+      "note": "arXiv v1 first submitted/posted 2025-03-05; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2503.03750"
+      ],
+      "claims": [
+        "C140",
+        "SH-N02"
+      ],
+      "arxiv_v1_date": "2025-03-05"
+    },
+    {
+      "paper_id": "arxiv:2504.03803",
+      "title": "What Large Language Models Do Not Talk About: An Empirical Study of Moderation and Censorship Practices",
+      "first_public_date": "2025-04-04",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2504.03803v1",
+      "note": "arXiv v1 first submitted/posted 2025-04-04; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2504.03803"
+      ],
+      "claims": [
+        "C166"
+      ],
+      "arxiv_v1_date": "2025-04-04"
+    },
+    {
+      "paper_id": "arxiv:2505.06120",
+      "title": "LLMs Get Lost In Multi-Turn Conversation",
+      "first_public_date": "2025-05-09",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2505.06120v1",
+      "note": "arXiv v1 first submitted/posted 2025-05-09; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2505.06120"
+      ],
+      "claims": [
+        "C089",
+        "CAT-05"
+      ],
+      "arxiv_v1_date": "2025-05-09"
+    },
+    {
+      "paper_id": "arxiv:2505.13995",
+      "title": "ELEPHANT: Measuring and understanding social sycophancy in LLMs",
+      "first_public_date": "2025-05-20",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2505.13995v1",
+      "note": "arXiv v1 first submitted/posted 2025-05-20; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2505.13995"
+      ],
+      "claims": [
+        "C026",
+        "SYCD-06"
+      ],
+      "arxiv_v1_date": "2025-05-20"
+    },
+    {
+      "paper_id": "arxiv:2506.09038",
+      "title": "AbstentionBench: Reasoning LLMs Fail on Unanswerable Questions",
+      "first_public_date": "2025-06-10",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2506.09038v1",
+      "note": "arXiv v1 first submitted/posted 2025-06-10; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2506.09038"
+      ],
+      "claims": [
+        "C068",
+        "FC-18"
+      ],
+      "arxiv_v1_date": "2025-06-10"
+    },
+    {
+      "paper_id": "arxiv:2510.01395",
+      "title": "Sycophantic AI Decreases Prosocial Intentions and Promotes Dependence",
+      "first_public_date": "2025-10-01",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2510.01395v1",
+      "note": "arXiv v1 first submitted/posted 2025-10-01; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2510.01395"
+      ],
+      "claims": [
+        "C142"
+      ],
+      "arxiv_v1_date": "2025-10-01"
+    },
+    {
+      "paper_id": "arxiv:2510.05179",
+      "title": "Agentic Misalignment: How LLMs Could Be Insider Threats",
+      "first_public_date": "2025-06-20",
+      "date_kind": "author_release",
+      "status": "verified_source_date",
+      "source_url": "https://www.anthropic.com/research/agentic-misalignment",
+      "note": "Full Anthropic research report first released June 20, 2025; arXiv v1 followed October 5. The earlier Claude system card is a different document.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2510.05179"
+      ],
+      "claims": [
+        "C028",
+        "SYCD-09"
+      ],
+      "arxiv_v1_date": "2025-10-05"
+    },
+    {
+      "paper_id": "arxiv:2510.22954",
+      "title": "Artificial Hivemind: The Open-Ended Homogeneity of Language Models (and Beyond)",
+      "first_public_date": "2025-10-27",
+      "date_kind": "arxiv_v1",
+      "status": "verified_source_date",
+      "source_url": "https://arxiv.org/abs/2510.22954v1",
+      "note": "arXiv v1 first submitted/posted 2025-10-27; later revisions do not reset release.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://arxiv.org/abs/2510.22954"
+      ],
+      "claims": [
+        "C019",
+        "C143",
+        "CH-06"
+      ],
+      "arxiv_v1_date": "2025-10-27",
+      "caveat": "OpenReview paper exists, but earlier public-access date could not be established (forum/API verification blocked). May 2025 dataset release does not establish paper access. October 27 is the earliest verified paper date, subject to this unresolved earlier-release check."
+    },
+    {
+      "paper_id": "https://www-cdn.anthropic.com/af5633c94ed2beb282f6a53c595eb437e8e7b630/Many_Shot_Jailbreaking__2024_04_02_0936.pdf",
+      "title": "Many-shot Jailbreaking",
+      "first_public_date": "2024-04-02",
+      "date_kind": "author_release",
+      "status": "verified_source_date",
+      "source_url": "https://www.anthropic.com/research/many-shot-jailbreaking",
+      "note": "Dated Anthropic release links the paper.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://www-cdn.anthropic.com/af5633c94ed2beb282f6a53c595eb437e8e7b630/Many_Shot_Jailbreaking__2024_04_02_0936.pdf"
+      ],
+      "claims": [
+        "C037",
+        "JB-05"
+      ]
+    },
+    {
+      "paper_id": "https://www.nature.com/articles/s41598-023-41032-5",
+      "title": "Fabrication and errors in the bibliographic citations generated by ChatGPT",
+      "first_public_date": "2023-09-07",
+      "date_kind": "publisher_online",
+      "status": "verified_source_date",
+      "source_url": "https://www.nature.com/articles/s41598-023-41032-5",
+      "note": "Publisher first-online date; no earlier manuscript located.",
+      "checked_on": "2026-10-27",
+      "aliases": [
+        "https://www.nature.com/articles/s41598-023-41032-5"
+      ],
+      "claims": [
+        "C010",
+        "SCI-15"
+      ]
+    }
+  ]
+}

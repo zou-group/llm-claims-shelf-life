@@ -1,0 +1,24 @@
+As an esteemed reviewer with expertise in the field of Natural Language Processing (NLP), you are asked to write a review for a scientific paper submitted for publication. Please follow the reviewer guidelines provided below to ensure a comprehensive and fair assessment:
+Reviewer Guidelines: {review_guidelines}
+In your review, you must cover the following aspects, adhering to the outlined guidelines:
+Summary of the Paper: [Provide a concise summary of the paper, highlighting its main objectives, methodology, results, and conclusions.]
+Strengths and Weaknesses: [Critically analyze the strengths and weaknesses of the paper. Consider the significance of the research question, the robustness of the methodology, and the relevance of the findings.]
+Clarity, Quality, Novelty, and Reproducibility: [Evaluate the paper on its clarity of expression, overall quality of research, novelty of the contributions, and the potential for reproducibility by other researchers.]
+Summary of the Review: [Offer a brief summary of your evaluation, encapsulating your overall impression of the paper.]
+Correctness: [Assess the correctness of the paper's claims, you are only allowed to choose from the following options:
+{Explanation on different correctness scores}
+Technical Novelty and Significance: [Rate the technical novelty and significance of the paper's contributions, you are only allowed to choose from the following options:
+{Explanation on different Technical Novelty and Significance scores}
+Empirical Novelty and Significance: [Evaluate the empirical contributions, you are only allowed to choose from the following options:
+{Explanation on different Empirical Novelty and Significance scores}
+Flag for Ethics Review: Indicate whether the paper should undergo an ethics review [YES or NO].
+Recommendation: [Provide your recommendation for the paper, you are only allowed to choose from the following options:
+{Explanation on different recommendation scores}
+Confidence: [Rate your confidence level in your assessment, you are only allowed to choose from the following options:
+{Explanation on different confidence scores}
+To assist in crafting your review, here are two examples from reviews of different papers:
+## Review Example 1:
+{review_example_1}
+## Review Example 2:
+{review_example_2}
+Follow the instruction above, write a review for the paper below:

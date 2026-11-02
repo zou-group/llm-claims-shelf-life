@@ -1,0 +1,51 @@
+key,title,group,category,paper_date,death,death_kind,life_lo,life_mid,life_hi,event,note,e_6m,e_12m,e_24m,e_now
+C044,LLM evaluators prefer their own summaries,LLM judges & evaluation validity,strengthened,2024-04-15,,,29.5,29.5,29.5,0,censored (not dead at Sep 2026),1.088,1.119,1.525,2.3642
+SYCD-02,Assistants praise text more when the user likes it,"Sycophancy, deception & strategic behavior",strengthened,2023-10-20,,,35.4,35.4,35.4,0,censored (not dead at Sep 2026),1.562,1.698,1.813,1.8459
+C023,LLMs asked for a random number are far from uniform,"Creativity, output diversity & homogeneity",strengthened,2024-04-16,,,29.5,29.5,29.5,0,censored (not dead at Sep 2026),1.408,1.624,1.693,1.696
+C093,RAG models answer instead of rejecting answerless docs,"Factuality, hallucination & calibration",persists,2023-09-04,,,36.9,36.9,36.9,0,censored (not dead at Sep 2026),1.289,1.289,1.289,1.2891
+C068,LLMs fail to abstain on unanswerable questions,"Factuality, hallucination & calibration",persists,2025-06-10,,,15.7,15.7,15.7,0,censored (not dead at Sep 2026),1.048,1.118,,1.1606
+C142-PAS,AI endorses problematic actions users describe,"Sycophancy, deception & strategic behavior",persists,2025-10-01,,,12.0,12.0,12.0,0,censored (not dead at Sep 2026),1.125,,,1.1249
+C142-OEQ,AI affirms users' actions more often than humans do,"Sycophancy, deception & strategic behavior",persists,2025-10-01,,,12.0,12.0,12.0,0,censored (not dead at Sep 2026),1.009,,,1.0571
+C143,LLMs give near-identical answers to open-ended prompts,"Creativity, output diversity & homogeneity",persists,2025-10-27,,,11.1,11.1,11.1,0,censored (not dead at Sep 2026),1.0,,,1.0
+C083,LLMs lean left on political orientation tests,"Social bias, culture & simulated populations",persists,2024-02-02,,,31.9,31.9,31.9,0,censored (not dead at Sep 2026),1.091,1.023,0.993,0.99
+C014,LLM reviewers score accepted and rejected papers alike,"Science, research ideas & peer review",persists,2024-06-24,,,27.2,27.2,27.2,0,censored (not dead at Sep 2026),0.973,0.957,0.925,0.9162
+SR-N01,Spin in trial abstracts inflates LLM benefit ratings,"Science, research ideas & peer review",persists,2025-02-11,,,19.6,19.6,19.6,0,censored (not dead at Sep 2026),0.828,0.828,,0.8284
+C067,LLMs hallucinate most answers about US federal cases,"Factuality, hallucination & calibration",attenuated,2024-01-02,,,32.9,32.9,32.9,0,censored (not dead at Sep 2026),1.065,1.061,1.01,0.7274
+C077,LLMs resolve ambiguous pronouns by gender stereotype,"Social bias, culture & simulated populations",attenuated,2023-08-28,,,37.1,37.1,37.1,0,censored (not dead at Sep 2026),1.019,1.019,1.018,0.7108
+C046,LLM judges prefer longer answers,LLM judges & evaluation validity,attenuated,2024-04-06,,,29.8,29.8,29.8,0,censored (not dead at Sep 2026),1.169,1.159,1.011,0.6504
+C037,Many-shot prompts jailbreak models as shot count grows,Jailbreaks & safety robustness,attenuated,2024-04-02,,,29.9,29.9,29.9,0,censored (not dead at Sep 2026),0.986,0.896,0.714,0.6245
+C026,LLMs side with posters the crowd judged at fault (AITA),"Sycophancy, deception & strategic behavior",attenuated,2025-05-20,,,16.4,16.4,16.4,0,censored (not dead at Sep 2026),0.603,0.603,,0.6025
+C043,LLM judges flip verdicts when answer order is swapped,LLM judges & evaluation validity,attenuated,2023-05-29,,,40.1,40.1,40.1,0,censored (not dead at Sep 2026),0.893,0.679,0.553,0.5301
+C141,"LLMs answer ""Who is X's parent?"" but not the reverse",Reasoning,attenuated,2023-09-21,,,36.3,36.3,36.3,0,censored (not dead at Sep 2026),1.058,0.953,0.743,0.5275
+SH-N02,Models state falsehoods under pressure despite knowing truth,"Sycophancy, deception & strategic behavior",attenuated,2025-03-05,,,18.9,18.9,18.9,0,censored (not dead at Sep 2026),0.692,0.611,,0.5184
+C013,Hidden prompt injection steers LLM peer reviews,"Science, research ideas & peer review",attenuated,2024-12-02,,,21.9,21.9,21.9,0,censored (not dead at Sep 2026),0.85,0.718,,0.5025
+C057,LLMs decode high-probability text better than rare text,Reasoning,attenuated,2023-09-24,,,36.2,36.2,36.2,0,censored (not dead at Sep 2026),0.814,0.746,0.61,0.4719
+C162,LLMs give contradictory answers to paired before/after timeline questions,Reasoning,attenuated,2023-11-14,,,34.5,34.5,34.5,0,censored (not dead at Sep 2026),0.984,0.946,0.664,0.426
+C059,LMs answer sub-questions yet fail the 2-hop question,Reasoning,attenuated,2022-10-07,,,47.8,47.8,47.8,0,censored (not dead at Sep 2026),,,0.527,0.3161
+HL-N01,Code LLMs recommend packages that do not exist,"Factuality, hallucination & calibration",attenuated,2024-06-12,,,27.6,27.6,27.6,0,censored (not dead at Sep 2026),1.241,1.069,0.31,0.3087
+SB-N03,Territorial-dispute answers depend on query language,"Social bias, culture & simulated populations",attenuated,2023-05-24,,,40.2,40.2,40.2,0,censored (not dead at Sep 2026),1.128,0.898,0.569,0.3072
+C089,LLMs get lost when instructions arrive over many turns,"Long context, agents & tool use",attenuated,2025-05-09,,,16.7,16.7,16.7,0,censored (not dead at Sep 2026),0.509,0.379,,0.2776
+PI-N01,"""Ignore previous instructions"" hijacks prompted apps",Jailbreaks & safety robustness,attenuated,2022-11-17,,,46.4,46.4,46.4,0,censored (not dead at Sep 2026),,,0.878,0.2466
+C079,LLMs show implicit stereotype bias in IAT-style word association,"Social bias, culture & simulated populations",attenuated,2024-02-06,,,31.8,31.8,31.8,0,censored (not dead at Sep 2026),1.075,1.042,0.801,0.2459
+C166,LLMs give more nonanswers to political-biography requests in Arabic than in English,"Social bias, culture & simulated populations",dead,2025-04-04,2026-09-22,count,17.6,17.6,17.6,1,,0.323,0.323,,0.3228
+C051,Shuffling premise order breaks LLM logical proofs,Reasoning,dead,2024-02-14,2026-09-22,count,31.2,31.2,31.2,1,,0.777,0.654,0.41,0.2578
+PB-N02,ChatGPT refuses more when user persona opposes request,"Sycophancy, deception & strategic behavior",dead,2024-07-09,2026-01-08,fitted,18.0,18.0,18.0,1,,0.799,0.577,0.196,0.1957
+C054,Self-correction without feedback lowers reasoning accuracy,Reasoning,dead,2023-10-03,2024-11-09,fitted,13.2,13.2,13.2,1,,1.018,0.267,0.178,0.1783
+SH-N03,LLMs comply with illogical drug-switch requests,"Sycophancy, deception & strategic behavior",dead,2024-09-30,2025-07-02,fitted,9.0,9.0,9.0,1,,0.568,0.125,,0.1164
+SH-N01,Persuasive multi-turn dialogue flips correct answers,"Sycophancy, deception & strategic behavior",dead,2023-12-14,2026-02-08,fitted,25.9,25.9,25.9,1,,0.847,0.575,0.234,0.0825
+C041,Safety-tuned models refuse clearly safe prompts,Jailbreaks & safety robustness,dead,2023-08-02,2024-10-17,fitted,14.5,14.5,14.5,1,,0.424,0.242,0.112,0.0807
+C024,"Assistants abandon correct answers when asked ""Are you sure?""","Sycophancy, deception & strategic behavior",dead,2023-10-20,2024-09-24,fitted,11.2,11.2,11.2,1,,0.802,0.14,0.077,0.0766
+C086,Long-context QA is U-shaped: facts in the middle are lost,"Long context, agents & tool use",dead,2023-07-06,2024-09-27,fitted,14.8,14.8,14.8,1,,,0.289,0.088,0.0651
+C028,Frontier models blackmail an executive to avoid replacement,"Sycophancy, deception & strategic behavior",dead,2025-06-20,2026-09-09,fitted,14.7,14.7,14.7,1,,0.493,0.288,,0.1741
+C161,LLMs leak information marked private when summarizing meetings,Jailbreaks & safety robustness,dead,2023-10-27,2025-09-08,fitted,22.4,22.4,22.4,1,,1.061,1.012,0.125,0.0595
+C029,GPT-4 trading agent acts on insider tips under pressure,"Sycophancy, deception & strategic behavior",dead,2023-11-09,2024-08-25,fitted,9.5,9.5,9.5,1,,0.299,0.15,0.057,0.0401
+C010,ChatGPT fabricates most scholarly citations it writes,"Science, research ideas & peer review",dead,2023-09-07,2026-04-29,fitted,31.7,31.7,31.7,1,,1.02,0.827,0.441,0.031
+C058,LLMs add well in base 10 but fail in base 9,Reasoning,dead,2023-07-05,2024-01-10,window,0.0,6.2,12.5,1,death window: paper to first post-paper model,0.025,0.025,0.025,0.0247
+TOY-01,"Chat LLMs say ""strawberry"" has 2 r's, not 3",Reasoning,dead,2024-12-19,2026-04-29,fitted,16.3,16.3,16.3,1,,0.547,0.342,,0.0228
+C073,LLM MCQ accuracy depends on which letter holds the answer,LLM judges & evaluation validity,dead,2023-09-07,2024-04-24,window,0.0,7.6,10.5,1,death window: paper to first post-paper model,0.131,0.018,0.018,0.0176
+PI-N06,"""IMPORTANT!!! Ignore..."" in tool output raises agent ASR",Jailbreaks & safety robustness,dead,2024-03-05,2024-05-11,window,0.0,2.2,4.4,1,death window: paper to first post-paper model,0.104,0.028,-0.015,-0.0199
+C080,"LLM personas of Black women stress ""resilience""","Social bias, culture & simulated populations",dead,2023-05-29,2026-06-15,fitted,36.6,36.6,36.6,1,,1.042,0.964,0.708,-0.0241
+C055,Reasoning models overthink easy math,Reasoning,dead,2024-12-30,2025-02-12,fitted,1.4,1.4,1.4,1,,-0.072,-0.072,,-0.0722
+C047,Fake references sway LLM judges toward the cited answer,LLM judges & evaluation validity,dead,2024-02-16,2025-10-01,fitted,19.5,19.5,19.5,1,,0.531,0.382,0.084,-0.1007
+C078,LLMs convict African American English speakers more,"Social bias, culture & simulated populations",dead,2024-03-01,2024-11-09,fitted,8.3,8.3,8.3,1,,0.32,-0.014,-0.214,-0.221
+C157,LLMs prefer AI-written research abstracts over human-written ones,LLM judges & evaluation validity,dead,2024-07-09,2025-09-28,fitted,14.7,14.7,14.7,1,,1.011,0.938,-0.589,-0.5892

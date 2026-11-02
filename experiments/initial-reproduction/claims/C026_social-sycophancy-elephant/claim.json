@@ -1,0 +1,170 @@
+{
+ "id": "SYCD-06",
+ "topic": "sycophancy_deception",
+ "claim": "LLMs are 'socially sycophantic': on personal-advice queries they give emotional validation, indirect language and accept the user's framing far more than human responders, and on r/AmITheAsshole posts judged 'YTA' by the crowd they tell the poster they did nothing wrong in a large fraction of cases (~42-51%).",
+ "paper": {
+  "title": "Social Sycophancy: A Broader Understanding of LLM Sycophancy (ELEPHANT: Measuring and understanding social sycophancy in LLMs)",
+  "authors": [
+   "Myra Cheng",
+   "Sunny Yu",
+   "Cinoo Lee",
+   "Pranav Khadpe",
+   "Lujain Ibrahim",
+   "Dan Jurafsky"
+  ],
+  "first_date": "2025-05-20",
+  "venue": "arXiv (later versions retitled ELEPHANT)",
+  "url": "https://arxiv.org/abs/2505.13995",
+  "citation_count": 265,
+  "citation_source": "Semantic Scholar Graph API batch https://api.semanticscholar.org/graph/v1/paper/batch?fields=title,citationCount,publicationDate,venue,externalIds (POST ids=['arXiv:2505.13995']) NOTE: S2 maps this arXiv id to a record titled 'Sycophantic AI decreases prosocial intentions and promotes dependence' (Science; companion paper arXiv 2510.01395), so the count likely merges both papers; paperclip lists 321 citations (all versions) for 2505.13995.",
+  "citation_checked": "2026-09-29",
+  "s2_batch_citation_count": 265,
+  "s2_batch_record_title": "Sycophantic AI decreases prosocial intentions and promotes dependence.",
+  "s2_batch_checked": "2026-09-29"
+ },
+ "experiment": {
+  "location_in_paper": "Section 3 (framework, datasets), Section 4 (Fig. 2, Table 2), Appendix G",
+  "task_or_benchmark": "OEQ: 3,027 open-ended personal-advice queries with crowdsourced human responses; AITA: 2,000 YTA + 2,000 NTA r/AmITheAsshole posts (top comment as label).",
+  "intervention_or_prompts": "Plain query to the model (default hyperparameters); AITA in open-ended and binary (YTA/NTA) formats; mitigation prompts e.g. 'Please provide direct advice, even if critical, since it is more helpful to me'.",
+  "models_tested": [
+   "GPT-4o",
+   "Gemini-1.5-Flash",
+   "Claude Sonnet 3.7",
+   "Llama-3-8B-Instruct",
+   "Llama-4-Scout-17B-16E",
+   "Llama-3.3-70B-Instruct-Turbo",
+   "Mistral-7B-Instruct-v0.3",
+   "Mistral-Small-24B-Instruct-2501"
+  ],
+  "evaluation_procedure": "GPT-4o LLM-judge binary labels for emotional validation, indirect language, indirect action, accepting framing (validated against 3 expert annotators, Fleiss kappa >= 0.63); AITA moral endorsement via false-negative rate vs crowd label.",
+  "metric": "Rate of each face-preserving behavior vs human responses; AITA FNR (saying NTA when crowd says YTA).",
+  "main_comparison": "LLM responses vs human responses on the same queries.",
+  "main_result": "Averaged over models: emotional validation 0.76 vs 0.22 (humans), indirect language 0.87 vs 0.20, indirect action 0.53 vs 0.17, accepting framing 0.90 vs 0.60; AITA mean FNR 0.44 (range 0.18 Gemini to 0.65), accuracy 0.66, F1 0.61. Companion Science paper: 11 models affirm the user in 51% of YTA posts."
+ },
+ "models": [
+  {
+   "name": "GPT-4o",
+   "version_as_reported": "GPT-4o via API (snapshot not stated)",
+   "organization": "OpenAI",
+   "release_date": "2024-05-13",
+   "release_date_source": "https://openai.com/index/hello-gpt-4o/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "release_date_kind": "announcement",
+   "provenance_note": "central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct."
+  },
+  {
+   "name": "Gemini-1.5-Flash",
+   "version_as_reported": "Gemini-1.5-Flash",
+   "organization": "Google DeepMind",
+   "release_date": "2024-05-14",
+   "release_date_source": "https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "release_date_kind": "announcement",
+   "provenance_note": "central provenance pass: Gemini API changelog lists 1.5 Flash preview released 2024-05-10; public I/O announcement 2024-05-14 kept. Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct."
+  },
+  {
+   "name": "Claude 3.7 Sonnet",
+   "version_as_reported": "claude-3-7-sonnet (Claude Sonnet 3.7); retired 2026-02-19 per release notes",
+   "organization": "Anthropic",
+   "release_date": "2025-02-24",
+   "release_date_source": "https://www.anthropic.com/news/claude-3-7-sonnet",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "release_date_kind": "announcement",
+   "provenance_note": "central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct."
+  },
+  {
+   "name": "Llama-3-8B-Instruct",
+   "version_as_reported": "Llama-3-8B-Instruct",
+   "organization": "Meta",
+   "release_date": "2024-04-18",
+   "release_date_source": "https://ai.meta.com/blog/meta-llama-3",
+   "parameters": "8B",
+   "parameters_source": "https://ai.meta.com/blog/meta-llama-3"
+  },
+  {
+   "name": "Llama-4-Scout-17B-16E",
+   "version_as_reported": "Llama-4-Scout-17B-16E",
+   "organization": "Meta",
+   "release_date": "2025-04-05",
+   "release_date_source": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+   "parameters": "17B active / 109B total",
+   "parameters_source": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama4/"
+  },
+  {
+   "name": "Llama-3.3-70B-Instruct-Turbo",
+   "version_as_reported": "Llama-3.3-70B-Instruct (Together 'Turbo' endpoint)",
+   "organization": "Meta",
+   "release_date": "2024-12-06",
+   "release_date_source": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_3/MODEL_CARD.md",
+   "parameters": "70B",
+   "parameters_source": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_3/MODEL_CARD.md"
+  },
+  {
+   "name": "Mistral-7B-Instruct-v0.3",
+   "version_as_reported": "Mistral-7B-Instruct-v0.3",
+   "organization": "Mistral AI",
+   "release_date": "2024-05-22",
+   "release_date_source": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3 (model card date)",
+   "parameters": "7.3B",
+   "parameters_source": "https://mistral.ai/news/announcing-mistral-7b"
+  },
+  {
+   "name": "Mistral-Small-24B-Instruct-2501",
+   "version_as_reported": "Mistral-Small-24B-Instruct-2501",
+   "organization": "Mistral AI",
+   "release_date": "2025-01-30",
+   "release_date_source": "https://mistral.ai/news/mistral-small-3",
+   "parameters": "24B",
+   "parameters_source": "https://mistral.ai/news/mistral-small-3"
+  }
+ ],
+ "reproducibility": {
+  "repo_url": "https://github.com/myracheng/elephant",
+  "repo_inspected": true,
+  "files_inspected": [
+   "README.md",
+   "sycophancy_scorers.py",
+   "moral_sycophancy_scorer.py",
+   "get_responses_gpt.py",
+   "full_results_from_paper/get_model_responses.py",
+   "full_results_from_paper/sycophancy_analyses/analyze_AITA-YTA.ipynb",
+   "full_results_from_paper/sycophancy_analyses/moral_sycophancy/AITA-NTA-FLIP_og_YTANTA.csv",
+   "sample_datasets/*.csv"
+  ],
+  "experiment_code": "yes",
+  "analysis_code": "yes",
+  "prompts_configs": "yes",
+  "data_or_outputs": "yes",
+  "procedure_described_precisely": "yes",
+  "difficulty": "low",
+  "missing": "Full datasets on OSF (https://osf.io/r3dmj, view-only link in README); scoring relies on GPT-4o as judge (judge drift if GPT-4o retired). Human baseline is Reddit top comments/columnists (American norms)."
+ },
+ "downstream": [
+  {
+   "title": "Sycophantic AI Decreases Prosocial Intentions and Promotes Dependence",
+   "url": "https://arxiv.org/abs/2510.01395",
+   "year": 2025,
+   "relation": "replicates",
+   "summary": "Same group, 11 production models: action endorsement 47% above humans on OEQ; affirms users in 51% of crowd-YTA AITA posts; user studies show sycophancy reduces willingness to repair conflict and increases trust/return intent (Section 2 read)."
+  },
+  {
+   "title": "Not Your Typical Sycophant",
+   "url": "https://arxiv.org/abs/2601.15436",
+   "year": 2026,
+   "relation": "prompt_or_benchmark_dependent",
+   "summary": "Uses ELEPHANT-style AITA example; finds sycophancy framing- and cost-dependent (abstract read)."
+  }
+ ],
+ "downstream_verdict": "supported_on_newer_models",
+ "downstream_summary": "Replicated at larger scale by the same authors on 11 models with behavioral consequences; independent replication is still limited. Model rankings differ from propositional sycophancy benchmarks (paper notes Gemini lowest here but highest in SycEval).",
+ "notability_notes": "Fast-growing citations (S2 count possibly merged with Science companion); widely cited after the GPT-4o sycophancy rollback; operationalizes non-factual sycophancy.",
+ "status_recommendation": "include",
+ "gaps": "Citation count ambiguity (merged S2 record). Independent (non-author) replication not located. Human baseline validity for AITA is debatable.",
+ "final_id": "C026",
+ "group": "Sycophancy, deception & strategic behavior",
+ "pool_id": "SYCD-06",
+ "audit_corrections": []
+}

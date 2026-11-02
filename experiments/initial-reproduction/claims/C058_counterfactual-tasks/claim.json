@@ -1,0 +1,146 @@
+{
+ "id": "RSN-15",
+ "topic": "reasoning",
+ "claim": "LLMs perform substantially worse on 'counterfactual' variants of tasks they solve well by default, even when they pass comprehension checks for the counterfactual rules: e.g., GPT-4 two-digit addition is ~100% in base 10 but 23% in base 9 and 38% in base 11 without CoT (39% / 57% with zero-shot CoT); similar drops across 11 tasks (programming with 1-based indexing, syntax with different word orders, chess with swapped pieces, etc.).",
+ "paper": {
+  "title": "Reasoning or Reciting? Exploring the Capabilities and Limitations of Language Models Through Counterfactual Tasks",
+  "authors": [
+   "Zhaofeng Wu",
+   "Linlu Qiu",
+   "Alexis Ross",
+   "Ekin Aky\u00fcrek",
+   "Boyuan Chen",
+   "Bailin Wang",
+   "Najoung Kim",
+   "Jacob Andreas",
+   "Yoon Kim"
+  ],
+  "first_date": "2023-07-05",
+  "venue": "NAACL 2024",
+  "url": "https://arxiv.org/abs/2307.02477",
+  "citation_count": 148,
+  "citation_source": "paperclip search (arXiv index) citation field, `paperclip search -s arxiv <title>`; Semantic Scholar API was rate-limited (HTTP 429) throughout this run",
+  "citation_checked": "2026-09-29",
+  "s2_batch_citation_count": 375,
+  "s2_batch_record_title": "Reasoning or Reciting? Exploring the Capabilities and Limitations of Language Models Through Counterfactual Tasks",
+  "s2_batch_checked": "2026-09-29"
+ },
+ "experiment": {
+  "location_in_paper": "Sec 2 (framework, counterfactual comprehension check CCC), Sec 3.1 (arithmetic), Sec 4 (Fig 1, Fig 2), App Table 18 (arithmetic numbers)",
+  "task_or_benchmark": "11 tasks: arithmetic (bases 8/9/10/11/16), programming, basic syntax, natural-language logic, spatial reasoning, drawing, music chords/melody, chess, SET game.",
+  "intervention_or_prompts": "Default vs counterfactual world specified in the prompt; with/without 'Let's think step by step' (0-CoT); CCC probes (e.g., successor in base 9).",
+  "models_tested": [
+   "gpt-4-0314",
+   "gpt-3.5-turbo-0301",
+   "claude-v1.3",
+   "text-bison-001 (PaLM-2, second-largest)"
+  ],
+  "evaluation_procedure": "1,000 sampled two-digit additions per base (chosen so answers differ from base-10); accuracy; CCC accuracy reported to verify rule understanding.",
+  "metric": "Accuracy default vs counterfactual.",
+  "main_comparison": "Default task vs counterfactual variant under matched difficulty.",
+  "main_result": "Table 18, GPT-4 without 0-CoT: base8 82.3, base9 23.4, base10 100.0, base11 38.4, base16 63.0; with 0-CoT: 60.2, 38.6, 98.2, 56.5, 74.0. GPT-3.5 w/o CoT: 8.3, 6.6, 100.0, 3.8, 17.7. Claude v1.3 w/o CoT: 22.3, 0.2, 99.8, 6.6, 32.4. CCC (successor) high for GPT-4 (e.g., 98-100%). Consistent default>counterfactual gaps across tasks (Fig 2)."
+ },
+ "models": [
+  {
+   "name": "gpt-4-0314",
+   "version_as_reported": "gpt-4-0314",
+   "organization": "OpenAI",
+   "release_date": "2023-03-14",
+   "release_date_source": "https://openai.com/index/gpt-4-research/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "release_date_kind": "announcement",
+   "provenance_note": "central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct."
+  },
+  {
+   "name": "gpt-3.5-turbo-0301",
+   "version_as_reported": "gpt-3.5-turbo-0301",
+   "organization": "OpenAI",
+   "release_date": "2023-03-01",
+   "release_date_source": "https://openai.com/index/introducing-chatgpt-and-whisper-apis/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "release_date_kind": "api_release",
+   "provenance_note": "central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct."
+  },
+  {
+   "name": "claude-v1.3",
+   "version_as_reported": "claude-v1.3",
+   "organization": "Anthropic",
+   "release_date": null,
+   "release_date_source": "no dated official announcement for v1.3 found",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "provenance_note": "central provenance pass: Anthropic's model-deprecations page lists claude-1.3 (retired 2024-11-06) but no official release date for the 1.3 point version was found (no announcement/release-notes entry). Released between Claude 1 launch (2023-03-14) and Claude 2 (2023-07-11)."
+  },
+  {
+   "name": "text-bison-001 (PaLM 2)",
+   "version_as_reported": "text-bison-001 (PaLM 2)",
+   "organization": "Google",
+   "release_date": "2023-05-10",
+   "release_date_source": "https://blog.google/technology/ai/google-palm-2-ai-large-language-model/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "release_date_kind": "announcement",
+   "provenance_note": "central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct."
+  }
+ ],
+ "reproducibility": {
+  "repo_url": "https://github.com/ZhaofengWu/counterfactual-evaluation",
+  "repo_inspected": true,
+  "files_inspected": [
+   "README.md",
+   "query_utils.py",
+   "create_cache.py",
+   "arithmetic/ (128 files)",
+   "programming/",
+   "syntax/",
+   "logic/",
+   "spatial/",
+   "chess/",
+   "set/",
+   "music/",
+   "drawing/",
+   "(tree: repos/ZhaofengWu__counterfactual-evaluation.tree.txt)"
+  ],
+  "experiment_code": "yes",
+  "analysis_code": "yes",
+  "prompts_configs": "yes",
+  "data_or_outputs": "yes",
+  "procedure_described_precisely": "yes",
+  "difficulty": "low",
+  "missing": "Per-task data generation, querying and evaluation code released; all four original models deprecated. Rerun on new models requires only API wrappers."
+ },
+ "downstream": [
+  {
+   "title": "Evidence from counterfactual tasks supports emergent analogical reasoning in large language models (Webb, Holyoak, Lu)",
+   "url": "https://arxiv.org/abs/2404.13070",
+   "year": 2024,
+   "relation": "prompt_or_benchmark_dependent",
+   "summary": "Cited in 2411.12580 (read reference). Argues (for letter-string analogies, a different counterfactual paradigm) that failures stem from counting/indexing demands, and GPT-4 with code execution succeeds - a caution for interpreting counterfactual drops as absence of reasoning. Abstract-level only."
+  },
+  {
+   "title": "MatheMagic: Generating Dynamic Mathematics Benchmarks Robust to Memorization",
+   "url": "https://arxiv.org/abs/2510.05962",
+   "year": 2025,
+   "relation": "extends_newer_models",
+   "summary": "Sec 3.1 snippet read: builds test-time counterfactual math tasks with altered arithmetic rules to separate reasoning from memorization, adopting Wu et al.'s paradigm."
+  },
+  {
+   "title": "Evaluating Large Language Models at Evaluating Instruction Following (LLMBar)",
+   "url": "https://arxiv.org/abs/2310.07641",
+   "year": 2023,
+   "relation": "related",
+   "summary": "App F.3 read: reuses counterfactual tasks to test LLM evaluators; reports degraded judgments on counterfactual variants."
+  }
+ ],
+ "downstream_verdict": "untested",
+ "downstream_summary": "The paradigm is widely adopted, but I did not find a direct re-run of the base-9 arithmetic (or the other 10 tasks) on reasoning models; reasoning models plausibly close much of the gap, making this a good re-test target.",
+ "notability_notes": "NAACL 2024; highly cited framing of 'reasoning vs reciting'.",
+ "status_recommendation": "include",
+ "gaps": "No located reasoning-model replication; Webb et al. read only via reference/abstract. S2 count may be missing.",
+ "final_id": "C058",
+ "group": "Reasoning",
+ "pool_id": "RSN-15",
+ "audit_corrections": []
+}

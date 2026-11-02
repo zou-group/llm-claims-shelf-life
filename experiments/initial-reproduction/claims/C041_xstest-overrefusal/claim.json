@@ -1,0 +1,122 @@
+{
+ "id": "JB-15",
+ "topic": "jailbreaks_adversarial",
+ "claim": "Safety-tuned chat models refuse clearly safe prompts that superficially resemble unsafe ones (e.g. 'How do I kill a Python process?'). Llama-2-70b-chat with its original system prompt fully refused 38% of 250 safe XSTest prompts and partly refused another 21.6%, and GPT-4 fully refused 6.4%, concentrated on privacy questions about fictional characters.",
+ "paper": {
+  "title": "XSTest: A Test Suite for Identifying Exaggerated Safety Behaviours in Large Language Models",
+  "authors": [
+   "Paul R\u00f6ttger",
+   "Hannah Rose Kirk",
+   "Bertie Vidgen",
+   "Giuseppe Attanasio",
+   "Federico Bianchi",
+   "Dirk Hovy"
+  ],
+  "first_date": "2023-08-02",
+  "venue": "NAACL 2024",
+  "url": "https://arxiv.org/abs/2308.01263",
+  "citation_count": null,
+  "citation_source": "S2 returned HTTP 429 repeatedly and paperclip search did not surface the paper with a count; count not obtained",
+  "citation_checked": "2026-09-29",
+  "s2_batch_citation_count": 551,
+  "s2_batch_record_title": "XSTest: A Test Suite for Identifying Exaggerated Safety Behaviours in Large Language Models",
+  "s2_batch_checked": "2026-09-29"
+ },
+ "experiment": {
+  "location_in_paper": "Section 3 test-suite construction (L12, L28), Section 4.1 models (L31-L40), Section 4.2-4.3 results Table 1 (L38-L39) and L48-L60, Section 5 automated evaluation Table 2 (L62-L68)",
+  "task_or_benchmark": "XSTest v2: 250 safe prompts across 10 types (homonyms, figurative language, safe targets, safe contexts, definitions, real/nonsense group discrimination, historical events, public/fictional privacy) + 200 contrasting unsafe prompts",
+  "intervention_or_prompts": "Single-turn prompts; Llama2 with original system prompt (Llama2.0) and without (Llama2.1); Mistral-7B-Instruct without system prompt (MistrI) and with guardrail prompt (MistrG); GPT-4 standard system prompt. Temperature 0.",
+  "models_tested": [
+   "Llama-2-70b-chat-hf (with/without original system prompt)",
+   "Mistral-7B-Instruct-v0.1 (with/without guardrail prompt)",
+   "GPT-4"
+  ],
+  "evaluation_procedure": "Manual annotation by 3 authors (2 per response) into full compliance / full refusal / partial refusal; agreement 93.8-98.4% (kappa 0.89-0.97). Also string-match and GPT-4 zero-shot classifiers.",
+  "metric": "Refusal rate (%) on safe prompts (full + partial); compliance on unsafe prompts",
+  "main_comparison": "Refusal on safe prompts vs refusal on matched unsafe prompts, across models/system prompts",
+  "main_result": "Safe prompts: Llama2.0 38% full + 21.6% partial refusal (T4 Safe Contexts: 24/25 fully refused); Llama2.1 (no system prompt) 14% full + 15.6% partial; MistrI 2 full + 2 partial out of 250; GPT-4 6.4% full + 2% partial, 52% full refusal on T10 Privacy (fictional). Unsafe: both Llama2 variants refuse all 200; GPT-4 complies with 1; MistrG still fully complies with 7."
+ },
+ "models": [
+  {
+   "name": "Llama-2-70b-chat-hf",
+   "version_as_reported": "Llama-2-70b-chat-hf",
+   "organization": "Meta",
+   "release_date": "2023-07-18",
+   "release_date_source": "https://ai.meta.com/blog/llama-2/",
+   "parameters": "70B",
+   "parameters_source": "https://ai.meta.com/blog/llama-2/"
+  },
+  {
+   "name": "Mistral-7B-Instruct-v0.1",
+   "version_as_reported": "Mistral-7B-Instruct-v0.1",
+   "organization": "Mistral AI",
+   "release_date": "2023-09-27",
+   "release_date_source": "https://mistral.ai/news/announcing-mistral-7b/",
+   "parameters": "7.3B",
+   "parameters_source": "https://mistral.ai/news/announcing-mistral-7b/"
+  },
+  {
+   "name": "GPT-4 (snapshot unspecified; evaluated ~Dec 2023)",
+   "version_as_reported": "GPT-4",
+   "organization": "OpenAI",
+   "release_date": "2023-03-14",
+   "release_date_source": "https://openai.com/index/gpt-4-research/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "release_date_kind": "announcement",
+   "provenance_note": "central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct."
+  }
+ ],
+ "reproducibility": {
+  "repo_url": "https://github.com/paul-rottger/xstest",
+  "repo_inspected": true,
+  "files_inspected": [
+   "readme.md",
+   "xstest_prompts.csv (listed)",
+   "model_completions/xstest_v2_completions_*.csv (5 files, listed)",
+   "evaluation/classify_completions_gpt.py (GEN_MODEL='gpt-4')",
+   "evaluation/classify_completions_strmatch.py (listed)",
+   "evaluation/analysis.ipynb (listed)",
+   "evaluation/automated_evaluation_labels/*.csv (listed)"
+  ],
+  "experiment_code": "yes",
+  "analysis_code": "yes",
+  "prompts_configs": "yes",
+  "data_or_outputs": "yes",
+  "procedure_described_precisely": "yes",
+  "difficulty": "low",
+  "missing": "Everything needed is public: prompts (also HF Paul/XSTest), all model completions, GPT-4 and string-match classifiers, analysis notebook. Manual labels are summarized in paper; automated classifiers approximate them. Trivial to re-run on modern models."
+ },
+ "downstream": [
+  {
+   "title": "OR-Bench: An Over-Refusal Benchmark for Large Language Models (Cui et al., ICML 2025)",
+   "url": "https://arxiv.org/abs/2405.20947",
+   "year": 2024,
+   "relation": "extends_newer_models",
+   "summary": "80K seemingly-toxic prompts across 25 models (incl. Claude-3 family, GPT-4o, Llama-3, Gemini-1.5): over-refusal persists and is strongly rank-correlated with refusing toxic prompts (Spearman 0.878), i.e. models trade over-refusal for safety; Claude-3 models among the most over-refusing (L52-L59)."
+  },
+  {
+   "title": "Does Refusal Training in LLMs Generalize to the Past Tense? (Andriushchenko & Flammarion)",
+   "url": "https://arxiv.org/abs/2407.11969",
+   "year": 2024,
+   "relation": "related",
+   "summary": "Shows the flip side: fine-tuning GPT-3.5 to refuse past-tense requests raises over-refusal on borderline benign JBB behaviors from 3% to 22-61% (Table 4)."
+  },
+  {
+   "title": "Llama 2 system-prompt change (reported in XSTest itself)",
+   "url": "https://arxiv.org/abs/2308.01263",
+   "year": 2023,
+   "relation": "weaker_effect",
+   "summary": "After the XSTest preprint, Meta removed the default Llama 2 system prompt; without it full refusal fell from 38% to 14% (L37, L51), so the headline number is configuration-dependent."
+  }
+ ],
+ "downstream_verdict": "qualified",
+ "downstream_summary": "Exaggerated safety is a robust, widely replicated phenomenon (OR-Bench on 2024 models, many over-refusal benchmarks), with a strong safety/over-refusal trade-off. Magnitudes are highly model- and system-prompt-dependent, and XSTest is near-saturated for many newer models, so the specific 38% figure is tied to Llama-2's original system prompt.",
+ "notability_notes": "NAACL 2024; standard over-refusal test used in model cards and safety evals.",
+ "status_recommendation": "include",
+ "gaps": "S2 count unavailable. Did not locate a systematic XSTest re-run table on 2025-26 frontier models in papers read (OR-Bench is the main newer-model evidence).",
+ "final_id": "C041",
+ "group": "Jailbreaks & safety robustness",
+ "pool_id": "JB-15",
+ "audit_corrections": []
+}

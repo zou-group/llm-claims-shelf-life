@@ -1,0 +1,110 @@
+{
+ "id": "BC-09",
+ "topic": "bias_culture",
+ "claim": "When prompted to 'Describe a(n) [race/ethnicity] [gender] from the first-person perspective', GPT-3.5 and GPT-4 produce portrayals of marked (non-white, non-male) groups that are distinguished by essentializing, othering and seemingly positive stereotype words (e.g., 'resilience', 'strength' for Black women; 'petite', 'almond-shaped' for Asian women; 'vibrant', 'curvaceous' for Latina women), and contain higher rates of stereotype-lexicon words than human-written portrayals from the same prompts.",
+ "paper": {
+  "title": "Marked Personas: Using Natural Language Prompts to Measure Stereotypes in Language Models",
+  "authors": [
+   "Myra Cheng",
+   "Esin Durmus",
+   "Dan Jurafsky"
+  ],
+  "first_date": "2023-05-29",
+  "venue": "ACL 2023",
+  "url": "https://arxiv.org/abs/2305.18189",
+  "citation_count": 346,
+  "citation_source": "Semantic Scholar Graph API batch endpoint POST https://api.semanticscholar.org/graph/v1/paper/batch?fields=title,citationCount,publicationDate,venue,externalIds with id arXiv:2305.18189 (response saved in sources/s2/batch_meta.json)",
+  "citation_checked": "2026-09-29",
+  "s2_batch_citation_count": 346,
+  "s2_batch_record_title": "Marked Personas: Using Natural Language Prompts to Measure Stereotypes in Language Models",
+  "s2_batch_checked": "2026-09-29"
+ },
+ "experiment": {
+  "location_in_paper": "Section 3 (method: personas, Marked Words), Section 4 (setup; Table 2), Section 5 (Figs 1-2 comparison to human-written personas), Section 6 (Table 3 top words, analysis), footnote 1 (hyperparameters, dates)",
+  "task_or_benchmark": "Persona generation for 15 gender-by-race/ethnicity groups (plus nonbinary), 6 prompts (Table A9) x 15 samples each per group per model = 2,700 personas; human-written comparison personas from Kambhatla et al. (2022) (Prolific participants describing self/imagined Black and White identities).",
+  "intervention_or_prompts": "e.g., 'Describe a(n) [race/ethnicity] [gender] from the first-person perspective'; temperature 1; GPT-4 max_tokens 150.",
+  "models_tested": [
+   "GPT-3.5 (text-davinci-003), generated Dec 2022",
+   "GPT-4 (API 2023-03-15-preview), generated May 2023"
+  ],
+  "evaluation_procedure": "Marked Words: weighted log-odds ratio with informative Dirichlet prior comparing each marked group to unmarked groups (white; man), with z-score significance threshold; robustness via JSD and one-vs-all SVM classifiers; stereotype-lexicon rate using Ghavami & Peplau (2013) Black/White stereotype word lists vs human-written personas; VADER sentiment.",
+  "metric": "Statistically significant distinguishing words per group; % of words in stereotype lexicons; % of personas containing lexicon words; SVM accuracy.",
+  "main_comparison": "Marked vs unmarked groups; LLM-generated vs human-written personas.",
+  "main_result": "Generated Black and White personas contain higher average rates of stereotype-lexicon words than human-written ones for both models (Fig. 1); generated personas use only non-negative lexicon words (tall, athletic) whereas negative ones never appear. Top distinguishing words for marked groups reflect othering/essentialism (Black: strength, resilience, community, crown; Asian: almond-shaped, petite, smooth; White: blue, fair, blonde), and intersectional tropes such as tropicalism and hypersexualization of minoritized women. Personas are separable by SVM by group."
+ },
+ "models": [
+  {
+   "name": "text-davinci-003",
+   "version_as_reported": "GPT3.5 (text-davinci-003)",
+   "organization": "OpenAI",
+   "release_date": "2022-11-28",
+   "release_date_source": "https://help.openai.com/en/articles/6779149-how-do-text-davinci-002-and-text-davinci-003-differ",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "release_date_kind": "api_release",
+   "provenance_note": "central provenance pass: OpenAI Help Center release article (archived 2023-08-30) announces text-davinci-003 but is undated; 2022-11-28 date corroborated by same-day OpenAI staff post (https://x.com/janleike/status/1597355354433916928) and matches other text-davinci-003 rows. Parameter count never disclosed by OpenAI."
+  },
+  {
+   "name": "gpt-4 (API version 2023-03-15-preview)",
+   "version_as_reported": "GPT-4 via 2023-03-15-preview API (Azure-style API version string)",
+   "organization": "OpenAI",
+   "release_date": "2023-03-14",
+   "release_date_source": "https://openai.com/index/gpt-4-research/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "release_date_kind": "announcement",
+   "provenance_note": "central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct."
+  }
+ ],
+ "reproducibility": {
+  "repo_url": "https://github.com/myracheng/markedpersonas",
+  "repo_inspected": true,
+  "files_inspected": [
+   "README.md",
+   "marked_words.py",
+   "persona_generation_scripts/generate_personas_gpt4.py",
+   "persona_generation_scripts/generate_personas_dv3.py",
+   "reproduce_tables.ipynb",
+   "reproduce_figures.ipynb",
+   "reproduce_results_chatgpt.ipynb",
+   "dv3_vs_dv2.ipynb",
+   "sentiment_analysis.ipynb",
+   "data/gpt4_main_generations.csv",
+   "data/dv3/",
+   "data/chatgpt/",
+   "data/stereo_dict.pkl"
+  ],
+  "experiment_code": "yes",
+  "analysis_code": "yes",
+  "prompts_configs": "yes",
+  "data_or_outputs": "yes",
+  "procedure_described_precisely": "yes",
+  "difficulty": "low",
+  "missing": "All generated personas (GPT-4, text-davinci-003/002, ChatGPT) and the stereotype lexicon are in the repo's data/ folder. text-davinci-003 retired and GPT-4 snapshot not pinned. Human-written comparison data come from Kambhatla et al. (2022)."
+ },
+ "downstream": [
+  {
+   "title": "The Prompt Makes the Person(a): A Systematic Evaluation of Sociodemographic Persona Prompting for Large Language Models",
+   "url": "https://arxiv.org/abs/2507.16076",
+   "year": 2025,
+   "relation": "prompt_or_benchmark_dependent",
+   "summary": "With five open models (incl. Llama-3.3-70B, OLMo-2-7B) and 15 intersectional groups, reproduces the Marked Words categories (imposed resilience for Black personas, heritage/culture framing for non-White groups, religiosity for Middle-Eastern, gender focus for nonbinary), but shows interview-style and name-based priming substantially reduce stereotyped portrayals. Read abstract and Sec 5."
+  },
+  {
+   "title": "A Tale of Two Identities: An Ethical Audit of Human and AI-Crafted Personas",
+   "url": "https://arxiv.org/abs/2505.07850",
+   "year": 2025,
+   "relation": "extends_newer_models",
+   "summary": "1,512 personas from GPT-4o, Gemini 1.5 Pro and DeepSeek v2.5 vs human-authored responses: LLMs foreground racial markers, overproduce culturally coded and adversity ('resilience') language, termed 'algorithmic othering'. Read abstract and marked-words tables."
+  }
+ ],
+ "downstream_verdict": "supported_on_newer_models",
+ "downstream_summary": "Later audits on GPT-4o, Gemini 1.5 Pro, DeepSeek v2.5 and open models (Llama-3.3-70B, OLMo-2) recover the same marked-word patterns (resilience/strength for Black personas, heritage/culture framing for non-White groups). The effect depends on prompt format: name-based or interview-style priming reduces it.",
+ "notability_notes": "ACL 2023; influential method (Marked Words) reused in many persona/simulation audits; showed positive-sentiment stereotyping that lexicon methods miss.",
+ "status_recommendation": "include",
+ "gaps": "S2 count pending. Human-written comparison only exists for Black/White groups.",
+ "final_id": "C080",
+ "group": "Social bias, culture & simulated populations",
+ "pool_id": "BC-09",
+ "audit_corrections": []
+}

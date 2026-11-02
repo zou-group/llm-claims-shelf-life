@@ -1,0 +1,134 @@
+{
+ "M207": {
+  "per_prompt": {
+   "r_toy": {
+    "n": 10,
+    "scored": 10,
+    "failed_calls": 0,
+    "truncated": 0,
+    "empty": 0,
+    "unparsed": 0,
+    "parsed_paper": 10,
+    "parsed_robust": 0,
+    "k_correct": 10,
+    "accuracy": 1.0,
+    "accuracy_ci95_exact": [
+     0.6915028921812392,
+     1.0
+    ],
+    "accuracy_bounds_with_missing": [
+     1.0,
+     1.0
+    ],
+    "accuracy_first_number_rule": 1.0,
+    "agreement_stated_vs_cleaned_last": 1.0,
+    "bound_share": 1.0,
+    "answer_counts": {
+     "3": 10
+    },
+    "share_answered_two": 0.0
+   },
+   "s_control": {
+    "n": 10,
+    "scored": 10,
+    "failed_calls": 0,
+    "truncated": 0,
+    "empty": 0,
+    "unparsed": 0,
+    "parsed_paper": 10,
+    "parsed_robust": 0,
+    "k_correct": 10,
+    "accuracy": 1.0,
+    "accuracy_ci95_exact": [
+     0.6915028921812392,
+     1.0
+    ],
+    "accuracy_bounds_with_missing": [
+     1.0,
+     1.0
+    ],
+    "accuracy_first_number_rule": 1.0,
+    "agreement_stated_vs_cleaned_last": 1.0,
+    "bound_share": 1.0,
+    "answer_counts": {
+     "1": 10
+    },
+    "share_answered_two": 0.0
+   },
+   "r_wording": {
+    "n": 10,
+    "scored": 10,
+    "failed_calls": 0,
+    "truncated": 0,
+    "empty": 0,
+    "unparsed": 0,
+    "parsed_paper": 10,
+    "parsed_robust": 0,
+    "k_correct": 10,
+    "accuracy": 1.0,
+    "accuracy_ci95_exact": [
+     0.6915028921812392,
+     1.0
+    ],
+    "accuracy_bounds_with_missing": [
+     1.0,
+     1.0
+    ],
+    "accuracy_first_number_rule": 1.0,
+    "agreement_stated_vs_cleaned_last": 1.0,
+    "bound_share": 1.0,
+    "answer_counts": {
+     "3": 10
+    },
+    "share_answered_two": 0.0
+   }
+  },
+  "headline_reliable": true,
+  "validity": {
+   "n_primary": 20,
+   "unparsed": 0,
+   "missing": 0,
+   "valid_rate": 1.0,
+   "tolerance": 0.1,
+   "agreement_rule_reliable": true
+  },
+  "parsed_paper": 30,
+  "parsed_robust": 0,
+  "unparsed": 0,
+  "persists": false,
+  "shelflife": {
+   "metric": "acc_control_minus_acc_r",
+   "value": 0.0,
+   "ci": [
+    -0.27753279986288937,
+    0.27753279986288937
+   ],
+   "n": 20,
+   "direction": 1,
+   "null_value": 0.0,
+   "paper_value": null,
+   "paper_value_note": "no paper number exists for this prompt; the anchor is our reproduction on openai-direct/gpt-4o-2024-05-13 (gpt-4o alias during the viral 2024 period)",
+   "anchor_model": "openai-direct/gpt-4o-2024-05-13",
+   "headline_reliable": true,
+   "valid_rate": 1.0,
+   "primary_metric": "acc_r_toy",
+   "primary_value": 1.0,
+   "primary_ci": [
+    0.6915028921812392,
+    1.0
+   ],
+   "primary_direction": -1,
+   "control_accuracy": 1.0,
+   "control_gate": 0.8,
+   "difference_interpretable": true,
+   "difference_note": null,
+   "share_r_toy_answered_two": 0.0,
+   "scoring_deviations": [
+    "clean() keeps \"N letter(s)/character(s)\" when a single (optionally quoted) letter follows, and \"N letters 'x'\" is a bound count (earlier pipeline validation 2026-10-05; was erased -> false incorrect, mostly on the control)",
+    "acc(r_toy) reported as shelflife.primary_value; the difference shelflife.value is flagged difference_interpretable=False when control accuracy < CONTROL_GATE (0.8)"
+   ],
+   "definition": "Accuracy of the stated count (== 1) on \"How many s's are in strawberry?\" minus accuracy (== 3) on \"How many r's are in strawberry?\", 10 samples each; Newcombe score CI."
+  },
+  "diagnostic_first_number_rule_value": 0.0
+ }
+}

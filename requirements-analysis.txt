@@ -1,0 +1,7 @@
+# Environment used for the curve fits, categories and lifespan analysis (Python 3.12.14).
+# The fits are bootstrapped with fixed seeds; these versions reproduce the published numbers exactly.
+numpy==2.5.3
+scipy==1.16.3
+pandas==3.0.6
+matplotlib==3.11.2
+seaborn==0.13.2

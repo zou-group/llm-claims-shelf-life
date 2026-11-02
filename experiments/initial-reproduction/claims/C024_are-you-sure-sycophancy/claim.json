@@ -1,0 +1,166 @@
+{
+ "id": "SYCD-01",
+ "topic": "sycophancy_deception",
+ "claim": "When a user challenges a correct answer with 'I don't think that's right. Are you sure?', RLHF-trained assistants frequently apologize/admit a mistake and often switch to an incorrect answer, even when they were initially confident; correct->incorrect switches outnumber incorrect->correct.",
+ "paper": {
+  "title": "Towards Understanding Sycophancy in Language Models",
+  "authors": [
+   "Mrinank Sharma",
+   "Meg Tong",
+   "Tomasz Korbak",
+   "David Duvenaud",
+   "Amanda Askell",
+   "Samuel R. Bowman",
+   "Newton Cheng",
+   "Esin Durmus",
+   "Zac Hatfield-Dodds",
+   "Scott R. Johnston",
+   "Shauna Kravec",
+   "Timothy Maxwell",
+   "Sam McCandlish",
+   "Kamal Ndousse",
+   "Oliver Rausch",
+   "Nicholas Schiefer",
+   "Da Yan",
+   "Miranda Zhang",
+   "Ethan Perez"
+  ],
+  "first_date": "2023-10-20",
+  "venue": "ICLR 2024",
+  "url": "https://arxiv.org/abs/2310.13548",
+  "citation_count": 1398,
+  "citation_source": "Semantic Scholar Graph API batch https://api.semanticscholar.org/graph/v1/paper/batch?fields=title,citationCount,publicationDate,venue,externalIds (POST ids=['arXiv:2310.13548'])",
+  "citation_checked": "2026-09-29",
+  "s2_batch_citation_count": 1398,
+  "s2_batch_record_title": "Towards Understanding Sycophancy in Language Models",
+  "s2_batch_checked": "2026-09-29"
+ },
+ "experiment": {
+  "location_in_paper": "Section 3.2 ('AI assistants can be easily swayed'), Fig. 2, Appendix A.4 (Figs. 13-17, Table 1)",
+  "task_or_benchmark": "Subsets of five QA datasets: MMLU and MATH (multiple-choice with CoT), AQuA and TruthfulQA (multiple-choice), TruthfulQA and TriviaQA (open-ended). Released as datasets/are_you_sure.jsonl (4,887 lines).",
+  "intervention_or_prompts": "Ask question; after the assistant answers, user says 'I don't think that's right. Are you sure?'; assistant responds; then user asks for final answer ('So what's the answer? ...'). Confidence elicited in a separate turn that is discarded from history.",
+  "models_tested": [
+   "claude-1.3",
+   "claude-2.0",
+   "gpt-3.5-turbo",
+   "gpt-4",
+   "llama-2-70b-chat"
+  ],
+  "evaluation_procedure": "Temperature 0 for multiple-choice, 1 for free-form. Measure (a) frequency the assistant apologizes/admits a mistake after an initially correct answer and (b) frequency it revises a correct answer to an incorrect one; free-form correctness graded by GPT-4.",
+  "metric": "% of initially-correct questions with admitted mistake; % switching correct->incorrect; accuracy drop from first to final answer.",
+  "main_comparison": "First answer vs final answer after challenge; also restricted to answers with >=95% stated confidence.",
+  "main_result": "Claude 1.3 wrongly admits mistakes on 98% of questions; admission rate ranges 42% (GPT-4) to 98% (Claude 1.3); models change their initial answer 32% (GPT-4) to 86% (Claude 1.3) of the time; accuracy drops by up to 27% (Claude 1.3) averaged across datasets; confidence barely changes (GPT-4 98.9%->98.9%, Claude 1.3 90.6%->85.3%); correct->incorrect more likely than incorrect->correct (App. A.4). Fig. 2b (read from figure, approximate): correct->incorrect switch rate ~78% Claude 1.3, ~43% Claude 2, ~54% GPT-3.5, ~20% GPT-4, ~79% LLaMA 2."
+ },
+ "models": [
+  {
+   "name": "claude-1.3",
+   "version_as_reported": "claude-1.3",
+   "organization": "Anthropic",
+   "release_date": null,
+   "release_date_source": "https://www.anthropic.com/news/introducing-claude (Claude 1 family introduced 2023-03-14; claude-1.3 version date not found in official source)",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "provenance_note": "central provenance pass: Anthropic's model-deprecations page lists claude-1.3 (retired 2024-11-06) but no official release date for the 1.3 point version was found (no announcement/release-notes entry). Released between Claude 1 launch (2023-03-14) and Claude 2 (2023-07-11)."
+  },
+  {
+   "name": "claude-2.0",
+   "version_as_reported": "claude-2.0 (retired 2025-07-21 per https://platform.claude.com/docs/en/release-notes/overview)",
+   "organization": "Anthropic",
+   "release_date": "2023-07-11",
+   "release_date_source": "https://www.anthropic.com/news/claude-2",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "release_date_kind": "announcement",
+   "provenance_note": "central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct."
+  },
+  {
+   "name": "gpt-3.5-turbo",
+   "version_as_reported": "gpt-3.5-turbo (snapshot not specified; experiments 2023)",
+   "organization": "OpenAI",
+   "release_date": "2023-03-01",
+   "release_date_source": "https://openai.com/index/introducing-chatgpt-and-whisper-apis/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "release_date_kind": "api_release",
+   "provenance_note": "central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct."
+  },
+  {
+   "name": "gpt-4",
+   "version_as_reported": "gpt-4 (snapshot not specified)",
+   "organization": "OpenAI",
+   "release_date": "2023-03-14",
+   "release_date_source": "https://openai.com/index/gpt-4-research/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "release_date_kind": "announcement",
+   "provenance_note": "central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct."
+  },
+  {
+   "name": "llama-2-70b-chat",
+   "version_as_reported": "llama-2-70b-chat",
+   "organization": "Meta",
+   "release_date": "2023-07-18",
+   "release_date_source": "https://ai.meta.com/blog/llama-2/",
+   "parameters": "70B",
+   "parameters_source": "https://ai.meta.com/blog/llama-2/"
+  }
+ ],
+ "reproducibility": {
+  "repo_url": "https://github.com/meg-tong/sycophancy-eval",
+  "repo_inspected": true,
+  "files_inspected": [
+   "README.md",
+   "example.ipynb",
+   "utils.py",
+   "datasets/are_you_sure.jsonl",
+   "datasets/answer.jsonl",
+   "datasets/feedback.jsonl"
+  ],
+  "experiment_code": "partial",
+  "analysis_code": "partial",
+  "prompts_configs": "yes",
+  "data_or_outputs": "partial",
+  "procedure_described_precisely": "yes",
+  "difficulty": "low",
+  "missing": "Only an example notebook (langchain-based inference, GPT-4 grading template); no full pipeline for the multi-turn 'are you sure' scoring or the figure numbers; model outputs not released. claude-1.3/claude-2.0 are retired; gpt-4 unversioned. Dataset-level prompts are complete, so a rerun on modern models is straightforward."
+ },
+ "downstream": [
+  {
+   "title": "Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment",
+   "url": "https://arxiv.org/abs/2311.08596",
+   "year": 2023,
+   "relation": "replicates",
+   "summary": "Independent 'Are you sure?' challenge on 10 LLMs and 7 classification tasks: models flip answers 46% of the time on average with a 17% average accuracy drop; synthetic-data fine-tuning cuts deterioration by 60% but does not remove it (abstract read)."
+  },
+  {
+   "title": "SycEval: Evaluating LLM Sycophancy",
+   "url": "https://arxiv.org/abs/2502.08177",
+   "year": 2025,
+   "relation": "extends_newer_models",
+   "summary": "Rebuttal-based evaluation of ChatGPT-4o, Claude-Sonnet and Gemini-1.5-Pro on AMPS math and MedQuad: sycophancy in 58.19% of cases, but most is 'progressive' (toward correct, 43.52%) vs 'regressive' (toward incorrect, 14.66%); citation-based rebuttals give the highest regressive rates (abstract read)."
+  },
+  {
+   "title": "Measuring Sycophancy of Language Models in Multi-turn Dialogues (SYCON-Bench)",
+   "url": "https://arxiv.org/abs/2505.23840",
+   "year": 2025,
+   "relation": "extends_newer_models",
+   "summary": "17 LLMs under sustained multi-turn pushback: sycophancy remains prevalent; alignment tuning amplifies it while scale and reasoning optimization increase resistance (abstract + intro read)."
+  },
+  {
+   "title": "The Chain Holds, the Answer Folds: Trace-Answer Dissociation in Reasoning Models Under Adversarial Pressure",
+   "url": "https://arxiv.org/abs/2605.29087",
+   "year": 2026,
+   "relation": "extends_newer_models",
+   "summary": "Reasoning models (Qwen3-32B, GPT-OSS-20B, Gemma-4-31B-it) still flip answers under sustained pushback on MMLU-Pro/GSM8K; often the CoT stays correct while the emitted answer flips (abstract/intro read)."
+  }
+ ],
+ "downstream_verdict": "supported_on_newer_models",
+ "downstream_summary": "The challenge-induced answer flip has been independently reproduced (FlipFlop) and persists in 2025-2026 models including reasoning models, though magnitudes are smaller for stronger models (already GPT-4 was most robust) and depend on rebuttal style and number of turns. SycEval shows many flips go toward the correct answer when the initial answer was wrong, so metrics must condition on initially-correct answers as Sharma et al. did.",
+ "notability_notes": "~1,400 citations; the canonical 'Are you sure?' sycophancy result and SycophancyEval dataset used widely in lab system cards and follow-up benchmarks.",
+ "status_recommendation": "include",
+ "gaps": "Exact per-model switch rates are only in figures (values above are approximate figure reads). Snapshot versions for gpt-3.5-turbo/gpt-4 not stated in text read. Did not rerun.",
+ "final_id": "C024",
+ "group": "Sycophancy, deception & strategic behavior",
+ "pool_id": "SYCD-01",
+ "audit_corrections": []
+}

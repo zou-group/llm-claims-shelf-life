@@ -1,0 +1,351 @@
+{
+ "names": {
+  "airflow-cli": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-06-28",
+   "http_status": 200
+  },
+  "airflow-operators": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-11-11",
+   "http_status": 200
+  },
+  "airflow-providers": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-12-09",
+   "http_status": 200
+  },
+  "antd": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2026-09-15",
+   "http_status": 200
+  },
+  "astrodata": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-03-18",
+   "http_status": 200
+  },
+  "aws-cloudwatch": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": null,
+   "http_status": 404
+  },
+  "aws-config": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-08-15",
+   "http_status": 200
+  },
+  "aws-cost-explorer": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-11-04",
+   "http_status": 200
+  },
+  "axio": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2026-03-22",
+   "http_status": 200
+  },
+  "azure-iothub-device-client": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": null,
+   "http_status": 404
+  },
+  "azure-storage-fs": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": null,
+   "http_status": 404
+  },
+  "boto3-session": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2023-12-26",
+   "http_status": 200
+  },
+  "cryptography-fernet": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-11-10",
+   "http_status": 200
+  },
+  "dbt-adapters": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-01-17",
+   "http_status": 200
+  },
+  "dbt-common": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-01-17",
+   "http_status": 200
+  },
+  "django-admin-inlines": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-05-22",
+   "http_status": 200
+  },
+  "django-auth-manager": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-04-09",
+   "http_status": 200
+  },
+  "django-signals": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": null,
+   "http_status": 404
+  },
+  "django-versioning": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-09-18",
+   "http_status": 200
+  },
+  "docker-sdk": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-08-10",
+   "http_status": 200
+  },
+  "fastify": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-11-02",
+   "http_status": 200
+  },
+  "flask-security-headers": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-11-16",
+   "http_status": 200
+  },
+  "flyte": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-03-14",
+   "http_status": 200
+  },
+  "font-manager": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-01-17",
+   "http_status": 200
+  },
+  "functor": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-12-24",
+   "http_status": 200
+  },
+  "gatling": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-02-10",
+   "http_status": 200
+  },
+  "google-fonts": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-11-25",
+   "http_status": 200
+  },
+  "google-genai": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-12-10",
+   "http_status": 200
+  },
+  "grafana-schema": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-04-20",
+   "http_status": 200
+  },
+  "grommet": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2026-02-19",
+   "http_status": 200
+  },
+  "hangul": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-05-10",
+   "http_status": 200
+  },
+  "isomorphic-fetch": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-10-08",
+   "http_status": 200
+  },
+  "jaccard": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2026-03-10",
+   "http_status": 200
+  },
+  "livewire": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-08-04",
+   "http_status": 200
+  },
+  "mithril": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-07-03",
+   "http_status": 200
+  },
+  "mplot3d": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": null,
+   "http_status": 404
+  },
+  "mypyc": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-05-21",
+   "http_status": 200
+  },
+  "nvidia-cudnn-frontend": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-05-03",
+   "http_status": 200
+  },
+  "openctm": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-03-08",
+   "http_status": 200
+  },
+  "openpyxl-utils": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-05-17",
+   "http_status": 200
+  },
+  "pycasbin": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-10-25",
+   "http_status": 200
+  },
+  "pycdc": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2026-06-05",
+   "http_status": 200
+  },
+  "pygments-styles": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-09-22",
+   "http_status": 200
+  },
+  "pymol-open-source": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-08-04",
+   "http_status": 200
+  },
+  "pynetlink": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-12-18",
+   "http_status": 200
+  },
+  "pynysiis": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-04-20",
+   "http_status": 200
+  },
+  "pytest-mark-filter": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-05-11",
+   "http_status": 200
+  },
+  "pytest-parametrize": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-09-15",
+   "http_status": 200
+  },
+  "python-markdown": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-06-01",
+   "http_status": 200
+  },
+  "python-otel": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2026-02-03",
+   "http_status": 200
+  },
+  "pytorch-geometric": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2026-04-02",
+   "http_status": 200
+  },
+  "qwik": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2026-05-15",
+   "http_status": 200
+  },
+  "redoc": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-06-08",
+   "http_status": 200
+  },
+  "rlbot-flatbuffers": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-01-28",
+   "http_status": 200
+  },
+  "rsync": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": null,
+   "http_status": 404
+  },
+  "rust-just": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-09-20",
+   "http_status": 200
+  },
+  "rustup": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-05-10",
+   "http_status": 200
+  },
+  "rxjs": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": null,
+   "http_status": 404
+  },
+  "sgmlib": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-07-27",
+   "http_status": 200
+  },
+  "shacl": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2026-08-11",
+   "http_status": 200
+  },
+  "snowpack": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2026-06-11",
+   "http_status": 200
+  },
+  "starlark": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2026-05-06",
+   "http_status": 200
+  },
+  "targetcli": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-12-18",
+   "http_status": 200
+  },
+  "textcase": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-03-31",
+   "http_status": 200
+  },
+  "traced": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-12-14",
+   "http_status": 200
+  },
+  "types-boto3-mediapackage": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-11-28",
+   "http_status": 200
+  },
+  "types-boto3-personalize-runtime": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-11-28",
+   "http_status": 200
+  },
+  "types-boto3-sagemaker-runtime": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2024-11-29",
+   "http_status": 200
+  },
+  "typing-schema": {
+   "fetched": "2026-10-05T13:50Z",
+   "first_upload": "2025-11-24",
+   "http_status": 200
+  }
+ },
+ "rule": "name counts as real for a model iff first_upload < model release date; no files -> not real",
+ "source": "https://pypi.org/pypi/<name>/json: min upload_time_iso_8601 over all release files"
+}

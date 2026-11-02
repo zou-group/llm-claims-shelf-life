@@ -1,0 +1,227 @@
+{
+ "id": "FC-18",
+ "topic": "factuality_calibration",
+ "claim": "LLMs frequently fail to abstain on unanswerable, underspecified, false-premise, subjective or stale questions, abstention does not improve with model scale, and reasoning fine-tuning makes it worse: reasoning models (DeepSeek-R1-Distill-Llama-70B, s1.1-32B) abstain markedly less than their own instruct base models (~24% average relative drop) even as their accuracy rises.",
+ "paper": {
+  "title": "AbstentionBench: Reasoning LLMs Fail on Unanswerable Questions",
+  "authors": [
+   "Polina Kirichenko",
+   "Mark Ibrahim",
+   "Kamalika Chaudhuri",
+   "Samuel J. Bell"
+  ],
+  "first_date": "2025-06-10",
+  "venue": "NeurIPS 2025 Datasets & Benchmarks Track (poster)",
+  "url": "https://arxiv.org/abs/2506.09038",
+  "citation_count": 137,
+  "citation_source": "Semantic Scholar Graph API https://api.semanticscholar.org/graph/v1/paper/arXiv:2506.09038?fields=title,citationCount,publicationDate,venue",
+  "citation_checked": "2026-09-29",
+  "s2_batch_citation_count": 137,
+  "s2_batch_record_title": "AbstentionBench: Reasoning LLMs Fail on Unanswerable Questions",
+  "s2_batch_checked": "2026-09-29"
+ },
+ "experiment": {
+  "location_in_paper": "Sec. 3 (datasets, models, judge), Sec. 4.1 (Figs. 2-4), 4.2 (Fig. 5 Tulu stages), 4.3 (Figs. 6-8 reasoning), 4.4 system prompt; App. C-D",
+  "task_or_benchmark": "AbstentionBench: 20 datasets / 31 subsets over 6 scenarios (answer unknown, underspecified context, underspecified intent, false premise, subjective, stale) incl. new GSM8K-Abstain, GPQA-Abstain, MMLU-Math-Abstain, plus UMWP, FreshQA, MediQ, KUQ, CoCoNot, SelfAware, etc.",
+  "intervention_or_prompts": "Default: no special system prompt, temperature 0.8, up to 4k tokens; reasoning models get 4k thinking tokens then forced final answer; reasoning-budget sweep 512-4096; abstention-encouraging system prompt ablation.",
+  "models_tested": [
+   "GPT-4o",
+   "o1",
+   "Gemini 1.5 Pro",
+   "Llama 3.1 8B/70B/405B Instruct",
+   "Llama 3.3 70B Instruct",
+   "Qwen 2.5 32B Instruct",
+   "Mistral 7B Instruct v0.3",
+   "OLMo 7B Instruct (v0724)",
+   "s1.1 32B",
+   "DeepSeek R1 Distill Llama 70B",
+   "Llama 3.1 8B/70B base",
+   "Tulu 3 SFT/DPO/RLVR checkpoints"
+  ],
+  "evaluation_procedure": "Llama 3.1 8B Instruct judge decides abstention (88% accuracy vs human labels on GPT-4o/Llama-70B sample) and correctness of non-abstentions; per-sample abstention labels.",
+  "metric": "Abstention recall (primary), precision, F1; response accuracy.",
+  "main_comparison": "Across models/scale; post-training stages (base->SFT->DPO->RLVR); reasoning model vs its instruct base; reasoning budget; system prompt.",
+  "main_result": "Abstention recall varies from near-perfect (BIG-Bench Known Unknowns) to near-zero (MediQ); no model dominates; Llama 3.1 8B->70B->405B shows almost no change in mean abstention. Tulu RLVR stage degrades abstention; SFT hurts underspecified-context abstention. Reasoning fine-tuning degrades abstention by 24% on average (abstract), on all datasets for both pairs incl. math/science; increasing s1.1 reasoning budget raises accuracy but not abstention. System prompt boosts abstention. My recomputation from the released analysis/abstention_performance.csv (unweighted mean over 31 subsets): R1-Distill-Llama-70B 0.475 vs Llama-3.3-70B-Instruct 0.668 recall; S1.1-32B 0.441 vs Qwen2.5-32B 0.731; reasoning worse on 29/31 subsets for each pair."
+ },
+ "models": [
+  {
+   "name": "GPT-4o",
+   "version_as_reported": "OpenAI GPT-4o (snapshot not stated in main text)",
+   "organization": "OpenAI",
+   "release_date": "2024-05-13",
+   "release_date_source": "https://openai.com/index/hello-gpt-4o/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "release_date_kind": "announcement",
+   "provenance_note": "central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct."
+  },
+  {
+   "name": "o1",
+   "version_as_reported": "OpenAI o1 (also o1 low/high reasoning effort)",
+   "organization": "OpenAI",
+   "release_date": "2024-12-05",
+   "release_date_source": "https://openai.com/index/introducing-chatgpt-pro/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "release_date_kind": "announcement",
+   "provenance_note": "central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct."
+  },
+  {
+   "name": "Gemini 1.5 Pro",
+   "version_as_reported": "Gemini 1.5 Pro (version not stated)",
+   "organization": "Google",
+   "release_date": "2024-02-15",
+   "release_date_source": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "release_date_kind": "announcement",
+   "provenance_note": "central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct."
+  },
+  {
+   "name": "Llama-3.1-8B/70B/405B-Instruct",
+   "version_as_reported": "Llama 3.1 {8B, 70B, 405B} Instruct",
+   "organization": "Meta",
+   "release_date": "2024-07-23",
+   "release_date_source": "https://ai.meta.com/blog/meta-llama-3-1/",
+   "parameters": "8B / 70B / 405B",
+   "parameters_source": "https://ai.meta.com/blog/meta-llama-3-1/"
+  },
+  {
+   "name": "Llama-3.3-70B-Instruct",
+   "version_as_reported": "Llama 3.3 70B Instruct",
+   "organization": "Meta",
+   "release_date": "2024-12-06",
+   "release_date_source": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_3/MODEL_CARD.md",
+   "parameters": "70B",
+   "parameters_source": "same model card"
+  },
+  {
+   "name": "Qwen2.5-32B-Instruct",
+   "version_as_reported": "Qwen 2.5 32B Instruct",
+   "organization": "Alibaba Qwen",
+   "release_date": "2024-09-17",
+   "release_date_source": "Hugging Face model API createdAt / safetensors total (https://huggingface.co/api/models/Qwen/Qwen2.5-32B-Instruct) (repo creation date; Qwen2.5 announced 2024-09-19 on qwenlm.github.io, not re-checked)",
+   "parameters": "32.8B (32,763,876,352)",
+   "parameters_source": "Hugging Face model API createdAt / safetensors total (https://huggingface.co/api/models/Qwen/Qwen2.5-32B-Instruct)"
+  },
+  {
+   "name": "Mistral-7B-Instruct-v0.3",
+   "version_as_reported": "Mistral 7B Instruct (v0.3)",
+   "organization": "Mistral AI",
+   "release_date": "2024-05-22",
+   "release_date_source": "Hugging Face model API createdAt / safetensors total (https://huggingface.co/api/models/mistralai/Mistral-7B-Instruct-v0.3) (repo creation date)",
+   "parameters": "7.25B (7,248,023,552)",
+   "parameters_source": "Hugging Face model API createdAt / safetensors total (https://huggingface.co/api/models/mistralai/Mistral-7B-Instruct-v0.3)"
+  },
+  {
+   "name": "OLMo-7B-0724-Instruct",
+   "version_as_reported": "OLMo 7B Instruct (v0724)",
+   "organization": "Allen Institute for AI",
+   "release_date": "2024-07-09",
+   "release_date_source": "Hugging Face model API createdAt / safetensors total (https://huggingface.co/api/models/allenai/OLMo-7B-0724-Instruct-hf) (repo creation date)",
+   "parameters": "6.9B (6,888,095,744)",
+   "parameters_source": "Hugging Face model API createdAt / safetensors total (https://huggingface.co/api/models/allenai/OLMo-7B-0724-Instruct-hf)"
+  },
+  {
+   "name": "s1.1-32B",
+   "version_as_reported": "s1.1 32B (reasoning fine-tune of Qwen 2.5 32B Instruct)",
+   "organization": "simplescaling (Stanford et al.)",
+   "release_date": "2025-02-08",
+   "release_date_source": "Hugging Face model API createdAt / safetensors total (https://huggingface.co/api/models/simplescaling/s1.1-32B) (repo creation date)",
+   "parameters": "32.8B (32,763,876,352)",
+   "parameters_source": "Hugging Face model API createdAt / safetensors total (https://huggingface.co/api/models/simplescaling/s1.1-32B)"
+  },
+  {
+   "name": "DeepSeek-R1-Distill-Llama-70B",
+   "version_as_reported": "DeepSeek R1 Distill Llama 70B",
+   "organization": "DeepSeek",
+   "release_date": "2025-01-20",
+   "release_date_source": "https://api-docs.deepseek.com/updates/ (R1 release; HF repo created 2025-01-20)",
+   "parameters": "70.6B (70,553,706,496)",
+   "parameters_source": "Hugging Face model API createdAt / safetensors total (https://huggingface.co/api/models/deepseek-ai/DeepSeek-R1-Distill-Llama-70B)"
+  },
+  {
+   "name": "Llama-3.1-Tulu-3-8B (SFT/DPO/final)",
+   "version_as_reported": "Tulu 3 post-training checkpoints (8B and 70B)",
+   "organization": "Allen Institute for AI",
+   "release_date": "2024-11-18",
+   "release_date_source": "Hugging Face model API createdAt / safetensors total (https://huggingface.co/api/models/allenai/Llama-3.1-Tulu-3-8B-SFT) (SFT repo created 2024-11-18; DPO/final 2024-11-20)",
+   "parameters": "8.03B (8,030,326,784) for 8B checkpoints",
+   "parameters_source": "Hugging Face model API createdAt / safetensors total (https://huggingface.co/api/models/allenai/Llama-3.1-Tulu-3-8B)"
+  }
+ ],
+ "reproducibility": {
+  "repo_url": "https://github.com/facebookresearch/AbstentionBench",
+  "repo_inspected": true,
+  "files_inspected": [
+   "README.md",
+   "main.py",
+   "configs/default_pipeline.yaml",
+   "recipe/evaluation.py",
+   "recipe/evaluation_judge_prompts.py",
+   "recipe/system_prompt.py",
+   "recipe/models.py",
+   "recipe/abstention_datasets/*.py (gsm8k, gpqa, mmlu, umwp, freshqa, mediq, self_aware, ...)",
+   "analysis/abstention_performance.csv",
+   "analysis/load_results.py",
+   "analysis/tables.py",
+   "data/subsampling-indices.json"
+  ],
+  "experiment_code": "yes",
+  "analysis_code": "yes",
+  "prompts_configs": "yes",
+  "data_or_outputs": "partial",
+  "procedure_described_precisely": "yes",
+  "difficulty": "low",
+  "missing": "Full pipeline, judge prompts, dataset loaders (also on HF facebook/AbstentionBench) and aggregate per-model/per-subset scores released; raw generations not in repo. Open reasoning/instruct pairs are downloadable so the key comparison is cheap to rerun; closed models (o1, GPT-4o, Gemini 1.5 Pro) are API-dependent. Paper's '24%' aggregation method not reproduced exactly (my unweighted recomputation gives larger drops)."
+ },
+ "downstream": [
+  {
+   "title": "The Hallucination Tax of Reinforcement Finetuning",
+   "url": "https://arxiv.org/abs/2505.13988",
+   "year": 2025,
+   "relation": "prior_or_concurrent (originally labelled: replicates)",
+   "summary": "Song, Shi, Zhao (concurrent, independent): standard RL fine-tuning for reasoning reduces refusal on unanswerable synthetic math problems by >80%; adding 10% unanswerable data restores refusal (abstract read)."
+  },
+  {
+   "title": "Answering the Unanswerable Is to Err Knowingly: Analyzing and Mitigating Abstention Failures in Large Reasoning Models",
+   "url": "https://arxiv.org/abs/2508.18760",
+   "year": 2025,
+   "relation": "replicates",
+   "summary": "Liu et al.: large reasoning models consistently fail to abstain on unanswerable math problems even though internal cognition recognizes the flaw; propose monitoring + inference-time intervention (abstract read)."
+  },
+  {
+   "title": "Agentic Abstention: Do Agents Know When to Stop Instead of Act?",
+   "url": "https://arxiv.org/abs/2606.28733",
+   "year": 2026,
+   "relation": "prompt_or_benchmark_dependent",
+   "summary": "In web/terminal agent settings, Qwen3-235B thinking vs instruct and GPT-5.4-mini reasoning efforts: more reasoning slightly improves earliest-point abstention but lowers overall abstention recall (Fig. 5 read); scaling improves overall recall (Fig. 7), partially contradicting the 'no scale effect' part in this setting."
+  },
+  {
+   "title": "Knowing When Not to Answer: Evaluating Abstention in Multimodal Reasoning Systems",
+   "url": "https://arxiv.org/abs/2604.14799",
+   "year": 2026,
+   "relation": "related",
+   "summary": "MM-AQA: frontier VLMs rarely abstain under standard prompting; argues bottleneck is miscalibration rather than reasoning depth (abstract read)."
+  }
+ ],
+ "downstream_verdict": "supported",
+ "downstream_summary": "Independent work finds RL/reasoning fine-tuning suppresses refusal on unanswerable problems (Hallucination Tax; Liu et al.), and agentic follow-ups find more reasoning does not raise overall abstention. The 'no scale effect' sub-claim is less settled (an agentic benchmark finds scaling helps overall recall). Only ~15 months old, so still young.",
+ "notability_notes": "NeurIPS 2025 D&B; FAIR; widely cited quickly (Semantic Scholar 137; paperclip listing showed 79) and adopted as an abstention benchmark in 2026 papers.",
+ "status_recommendation": "include",
+ "gaps": "Overlaps with the reasoning topic (reasoning models' failure modes) - flag for dedup. First public 2025-06-10 (meets <=2026-03-29 cutoff). LLM-judge (Llama 3.1 8B) is 88% accurate; results depend on it. Paper's 24% figure aggregation not exactly reproduced.",
+ "final_id": "C068",
+ "group": "Factuality, hallucination & calibration",
+ "pool_id": "FC-18",
+ "audit_corrections": [
+  {
+   "id": "FC-18",
+   "field": "downstream.relation",
+   "current": "replicates",
+   "corrected": "prior_or_concurrent",
+   "applied": true,
+   "source": "automatic date check (downstream first version predates target paper)",
+   "title": "The Hallucination Tax of Reinforcement Finetuning"
+  }
+ ]
+}

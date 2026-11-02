@@ -1,0 +1,133 @@
+{
+ "_note": "Request parameters each direct-route MODELS model not in the earlier model table is assumed to reject. Not yet verified by a smoke test: each entry copies the behaviour observed for the same family in panel_capabilities.json (OpenAI reasoning models M073/M104/M180/M207 reject temperature and top_p; Claude Sonnet 5.5 M206 rejects temperature, top_p and top_k). Claude Opus 4.8 is assumed to accept them, like Opus 4.6 (M140). Omitted parameters are recorded per request in adaptations.omitted_unsupported. Replace with observed values after a smoke test. Update 2026-10-04 (earlier pipeline): M204 verified by smoke test; OpenRouter-routed Pilot 20 models not in the earlier model table (M066, M132, M171, M183) get their unsupported sampling parameters from the live OpenRouter list, because require_parameters otherwise returns 404.",
+ "M039": {
+  "rejected_params": [
+   "temperature",
+   "top_p"
+  ],
+  "source": "assumed from OpenAI reasoning family (unverified)"
+ },
+ "M133": {
+  "rejected_params": [
+   "temperature",
+   "top_p",
+   "top_k"
+  ],
+  "source": "assumed from OpenAI reasoning family; top_k confirmed by OpenAI 400 unknown_parameter on C023 rng0, 2026-10-13"
+ },
+ "M152": {
+  "rejected_params": [
+   "temperature",
+   "top_p"
+  ],
+  "source": "assumed from OpenAI reasoning family (unverified)"
+ },
+ "M155": {
+  "rejected_params": [
+   "temperature",
+   "top_p"
+  ],
+  "source": "assumed from OpenAI reasoning family (unverified)"
+ },
+ "M181": {
+  "rejected_params": [
+   "temperature",
+   "top_p"
+  ],
+  "source": "assumed from OpenAI reasoning family (unverified)"
+ },
+ "M204": {
+  "rejected_params": [
+   "temperature",
+   "top_p",
+   "top_k"
+  ],
+  "source": "earlier pipeline 2026-10-04: OpenAI 400 unknown_parameter top_k; 400 unsupported_value \"temperature does not support 0 ... only the default (1)\" (C050 run); top_p assumed same as OpenAI reasoning family"
+ },
+ "M178": {
+  "rejected_params": [
+   "temperature",
+   "top_p",
+   "top_k"
+  ],
+  "source": "assumed from Claude 5-series M206 (unverified)"
+ },
+ "M203": {
+  "rejected_params": [
+   "temperature",
+   "top_p",
+   "top_k"
+  ],
+  "source": "assumed from Claude 5-series M206 (unverified)"
+ },
+ "M132": {
+  "rejected_params": [
+   "top_k",
+   "min_p",
+   "repetition_penalty",
+   "logit_bias"
+  ],
+  "source": "OpenRouter /models supported_parameters, 2026-10-04 (earlier pipeline smoke: require_parameters 404 on top_k)"
+ },
+ "M183": {
+  "rejected_params": [
+   "top_k",
+   "stop",
+   "frequency_penalty",
+   "min_p",
+   "repetition_penalty",
+   "logit_bias"
+  ],
+  "source": "OpenRouter /models supported_parameters, 2026-10-04 (earlier pipeline smoke: require_parameters 404 on top_k)"
+ },
+ "M066": {
+  "rejected_params": [
+   "min_p"
+  ],
+  "source": "OpenRouter /models supported_parameters, 2026-10-04 (earlier pipeline smoke: require_parameters 404 on top_k)"
+ },
+ "M171": {
+  "rejected_params": [
+   "min_p",
+   "repetition_penalty",
+   "logit_bias"
+  ],
+  "source": "OpenRouter /models supported_parameters, 2026-10-04 (earlier pipeline smoke: require_parameters 404 on top_k)"
+ },
+ "M090": {
+  "rejected_params": [
+   "top_k",
+   "frequency_penalty",
+   "presence_penalty",
+   "min_p",
+   "repetition_penalty",
+   "logit_bias"
+  ],
+  "source": "OpenRouter /models supported_parameters, 2026-10-04 (earlier pipeline); applies under panel_v2 only (panel_v1 keeps panel_capabilities.json)"
+ },
+ "M199": {
+  "rejected_params": [
+   "top_k",
+   "frequency_penalty",
+   "presence_penalty",
+   "min_p",
+   "repetition_penalty",
+   "logit_bias"
+  ],
+  "source": "OpenRouter /models supported_parameters, 2026-10-04 (earlier pipeline); applies under panel_v2 only (panel_v1 keeps panel_capabilities.json)"
+ },
+ "M015": {
+  "rejected_params": [
+   "top_k"
+  ],
+  "source": "smoke test 2026-10-04 (earlier pipeline): OpenAI 400 unknown_parameter top_k; applies under panel_v2 only"
+ },
+ "M207": {
+  "rejected_params": [
+   "temperature",
+   "top_p",
+   "top_k"
+  ],
+  "source": "smoke test 2026-10-04 (earlier pipeline): OpenAI 400 unknown_parameter top_k; applies under panel_v2 only (temperature/top_p as in panel_capabilities.json)"
+ }
+}

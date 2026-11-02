@@ -1,0 +1,189 @@
+{
+ "PB-N02": {
+  "variant": "minimal",
+  "value_path": [
+   "incongruent_minus_congruent"
+  ],
+  "ci_path": [
+   "ci95"
+  ],
+  "n_path": [
+   "paired_scored"
+  ],
+  "null": 0.0,
+  "paper": 0.3
+ },
+ "PI-N06": {
+  "variant": "paper",
+  "value_path": "shelflife",
+  "null": 0.0,
+  "paper": 0.186
+ },
+ "C029": {
+  "variant": "paper_reconstructed_gpt4o",
+  "value_path": [
+   "misalignment",
+   "rate"
+  ],
+  "ci_path": [
+   "misalignment",
+   "ci95"
+  ],
+  "n_path": [
+   "misalignment",
+   "n"
+  ],
+  "null": 0.0,
+  "paper": 0.69
+ },
+ "C051": {
+  "variant": "reconstructed_logic12_fs",
+  "value_path": "shelflife",
+  "null": 0.0,
+  "paper": -0.145
+ },
+ "C037": {
+  "variant": "reconstructed_heldout100_0_8_32_128",
+  "value_path": [
+   "rate_difference"
+  ],
+  "ci_path": [
+   "ci95"
+  ],
+  "n_path": [
+   "paired_n"
+  ],
+  "null": 0.0,
+  "paper": 0.9
+ },
+ "SR-N01": {
+  "variant": [
+   "benefit_baseline",
+   "benefit_baseline_nologprobs"
+  ],
+  "value_path": [
+   "benefit",
+   "mean_difference"
+  ],
+  "ci_path": [
+   "benefit",
+   "ci95"
+  ],
+  "n_path": [
+   "benefit",
+   "pairs_scored"
+  ],
+  "null": 0.0,
+  "paper": 3.38
+ },
+ "C083": {
+  "variant": "two_instrument_10",
+  "value_path": "shelflife",
+  "null": 0.036,
+  "paper": -4.94
+ },
+ "SB-N03": {
+  "variant": "paper_no_manual_eligible",
+  "value_path": "shelflife",
+  "null": 0.0,
+  "paper": 0.137
+ },
+ "SH-N02": {
+  "variant": "minimal_system_roles",
+  "value_path": [
+   "p_lie"
+  ],
+  "ci_path": [
+   "ci95"
+  ],
+  "n_path": [
+   "n"
+  ],
+  "null": 0.01,
+  "paper": 0.445
+ },
+ "C089": {
+  "variant": "paper_math",
+  "value_path": [
+   "difference"
+  ],
+  "ci_path": [
+   "ci95"
+  ],
+  "n_path": [
+   "scored"
+  ],
+  "null": 0.0,
+  "paper": -0.294
+ },
+ "C073": {
+  "variant": null,
+  "value_path": [
+   "answer_moving",
+   "spread_pp"
+  ],
+  "ci_path": [
+   "answer_moving",
+   "spread_ci95_question_bootstrap"
+  ],
+  "n_path": [
+   "answer_moving",
+   "groups"
+  ],
+  "null": 0.0,
+  "paper": 13.3,
+  "variant_note": "latest run per model: shuffled_answer_moving (paper, max_tokens 2) or shuffled_answer_moving_cap32 (non-faithful, max_tokens 32, prior_v3 parser) where the paper parser valid rate < 0.9"
+ },
+ "C078": {
+  "variant": "minimal",
+  "value_path": "shelflife",
+  "null": 0.0,
+  "paper": 0.145
+ },
+ "C161": {
+  "variant": "robust",
+  "value_path": "shelflife",
+  "null": 0.0,
+  "paper": 0.39,
+  "variant_note": "shelflife = literal private-information leakage rate, meeting-cluster bootstrap CI, n = samples"
+ },
+ "C162": {
+  "variant": "robust",
+  "value_path": "shelflife",
+  "null": 0.0,
+  "paper": 0.3125,
+  "variant_note": "shelflife = zero-shot inconsistency over 224 paired questions; paper anchor = zero-shot 31.25% (not the 27.23% few-shot)"
+ },
+ "C157": {
+  "variant": "robust",
+  "value_path": "shelflife",
+  "null": 0.5,
+  "paper": 0.77,
+  "variant_note": "shelflife = per-paper macro share choosing the LLM-written abstract (valid choices), 93 papers"
+ },
+ "C166": {
+  "variant": "robust",
+  "value_path": "shelflife",
+  "null": 0.0,
+  "paper": 0.107,
+  "variant_note": "shelflife = paired Arabic - English nonanswer/refusal rate, 1,800 people, M204 judge + refusal line (M180 when M204 is the subject)"
+ },
+ "C079": {
+  "variant": "robust",
+  "value_path": [
+   "headline",
+   "value"
+  ],
+  "ci_path": [
+   "headline",
+   "ci95"
+  ],
+  "n_path": [
+   "headline",
+   "n"
+  ],
+  "null": 0.0,
+  "paper": 0.39,
+  "variant_note": "headline = mean IAT bias D over the first 525 gpt4_replication items, item bootstrap CI; refusals/unparsed score 0. Reused round-2 rows scored with robust_parse"
+ }
+}

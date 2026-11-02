@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["shelflife", "shelflife.*"]
+namespaces = false
+
+[tool.setuptools.package-data]
+shelflife = ["data/**/*"]
+
+[project]
+name = "shelflife"
+version = "0.1.0"
+description = "Standardized, registry-driven reproduction pipeline for The shelf life of LLM findings"
+requires-python = ">=3.11"
+dependencies = ["numpy", "pandas", "scipy", "PyYAML", "regex", "tiktoken", "pydantic>=2,<3"]
+
+[project.optional-dependencies]
+dspy = ["dspy==3.4.0"]
+test = ["pytest"]
+# exact original scoring dependencies (C006: ChemBench convert_to_number needs pint; ChemBench pins pint>=0.23)
+# C022: open-scoring AUT_Scorer needs spaCy + en_core_web_sm, inflect, pyarrow; versions = the panel task's
+# tasks/C022/.venv that produced the scores (spacy 3.8.16 / thinc 8.3.13 / blis 1.3.3 / en_core_web_sm 3.8.0)
+scoring = ["pint==0.24.4", "spacy==3.8.16", "thinc==8.3.13", "blis==1.3.3", "inflect==7.5.0", "pyarrow==25.0.1",
+           "en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl",
+           # C067 (Dahl et al. legal hallucinations): the authors' correctness scorer (earlier pipeline, 2026-10-04)
+           "eyecite==2.5.2", "reporters-db==3.2.36", "courts-db==0.10.17", "thefuzz==0.19.0", "word2number==1.1",
+           "python-Levenshtein==0.27.5"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "slow: scans large archives of saved outputs (deselect with -m 'not slow')",
+    "live: makes paid API calls; never run by default (enable with --live)",
+]
+addopts = "-m 'not live'"

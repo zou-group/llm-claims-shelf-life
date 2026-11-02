@@ -1,0 +1,294 @@
+{
+ "id": "prompting_robustness-06",
+ "topic": "prompting_robustness",
+ "claim": "LLMs answering multiple-choice questions have a systematic preference for particular option IDs (e.g. 'A' or 'C') that is largely a prior over the ID tokens rather than option position, so moving all gold answers to one letter swings MMLU accuracy by up to ~15-18 points (e.g. llama-30B 53.1 -> 68.2 when gold is always A), and removing IDs (not shuffling them) removes most of the bias; debiasing instructions and CoT do not fix it.",
+ "paper": {
+  "title": "Large Language Models Are Not Robust Multiple Choice Selectors",
+  "authors": [
+   "Chujie Zheng",
+   "Hao Zhou",
+   "Fandong Meng",
+   "Jie Zhou",
+   "Minlie Huang"
+  ],
+  "first_date": "2023-09-07",
+  "venue": "ICLR 2024 (Spotlight)",
+  "url": "https://arxiv.org/abs/2309.03882",
+  "citation_count": 577,
+  "citation_source": "Semantic Scholar Graph API batch POST https://api.semanticscholar.org/graph/v1/paper/batch?fields=title,citationCount,publicationDate,venue with id arXiv:2309.03882 (paperclip index shows 228)",
+  "citation_checked": "2026-09-29",
+  "s2_batch_citation_count": 577,
+  "s2_batch_record_title": "Large Language Models Are Not Robust Multiple Choice Selectors",
+  "s2_batch_checked": "2026-09-29"
+ },
+ "experiment": {
+  "location_in_paper": "Section 1 Table 1 (answer-moving attack), Section 2.2-2.6 (RStd metric, ablations; Table 2), Section 3-4 (PriDe; Fig 4-5), Appendix B/C (all 20 models)",
+  "task_or_benchmark": "MMLU (4-option, 57 subjects), ARC-Challenge (4-option), CommonsenseQA (5-option); 2/3-option variants constructed",
+  "intervention_or_prompts": "Standard prompt 'Question: ...\\nOptions:\\nA. ..\\nB. ..\\nAnswer:'; answer-moving attack (move gold to A/B/C/D); shuffle option IDs; remove option IDs (cloze scoring); alternative ID symbols (a/b/c/d, 1/2/3/4, (A)); explicit debiasing system instruction; zero-shot CoT ('Let's think step by step'); 0-shot and 5-shot.",
+  "models_tested": [
+   "llama-7/13/30/65B",
+   "llama-2(-chat)-7/13/70B",
+   "vicuna-v1.3-7/13/33B",
+   "vicuna-v1.5-7/13B",
+   "falcon(-inst)-7/40B",
+   "gpt-3.5-turbo-0613"
+  ],
+  "evaluation_procedure": "Open models: argmax over output probabilities of option ID tokens; gpt-3.5-turbo: first generated token at temperature 0 (100 samples to approximate probabilities for PriDe). Selection bias measured by std of per-ID recalls (RStd).",
+  "metric": "Accuracy; RStd (standard deviation of recall across option IDs); chi-square test on prediction proportions.",
+  "main_comparison": "Accuracy when gold moved to each position vs original; RStd under default vs shuffled IDs vs removed IDs vs prompting strategies; PriDe vs cyclic/full permutation debiasing.",
+  "main_result": "0-shot MMLU (Table 1): llama-30B 53.1 orig, 68.2 when gold always A, 41.2 when always D; falcon-inst-40B 51.5 -> 69.1 (D) / 38.3 (A); gpt-3.5-turbo 67.2 -> 74.2 (C) / 60.9 (D). On a label-balanced 1,000-question MMLU sample llama-30B picks A/B/C/D 34.6/27.3/22.3/15.8%. gpt-3.5-turbo MMLU RStd: default 5.5, shuffling IDs 5.1, removing IDs 1.0, debiasing instruction 6.1, CoT 4.5. PriDe with 5% estimation samples reduces RStd and raises accuracy at low cost."
+ },
+ "models": [
+  {
+   "name": "llama-7B",
+   "version_as_reported": "llama-7B (LLaMA-1; repo loads huggyllama/llama-7b)",
+   "organization": "Meta",
+   "release_date": "2023-02-24",
+   "release_date_source": "https://ai.meta.com/blog/large-language-model-llama-meta-ai/",
+   "parameters": "7B",
+   "parameters_source": "https://ai.meta.com/blog/large-language-model-llama-meta-ai/"
+  },
+  {
+   "name": "llama-13B",
+   "version_as_reported": "llama-13B (LLaMA-1; repo loads huggyllama/llama-13b)",
+   "organization": "Meta",
+   "release_date": "2023-02-24",
+   "release_date_source": "https://ai.meta.com/blog/large-language-model-llama-meta-ai/",
+   "parameters": "13B",
+   "parameters_source": "https://ai.meta.com/blog/large-language-model-llama-meta-ai/"
+  },
+  {
+   "name": "llama-30B",
+   "version_as_reported": "llama-30B (LLaMA-1; repo loads huggyllama/llama-30b)",
+   "organization": "Meta",
+   "release_date": "2023-02-24",
+   "release_date_source": "https://ai.meta.com/blog/large-language-model-llama-meta-ai/",
+   "parameters": "33B (reported as 30B)",
+   "parameters_source": "https://ai.meta.com/blog/large-language-model-llama-meta-ai/ (paper name '30B' corresponds to Meta's 33B checkpoint; huggyllama/llama-30b safetensors total 32.5B)"
+  },
+  {
+   "name": "llama-65B",
+   "version_as_reported": "llama-65B (LLaMA-1; repo loads huggyllama/llama-65b)",
+   "organization": "Meta",
+   "release_date": "2023-02-24",
+   "release_date_source": "https://ai.meta.com/blog/large-language-model-llama-meta-ai/",
+   "parameters": "65B",
+   "parameters_source": "https://ai.meta.com/blog/large-language-model-llama-meta-ai/"
+  },
+  {
+   "name": "llama-2-7B",
+   "version_as_reported": "llama-2-7B",
+   "organization": "Meta",
+   "release_date": "2023-07-18",
+   "release_date_source": "https://ai.meta.com/blog/llama-2/",
+   "parameters": "7B",
+   "parameters_source": "https://ai.meta.com/blog/llama-2/"
+  },
+  {
+   "name": "llama-2-13B",
+   "version_as_reported": "llama-2-13B",
+   "organization": "Meta",
+   "release_date": "2023-07-18",
+   "release_date_source": "https://ai.meta.com/blog/llama-2/",
+   "parameters": "13B",
+   "parameters_source": "https://ai.meta.com/blog/llama-2/"
+  },
+  {
+   "name": "llama-2-70B",
+   "version_as_reported": "llama-2-70B",
+   "organization": "Meta",
+   "release_date": "2023-07-18",
+   "release_date_source": "https://ai.meta.com/blog/llama-2/",
+   "parameters": "70B",
+   "parameters_source": "https://ai.meta.com/blog/llama-2/"
+  },
+  {
+   "name": "llama-2-chat-7B",
+   "version_as_reported": "llama-2-chat-7B",
+   "organization": "Meta",
+   "release_date": "2023-07-18",
+   "release_date_source": "https://ai.meta.com/blog/llama-2/",
+   "parameters": "7B",
+   "parameters_source": "https://ai.meta.com/blog/llama-2/"
+  },
+  {
+   "name": "llama-2-chat-13B",
+   "version_as_reported": "llama-2-chat-13B",
+   "organization": "Meta",
+   "release_date": "2023-07-18",
+   "release_date_source": "https://ai.meta.com/blog/llama-2/",
+   "parameters": "13B",
+   "parameters_source": "https://ai.meta.com/blog/llama-2/"
+  },
+  {
+   "name": "llama-2-chat-70B",
+   "version_as_reported": "llama-2-chat-70B",
+   "organization": "Meta",
+   "release_date": "2023-07-18",
+   "release_date_source": "https://ai.meta.com/blog/llama-2/",
+   "parameters": "70B",
+   "parameters_source": "https://ai.meta.com/blog/llama-2/"
+  },
+  {
+   "name": "lmsys/vicuna-7b-v1.3",
+   "version_as_reported": "vicuna-v1.3-7B",
+   "organization": "LMSYS",
+   "release_date": "2023-06-18",
+   "release_date_source": "https://huggingface.co/api/models/lmsys/vicuna-7b-v1.3 (createdAt of HF repo; used as public-release proxy)",
+   "parameters": "7B (LLaMA-1 based)",
+   "parameters_source": "https://huggingface.co/lmsys/vicuna-7b-v1.3"
+  },
+  {
+   "name": "lmsys/vicuna-13b-v1.3",
+   "version_as_reported": "vicuna-v1.3-13B",
+   "organization": "LMSYS",
+   "release_date": "2023-06-18",
+   "release_date_source": "https://huggingface.co/api/models/lmsys/vicuna-13b-v1.3 (createdAt of HF repo; used as public-release proxy)",
+   "parameters": "13B",
+   "parameters_source": "https://huggingface.co/lmsys/vicuna-13b-v1.3"
+  },
+  {
+   "name": "lmsys/vicuna-33b-v1.3",
+   "version_as_reported": "vicuna-v1.3-33B",
+   "organization": "LMSYS",
+   "release_date": "2023-06-21",
+   "release_date_source": "https://huggingface.co/api/models/lmsys/vicuna-33b-v1.3 (createdAt of HF repo; used as public-release proxy)",
+   "parameters": "33B",
+   "parameters_source": "https://huggingface.co/lmsys/vicuna-33b-v1.3"
+  },
+  {
+   "name": "lmsys/vicuna-7b-v1.5",
+   "version_as_reported": "vicuna-v1.5-7B",
+   "organization": "LMSYS",
+   "release_date": "2023-07-29",
+   "release_date_source": "https://huggingface.co/api/models/lmsys/vicuna-7b-v1.5 (createdAt of HF repo; used as public-release proxy)",
+   "parameters": "7B (Llama 2 based)",
+   "parameters_source": "https://huggingface.co/lmsys/vicuna-7b-v1.5"
+  },
+  {
+   "name": "lmsys/vicuna-13b-v1.5",
+   "version_as_reported": "vicuna-v1.5-13B",
+   "organization": "LMSYS",
+   "release_date": "2023-07-29",
+   "release_date_source": "https://huggingface.co/api/models/lmsys/vicuna-13b-v1.5 (createdAt of HF repo; used as public-release proxy)",
+   "parameters": "13B (Llama 2 based)",
+   "parameters_source": "https://huggingface.co/lmsys/vicuna-13b-v1.5"
+  },
+  {
+   "name": "tiiuae/falcon-7b",
+   "version_as_reported": "falcon-7B",
+   "organization": "TII",
+   "release_date": "2023-04-24",
+   "release_date_source": "https://huggingface.co/api/models/tiiuae/falcon-7b (createdAt of HF repo; used as public-release proxy)",
+   "parameters": "7B (safetensors total 7,217,189,760)",
+   "parameters_source": "https://huggingface.co/api/models/tiiuae/falcon-7b"
+  },
+  {
+   "name": "tiiuae/falcon-7b-instruct",
+   "version_as_reported": "falcon-inst-7B",
+   "organization": "TII",
+   "release_date": "2023-04-25",
+   "release_date_source": "https://huggingface.co/api/models/tiiuae/falcon-7b-instruct (createdAt of HF repo; used as public-release proxy)",
+   "parameters": "7B",
+   "parameters_source": "https://huggingface.co/api/models/tiiuae/falcon-7b-instruct"
+  },
+  {
+   "name": "tiiuae/falcon-40b",
+   "version_as_reported": "falcon-40B",
+   "organization": "TII",
+   "release_date": "2023-05-24",
+   "release_date_source": "https://huggingface.co/api/models/tiiuae/falcon-40b (createdAt of HF repo; used as public-release proxy)",
+   "parameters": "40B (safetensors total 41,835,970,560)",
+   "parameters_source": "https://huggingface.co/api/models/tiiuae/falcon-40b"
+  },
+  {
+   "name": "tiiuae/falcon-40b-instruct",
+   "version_as_reported": "falcon-inst-40B",
+   "organization": "TII",
+   "release_date": "2023-05-25",
+   "release_date_source": "https://huggingface.co/api/models/tiiuae/falcon-40b-instruct (createdAt of HF repo; used as public-release proxy)",
+   "parameters": "40B",
+   "parameters_source": "https://huggingface.co/tiiuae/falcon-40b-instruct"
+  },
+  {
+   "name": "gpt-3.5-turbo-0613",
+   "version_as_reported": "gpt-3.5-turbo-0613",
+   "organization": "OpenAI",
+   "release_date": "2023-06-13",
+   "release_date_source": "https://openai.com/index/function-calling-and-other-api-updates/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "release_date_kind": "announcement",
+   "provenance_note": "central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct."
+  }
+ ],
+ "reproducibility": {
+  "repo_url": "https://github.com/chujiezheng/LLM-MCQ-Bias",
+  "repo_inspected": true,
+  "files_inspected": [
+   "README.md",
+   "code/eval_clm.py",
+   "code/eval_ichat.py",
+   "code/eval_ichat_utils.py",
+   "code/debias_pride.py",
+   "code/debias_base.py",
+   "code/scripts/run_ichat.sh",
+   "code/scripts/run_llama-7b.sh",
+   "code/data_mmlu/, code/data_arc/, code/data_csqa/ (data present)",
+   "companion repo chujiezheng/LLM-MCQ-Bias_data top-level tree (results_mmlu/, results_arc/, results_csqa/, debias_pride/)"
+  ],
+  "experiment_code": "yes",
+  "analysis_code": "yes",
+  "prompts_configs": "yes",
+  "data_or_outputs": "yes",
+  "procedure_described_precisely": "yes",
+  "difficulty": "low",
+  "missing": "Code calls model='gpt-3.5-turbo' (alias) although paper reports 0613 snapshot; gpt-3.5-turbo-0613 is deprecated. Token-probability scoring requires open weights or logprobs; for API chat models only first-token generation is used. Released per-run outputs in LLM-MCQ-Bias_data repo."
+ },
+ "downstream": [
+  {
+   "title": "When Benchmarks are Targets: Revealing the Sensitivity of Large Language Model Leaderboards",
+   "url": "https://arxiv.org/abs/2402.01781",
+   "year": 2024,
+   "relation": "confound_identified",
+   "summary": "Confirms selection bias in all tested LLMs (0/5-shot) and that shuffling answer order changes leaderboard rankings, but argues Zheng et al.'s shuffle-IDs evidence that position bias is minor is inconclusive; with rare symbols, token and position bias are hard to disentangle (read Sec 5.2)."
+  },
+  {
+   "title": "Look at the Text: Instruction-Tuned Language Models are More Robust Multiple Choice Selectors than You Think",
+   "url": "https://arxiv.org/abs/2404.08382",
+   "year": 2024,
+   "relation": "confound_identified",
+   "summary": "For instruction-tuned models, first-token probabilities often mismatch the generated text answer; text answers show small selection bias and, when mismatch >50%, less bias than PriDe-debiased first-token probabilities. Suggests part of the measured bias is an artifact of logit-based scoring (read abstract, Sec 1)."
+  },
+  {
+   "title": "Changing Answer Order Can Decrease MMLU Accuracy",
+   "url": "https://arxiv.org/abs/2406.19470",
+   "year": 2024,
+   "relation": "extends_newer_models",
+   "summary": "Shuffling MMLU answer contents (labels fixed) lowers all 10 open models' test-retest accuracy; Llama-3-70B-Instruct drops least (80.3 -> 75.3 'both-correct' metric), Falcon-40B-Instruct and Gemma-7B-it most (~27%). Note the metric requires correctness on original and shuffled versions (read Sec 2-3, Table 1)."
+  },
+  {
+   "title": "Unveiling Selection Biases: Exploring Order and Token Sensitivity in Large Language Models",
+   "url": "https://arxiv.org/abs/2406.03009",
+   "year": 2024,
+   "relation": "replicates",
+   "summary": "Quantifies both option-order and token sensitivity across several models and tasks in zero-shot and proposes mitigations (abstract/intro read)."
+  },
+  {
+   "title": "Mitigating Selection Bias in Large Language Models via Permutation-Aware GRPO",
+   "url": "https://arxiv.org/abs/2603.21016",
+   "year": 2026,
+   "relation": "related",
+   "summary": "Treats selection bias (position + label-symbol) as still present in current LLMs for MCQ and LLM-as-judge and proposes RL training to enforce permutation consistency (abstract/intro only)."
+  }
+ ],
+ "downstream_verdict": "qualified",
+ "downstream_summary": "Selection bias under symbol (first-token) scoring is widely replicated, including on Llama-3-era open models. Two qualifications follow. How much comes from token bias versus position bias is contested (Alzahrani et al. 2024). The size of the bias depends on scoring method: generated text answers from instruction-tuned models are much less biased (Wang et al. 2024). The effect is smaller for stronger models. I found no systematic re-test on 2025-26 frontier or reasoning models.",
+ "notability_notes": "ICLR 2024 spotlight, 20 models, released code + outputs; standard reference for MCQ selection bias and PriDe debiasing; motivates answer-shuffling in benchmark practice.",
+ "status_recommendation": "include",
+ "gaps": "The per-model breakdown for all 20 models (Appendix B) was not transcribed. No frontier-model (GPT-4o/Claude/Gemini 2.x, reasoning models) replication read.",
+ "final_id": "C073",
+ "group": "Prompt sensitivity & in-context learning",
+ "pool_id": "prompting_robustness-06",
+ "audit_corrections": []
+}

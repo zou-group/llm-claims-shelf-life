@@ -1,0 +1,102 @@
+{
+ "id": "RSN-14",
+ "topic": "reasoning",
+ "claim": "LLM accuracy on deterministic tasks tracks the probability of the task and of the target output: GPT-4 decodes the common rot-13 cipher far better than rarer shifts (e.g., rot-1 0.82, rot-3 0.76, rot-2 0.02) and decodes rot-13 at 51% when the answer is a high-probability sentence vs 13% when low-probability.",
+ "paper": {
+  "title": "Embers of Autoregression: Understanding Large Language Models Through the Problem They are Trained to Solve",
+  "authors": [
+   "R. Thomas McCoy",
+   "Shunyu Yao",
+   "Dan Friedman",
+   "Matthew Hardy",
+   "Thomas L. Griffiths"
+  ],
+  "first_date": "2023-09-24",
+  "venue": "PNAS 2024 (per authors; not re-verified in this run)",
+  "url": "https://arxiv.org/abs/2309.13638",
+  "citation_count": 185,
+  "citation_source": "paperclip search (arXiv index) citation field, `paperclip search -s arxiv <title>`; Semantic Scholar API was rate-limited (HTTP 429) throughout this run",
+  "citation_checked": "2026-09-29",
+  "s2_batch_citation_count": 241,
+  "s2_batch_record_title": "Embers of Autoregression: Understanding Large Language Models Through the Problem They are Trained to Solve",
+  "s2_batch_checked": "2026-09-29"
+ },
+ "experiment": {
+  "location_in_paper": "Sec 3.1 (Fig 3.1 running example), Sec 4 (tasks, sentences, models), Sec 5.1 (task probability, shift ciphers), Sec 6.1 (output probability), App A.1",
+  "task_or_benchmark": "11 tasks incl. shift-cipher encode/decode, Pig Latin, acronyms, linear functions, sorting, reversal, article swapping, counting, birthdays; sentences of high/medium/low probability (GlobalVoices sentences perturbed with RoBERTa/shuffling).",
+  "intervention_or_prompts": "Vary task frequency (rot-13 vs other shifts; common vs rare variants) and output/input probability; zero-shot and prompted variants (prompts in repo stimuli/).",
+  "models_tested": [
+   "GPT-3.5 (gpt-3.5-turbo-0613)",
+   "GPT-4 (gpt-4-0613)"
+  ],
+  "evaluation_procedure": "Temperature 0 via OpenAI API; exact-match accuracy (and edit distance) on 100-sentence sets; spelling control test (99.8-99.9%).",
+  "metric": "Accuracy by shift / by output probability bin.",
+  "main_comparison": "Common vs rare task variants; high vs low output probability.",
+  "main_result": "GPT-4 rot-13 decoding: 0.51 accuracy (high-probability outputs) vs 0.13 (low-probability). Shift-level: rot-13 much easier than smaller shifts; GPT-4 rot-1 0.82, rot-3 0.76, rot-2 0.02. Similar probability effects in Pig Latin, acronyms, linear functions (Celsius-to-Fahrenheit vs rare function), sorting direction, reversal, counting."
+ },
+ "models": [
+  {
+   "name": "gpt-3.5-turbo-0613",
+   "version_as_reported": "gpt-3.5-turbo-0613",
+   "organization": "OpenAI",
+   "release_date": "2023-06-13",
+   "release_date_source": "https://openai.com/index/function-calling-and-other-api-updates/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "release_date_kind": "announcement",
+   "provenance_note": "central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct."
+  },
+  {
+   "name": "gpt-4-0613",
+   "version_as_reported": "gpt-4-0613",
+   "organization": "OpenAI",
+   "release_date": "2023-06-13",
+   "release_date_source": "https://openai.com/index/function-calling-and-other-api-updates/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "release_date_kind": "announcement",
+   "provenance_note": "central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct."
+  }
+ ],
+ "reproducibility": {
+  "repo_url": "https://github.com/tommccoy1/embers-of-autoregression",
+  "repo_inspected": true,
+  "files_inspected": [
+   "README.md",
+   "run_openai.py (model choices gpt-3.5-turbo-0613 / gpt-4-0613, temperature 0.0)",
+   "run_claude3.py",
+   "run_gemini.py",
+   "run_llama3.py",
+   "stimulus_generation_scripts/stimulus_generator_shift.py",
+   "stimuli/ (493 files)",
+   "logs/ (1,241 files)",
+   "evaluation/ (425 files)",
+   "(tree: repos/tommccoy1__embers-of-autoregression.tree.txt)"
+  ],
+  "experiment_code": "yes",
+  "analysis_code": "yes",
+  "prompts_configs": "yes",
+  "data_or_outputs": "yes",
+  "procedure_described_precisely": "yes",
+  "difficulty": "low",
+  "missing": "Very complete: stimuli, generation scripts, runners for OpenAI/Claude 3/Gemini/Llama 3, logs of model outputs and evaluation code. gpt-4-0613 still available via API as of the paper; may be retired."
+ },
+ "downstream": [
+  {
+   "title": "When a language model is optimized for reasoning, does it still show embers of autoregression? An analysis of OpenAI o1 (McCoy et al.)",
+   "url": "https://arxiv.org/abs/2410.01792",
+   "year": 2024,
+   "relation": "extends_newer_models",
+   "summary": "Read: o1 substantially outperforms previous LLMs but shows the same qualitative trends - shift-cipher accuracy 47% (lowest-probability outputs) vs 92% (highest); common vs rare shift (13 vs 12) differ only for medium/low probability examples; o1 uses far more thinking tokens on rare task variants even when accuracy is equal."
+  }
+ ],
+ "downstream_verdict": "supported_on_newer_models",
+ "downstream_summary": "The authors' own follow-up shows probability sensitivity persists in o1, attenuated in accuracy but visible in token usage. Independent replications on 2025-26 models not located.",
+ "notability_notes": "Published in PNAS; influential 'teleological' framing; ~widely cited in reasoning-limits work.",
+ "status_recommendation": "include",
+ "gaps": "Only author-run follow-up found; independent replication and 2025-26 reasoning models untested. S2 count may be missing.",
+ "final_id": "C057",
+ "group": "Reasoning",
+ "pool_id": "RSN-14",
+ "audit_corrections": []
+}

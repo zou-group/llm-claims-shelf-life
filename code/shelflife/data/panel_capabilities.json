@@ -1,0 +1,38 @@
+{
+ "M073": {
+  "rejected_params": [
+   "temperature",
+   "top_p"
+  ],
+  "source": "logs/smoke_results.json 400 errors"
+ },
+ "M104": {
+  "rejected_params": [
+   "temperature",
+   "top_p"
+  ],
+  "source": "logs/smoke_results.json 400 errors"
+ },
+ "M180": {
+  "rejected_params": [
+   "temperature",
+   "top_p"
+  ],
+  "source": "logs/smoke_results.json 400 errors"
+ },
+ "M207": {
+  "rejected_params": [
+   "temperature",
+   "top_p"
+  ],
+  "source": "logs/smoke_results.json 400 errors"
+ },
+ "M206": {
+  "rejected_params": [
+   "temperature",
+   "top_p",
+   "top_k"
+  ],
+  "source": "logs/smoke_results.json 400 \"deprecated for this model\" (top_k assumed same)"
+ }
+}

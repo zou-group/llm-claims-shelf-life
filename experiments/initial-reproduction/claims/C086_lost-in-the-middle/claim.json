@@ -1,0 +1,156 @@
+{
+ "id": "CAT-01",
+ "topic": "context_agents_tools",
+ "claim": "When the one answer-bearing passage is moved through a set of 10-30 retrieved passages, multi-document QA accuracy follows a U-shaped curve: highest when the passage comes first (primacy) or last (recency), and lowest in the middle. For GPT-3.5-Turbo the mid-context accuracy falls below its closed-book (no-document) accuracy of 56.1%.",
+ "paper": {
+  "title": "Lost in the Middle: How Language Models Use Long Contexts",
+  "authors": [
+   "Nelson F. Liu",
+   "Kevin Lin",
+   "John Hewitt",
+   "Ashwin Paranjape",
+   "Michele Bevilacqua",
+   "Fabio Petroni",
+   "Percy Liang"
+  ],
+  "first_date": "2023-07-06",
+  "venue": "TACL 2024 (arXiv 2307.03172)",
+  "url": "https://arxiv.org/abs/2307.03172",
+  "citation_count": 1333,
+  "citation_source": "OpenAlex title search, max over matching records [https://doi.org/10.1162/tacl_a_00638: 1333, https://doi.org/10.48550/arxiv.2307.03172: 63] (https://api.openalex.org/works?per_page=10&select=id,title,cited_by_count,publication_date,doi&search=Lost%20in%20the%20Middle%3A%20How%20Language%20Models%20Use%20Long%20Contexts); likely an UNDERCOUNT (OpenAlex splits arXiv/venue records and under-indexes arXiv citations); paperclip search did not return this paper; Semantic Scholar returned HTTP 429",
+  "citation_checked": "2026-09-29",
+  "s2_batch_citation_count": 5218,
+  "s2_batch_record_title": "Lost in the Middle: How Language Models Use Long Contexts",
+  "s2_batch_checked": "2026-09-29"
+ },
+ "experiment": {
+  "location_in_paper": "Section 2 (multi-document QA; Fig. 5, Table 1, Appendix G Tables 5-7), Section 3 (key-value retrieval; Fig. 7), Appendix E (Llama-2 sizes), Appendix F (GPT-4 on 500 examples)",
+  "task_or_benchmark": "Multi-document QA over 2655 NaturalQuestions-Open queries whose annotated long answer is a paragraph. Each input has 1 gold Wikipedia passage plus k-1 distractor passages (k = 10, 20, 30) retrieved by Contriever (MS-MARCO fine-tuned) that do not contain the answer. There is also a synthetic JSON key-value retrieval task with 75, 140, or 300 UUID pairs.",
+  "intervention_or_prompts": "The gold document's position is varied (e.g. index 0, 4, 9, 14, 19 of 20) while the order of the other documents is kept fixed. Prompt: 'Write a high-quality answer for the given question using only the provided search results (some of which might be irrelevant).' Greedy decoding. Ablations cover query-aware contextualization, randomly ordered distractors, and base vs instruction-tuned models.",
+  "models_tested": [
+   "MPT-30B-Instruct",
+   "LongChat-13B (16K)",
+   "GPT-3.5-Turbo (0613)",
+   "GPT-3.5-Turbo (16K) (0613)",
+   "Claude-1.3",
+   "Claude-1.3 (100K)",
+   "Flan-T5-XXL",
+   "Flan-UL2",
+   "MPT-30B (base)",
+   "Llama-2 7B/13B/70B (base and chat)",
+   "GPT-4 (8K) on a 500-example subset"
+  ],
+  "evaluation_procedure": "An answer counts as correct if any NaturalQuestions gold answer string appears in the model output. Closed-book and oracle (gold document only) baselines are reported.",
+  "metric": "Accuracy (%)",
+  "main_comparison": "Accuracy with the gold document at the start, middle, and end of the context, compared with the closed-book baseline",
+  "main_result": "20 docs, GPT-3.5-Turbo: 75.8% at index 0, 53.8% at index 9, 63.2% at index 19; closed-book 56.1%, oracle 88.3%. Claude-1.3: 59.9% / 56.8% / 60.1%. MPT-30B-Instruct: 53.7% / 52.2% / 56.3%. The U-shape also appears for GPT-4 and for Llama-2 13B/70B; Llama-2 7B shows only a recency bias. Extended-context versions (16K, 100K) perform almost identically to their base counterparts."
+ },
+ "models": [
+  {
+   "name": "gpt-3.5-turbo-0613",
+   "version_as_reported": "GPT-3.5-Turbo (footnote: 'We use the 0613 OpenAI model versions')",
+   "organization": "OpenAI",
+   "release_date": "2023-06-13",
+   "release_date_source": "https://openai.com/index/function-calling-and-other-api-updates/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "release_date_kind": "announcement",
+   "provenance_note": "central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct."
+  },
+  {
+   "name": "gpt-3.5-turbo-16k-0613",
+   "version_as_reported": "GPT-3.5-Turbo (16K)",
+   "organization": "OpenAI",
+   "release_date": "2023-06-13",
+   "release_date_source": "https://openai.com/index/function-calling-and-other-api-updates/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "release_date_kind": "announcement",
+   "provenance_note": "central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct."
+  },
+  {
+   "name": "claude-1.3",
+   "version_as_reported": "Claude-1.3 and Claude-1.3 (100K), Anthropic API",
+   "organization": "Anthropic",
+   "release_date": null,
+   "release_date_source": "Exact claude-1.3 release date not found; the Claude family was introduced 2023-03-14 (https://www.anthropic.com/news/introducing-claude)",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "provenance_note": "central provenance pass: Anthropic's model-deprecations page lists claude-1.3 (retired 2024-11-06) but no official release date for the 1.3 point version was found (no announcement/release-notes entry). Released between Claude 1 launch (2023-03-14) and Claude 2 (2023-07-11)."
+  },
+  {
+   "name": "MPT-30B-Instruct",
+   "version_as_reported": "MPT-30B-Instruct (8192 ctx, ALiBi)",
+   "organization": "MosaicML",
+   "release_date": "2023-06-22",
+   "release_date_source": "https://www.databricks.com/blog/mpt-30b (datePublished 2023-06-22)",
+   "parameters": "30B",
+   "parameters_source": "https://www.databricks.com/blog/mpt-30b (model name/announcement)"
+  },
+  {
+   "name": "LongChat-13B-16K",
+   "version_as_reported": "LongChat-13B (16K)",
+   "organization": "LMSYS",
+   "release_date": "2023-06-29",
+   "release_date_source": "https://lmsys.org/blog/2023-06-29-longchat/",
+   "parameters": "13B",
+   "parameters_source": "https://lmsys.org/blog/2023-06-29-longchat/ (LLaMA-13B based)"
+  }
+ ],
+ "reproducibility": {
+  "repo_url": "https://github.com/nelson-liu/lost-in-the-middle",
+  "repo_inspected": true,
+  "files_inspected": [
+   "README.md",
+   "EXPERIMENTS.md",
+   "src/lost_in_the_middle/prompts/qa.prompt",
+   "file tree: qa_data/{10,20,30}_total_documents/*.jsonl.gz, kv_retrieval_data/*.jsonl.gz, scripts/get_qa_responses_from_{mpt,longchat,llama_2}.py, scripts/evaluate_qa_responses.py"
+  ],
+  "experiment_code": "partial",
+  "analysis_code": "yes",
+  "prompts_configs": "yes",
+  "data_or_outputs": "yes",
+  "procedure_described_precisely": "yes",
+  "difficulty": "low",
+  "missing": "The repo has inference scripts for the open models only; there are no scripts for the OpenAI or Anthropic API models, though they are trivial to add. The exact input data (gold positions) is released. Claude-1.3 and the gpt-3.5-turbo-0613 snapshots are deprecated. No raw model outputs are released."
+ },
+ "downstream": [
+  {
+   "title": "Positional Biases Shift as Inputs Approach Context Window Limits",
+   "url": "https://arxiv.org/abs/2508.07479",
+   "year": 2025,
+   "relation": "prompt_or_benchmark_dependent",
+   "summary": "Read Sec. 1 and 4. Measures input length relative to each model's context window (Llama-3.x, Qwen2.5, Mistral-Small-3 and others). The Lost-in-the-Middle effect is strongest when inputs fill 50% of the window or less. Beyond that, primacy bias fades and a recency/distance bias remains, so the U-shape disappears. The authors note that 100K-token studies (e.g. InfiniteBench) did not find LiM."
+  },
+  {
+   "title": "Found in the Middle: Calibrating Positional Attention Bias Improves Long Context Utilization",
+   "url": "https://arxiv.org/abs/2406.16008",
+   "year": 2024,
+   "relation": "replicates",
+   "summary": "Section 2 (title 'Positional attention bias overpowers mid-sequence context') reproduces the U-shaped bias and attributes it to positional attention bias; calibrating that bias improves mid-context use. Only the search snippet and section headings were read."
+  },
+  {
+   "title": "NoLiMa: Long-Context Evaluation Beyond Literal Matching",
+   "url": "https://arxiv.org/abs/2502.05167",
+   "year": 2025,
+   "relation": "extends_newer_models",
+   "summary": "Read Sec. 4.4. Finds a lost-in-the-middle dip at 32K for 2024-25 models on one-hop NoLiMa questions. For two-hop questions, context length matters more than needle position."
+  },
+  {
+   "title": "LLMs Get Lost In Multi-Turn Conversation",
+   "url": "https://arxiv.org/abs/2505.06120",
+   "year": 2025,
+   "relation": "related",
+   "summary": "Appendix F.3 reports an analogous 'loss-of-middle-turns' effect: models over-weight the first and last conversation turns."
+  }
+ ],
+ "downstream_verdict": "qualified",
+ "downstream_summary": "The U-shaped position effect has been reproduced many times at the short input lengths of the original study (under ~6K tokens), including with 2024-25 open models. Later work shows it depends on how full the context window is: near the window limit, primacy fades and only recency or distance-to-end bias remains. Newer frontier models may show much smaller position effects on easy multi-document QA. Re-testing on modern models is informative and cheap.",
+ "notability_notes": "One of the most cited LLM behavior papers. It coined the 'lost in the middle' phrase and underlies RAG reranking practice and many long-context benchmarks.",
+ "status_recommendation": "include",
+ "gaps": "The exact claude-1.3 release date was not found. Citation count is approximate: Semantic Scholar returned HTTP 429 all session, so the count comes from paperclip or OpenAlex (see citation_source).",
+ "final_id": "C086",
+ "group": "Long context, agents & tool use",
+ "pool_id": "CAT-01",
+ "audit_corrections": []
+}

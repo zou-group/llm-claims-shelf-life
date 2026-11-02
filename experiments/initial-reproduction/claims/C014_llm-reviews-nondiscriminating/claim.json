@@ -1,0 +1,132 @@
+{
+ "id": "JR-13",
+ "topic": "judges_reviewers",
+ "claim": "LLM-generated paper reviews are uniformly positive and fail to discriminate paper quality: GPT-4/Claude-Opus/Gemini-1.5 gave average scores of 7.43 to accepted and 7.47 to rejected NLP papers (humans 6.41 vs 4.81), praised the writing of every paper, and produced more expert-flagged deficient segments than human reviewers (13.97% vs 6.27%), largely out-of-scope or paper-unspecific critiques.",
+ "paper": {
+  "title": "LLMs Assist NLP Researchers: Critique Paper (Meta-)Reviewing",
+  "authors": [
+   "Jiangshu Du",
+   "Yibo Wang",
+   "Wenting Zhao",
+   "Zhongfen Deng",
+   "Shuaiqi Liu",
+   "Renze Lou",
+   "Henry Peng Zou",
+   "et al. (38 authors)",
+   "Wenpeng Yin"
+  ],
+  "first_date": "2024-06-24",
+  "venue": "EMNLP 2024",
+  "url": "https://arxiv.org/abs/2406.16253",
+  "citation_count": 87,
+  "citation_source": "Semantic Scholar Graph API POST https://api.semanticscholar.org/graph/v1/paper/batch?fields=title,citationCount,publicationDate,externalIds,venue (id arXiv:2406.16253)",
+  "citation_checked": "2026-09-29",
+  "s2_batch_citation_count": 87,
+  "s2_batch_record_title": "LLMs Assist NLP Researchers: Critique Paper (Meta-)Reviewing",
+  "s2_batch_checked": "2026-09-29"
+ },
+ "experiment": {
+  "location_in_paper": "Section 3 (ReviewCritique, Table 1), Section 4.1 (Table 3 error types; 'Strengths', 'Weaknesses', 'Writing', 'Recommendation Score' paragraphs; Figure 1 ITF-IDF), Section 4.2 (LLMs as meta-reviewers)",
+  "task_or_benchmark": "ReviewCritique: 100 NLP papers submitted to ICLR/NeurIPS 2020-2023 with 380 human reviews; 20-paper subset (10 accepted/10 rejected) with 60 LLM reviews (3 per LLM); expert sentence-level 'Deficient' labels.",
+  "intervention_or_prompts": "Prompt with ICLR review guidelines, random example human reviews (accepted and rejected), ICLR 2024 template; LLM also outputs a 1-10 recommendation score (Table 14 prompt).",
+  "models_tested": [
+   "gpt-4-turbo",
+   "gemini-1.5-flash-latest",
+   "claude-3-opus-20240229"
+  ],
+  "evaluation_procedure": "NLP experts (PhD/AC experience) annotate each review segment as Deficient with explanation and 23 error types; compare rates; ITF-IDF specificity metric and BERTScore inter-LLM similarity; recommendation scores vs acceptance.",
+  "metric": "% deficient reviews/segments; mean score by decision; ITF-IDF",
+  "main_comparison": "LLM-generated vs human-written reviews of the same papers",
+  "main_result": "Deficient segments 13.97% (LLM) vs 6.27% (human); 100% of LLM reviews vs 71.57% of human reviews contain a deficient segment. Mean LLM score 7.43 (accepted) vs 7.47 (rejected); human 6.41 vs 4.81. 53.2% of LLM 'strength' segments rephrase the submission; LLMs praised writing for all papers incl. the 15% humans agreed were unclear. Top LLM error 'Out-of-scope' 30.49% of deficient segments. ITF-IDF specificity human 6.04 vs Claude Opus 4.09, Gemini 3.82, GPT-4 3.34."
+ },
+ "models": [
+  {
+   "name": "gpt-4-turbo",
+   "version_as_reported": "gpt-4-turbo",
+   "organization": "OpenAI",
+   "release_date": "2023-11-06",
+   "release_date_source": "https://openai.com/index/new-models-and-developer-products-announced-at-devday/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "provenance_note": "prior-run registry id 'gpt-4-turbo' (spot-checked URL form only); registry ambiguity: Family-first date only. Paper must supply exact checkpoint/version; do not replace unversioned paper names with a snapshot.; exact dated snapshot not stated | central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct.",
+   "release_date_kind": "announcement"
+  },
+  {
+   "name": "gemini-1.5-flash-latest",
+   "version_as_reported": "gemini-1.5-flash-latest",
+   "organization": "Google",
+   "release_date": "2024-05-10",
+   "release_date_source": "https://ai.google.dev/gemini-api/docs/changelog",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "provenance_note": "not in prior registry; official release date/params not verified in this run | central provenance pass: Gemini API changelog 'May 10, 2024 Released Gemini 1.5 Flash (gemini-1.5-flash-latest) in preview' (public I/O announcement 2024-05-14). Alias moved to gemini-1.5-flash-002 on 2024-09-24, so the served checkpoint depends on access date. Parameters not disclosed.",
+   "release_date_kind": "api_release"
+  },
+  {
+   "name": "claude-3-opus-20240229",
+   "version_as_reported": "claude-3-opus-20240229",
+   "organization": "Anthropic",
+   "release_date": "2024-03-04",
+   "release_date_source": "https://www.anthropic.com/news/claude-3-family",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "provenance_note": "prior-run registry id 'claude-3-opus-20240229' (spot-checked URL form only); registry ambiguity: Suffix is checkpoint label; public release may be later. | central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct.",
+   "release_date_kind": "announcement"
+  }
+ ],
+ "reproducibility": {
+  "repo_url": "https://github.com/jiangshdd/ReviewCritique",
+  "repo_inspected": true,
+  "files_inspected": [
+   "README.md",
+   "data/ReviewCritique.jsonl",
+   "data/ReviewCritique_LLM.jsonl (keys: decision, title, body_text, claude_opus, gpt4, gemini_pro_1.5)"
+  ],
+  "experiment_code": "no",
+  "analysis_code": "no",
+  "prompts_configs": "partial",
+  "data_or_outputs": "yes",
+  "procedure_described_precisely": "partial",
+  "difficulty": "medium",
+  "missing": "Data only (papers, human and LLM reviews, deficiency labels). Generation prompt in paper appendix. Re-testing scores is cheap; re-annotating deficiency requires expert annotators."
+ },
+ "downstream": [
+  {
+   "title": "Prompt Injection Attacks on LLM Generated Reviews of Scientific Publications",
+   "url": "https://arxiv.org/abs/2509.10248",
+   "year": 2025,
+   "relation": "extends_newer_models",
+   "summary": "On 1,000 ICLR 2024 papers, LLM reviews are biased toward acceptance (>95% accept in many models) even without injection (abstract read)."
+  },
+  {
+   "title": "Are We There Yet?",
+   "url": "https://arxiv.org/abs/2412.01708",
+   "year": 2024,
+   "relation": "replicates",
+   "summary": "GPT-4o-based reviews map to borderline ~5.3 ratings with similar tone regardless of paper quality; incomplete papers rated near full-paper level."
+  },
+  {
+   "title": "LLM-REVal: Can We Trust LLM Reviewers Yet?",
+   "url": "https://arxiv.org/abs/2510.12367",
+   "year": 2025,
+   "relation": "extends_newer_models",
+   "summary": "LLM reviewers systematically rate LLM-authored papers above human papers and misjudge some human papers, diverging from human reviewers."
+  },
+  {
+   "title": "The AI Scientist",
+   "url": "https://arxiv.org/abs/2408.06292",
+   "year": 2024,
+   "relation": "prompt_or_benchmark_dependent",
+   "summary": "Counterpoint: an engineered GPT-4o reviewer (reflection, few-shot, ensembling) reportedly reaches near-human balanced accuracy on ICLR 2022 accept/reject (numbers not verifiable from the truncated paperclip text; abstract only)."
+  }
+ ],
+ "downstream_verdict": "supported_on_newer_models",
+ "downstream_summary": "Score inflation / acceptance bias of off-the-shelf LLM reviewers is reproduced at larger scale with 2025 models; carefully engineered reviewer pipelines can be better calibrated, so the effect is prompt/pipeline dependent.",
+ "notability_notes": "EMNLP 2024; 87 S2 citations; the ReviewCritique dataset is a standard resource for LLM-review quality.",
+ "status_recommendation": "include",
+ "gaps": "Only 20 papers (60 LLM reviews) for the score comparison; score difference not significance-tested in the text read. AI Scientist reviewer numbers not verified (paperclip text truncated to 5 KB).",
+ "final_id": "C014",
+ "group": "Science, research ideas & peer review",
+ "pool_id": "JR-13",
+ "audit_corrections": []
+}

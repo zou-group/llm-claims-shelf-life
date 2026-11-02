@@ -1,0 +1,29 @@
+{
+ "main25": [
+  "gpt-4o-2024-11-20",
+  "gpt-4o-mini-2024-07-18",
+  "claude-3-5-sonnet-20241022",
+  "claude-3-sonnet-20240229",
+  "claude-3-opus-20240229",
+  "Llama-3.3-70B-Instruct",
+  "Llama-3.1-70B-Instruct",
+  "Llama-3.1-405B-Instruct",
+  "gemma-2-27b-it",
+  "gemini-2.0-flash",
+  "gemini-1.5-pro",
+  "qwen-max-2025-01-25",
+  "qwen-plus-2025-01-25",
+  "Qwen3-32B",
+  "Qwen2.5-72B-Instruct",
+  "Qwen2-72B-Instruct",
+  "Qwen1.5-110B-Chat",
+  "Mistral-Large-Instruct-2411",
+  "Mixtral-8x7B-Instruct-v0.1",
+  "OLMo-2-1124-13B-Instruct",
+  "Llama-3.1-Tulu-3-70B",
+  "c4ai-command-r-plus-08-2024",
+  "aya-expanse-32b",
+  "DeepSeek-V3",
+  "phi-4"
+ ]
+}

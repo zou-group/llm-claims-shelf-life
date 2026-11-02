@@ -1,0 +1,120 @@
+{
+ "id": "CH-12",
+ "topic": "creativity_homogeneity",
+ "claim": "Instruction-tuned LLMs asked to pick a number 'completely at random' between 1 and 10 produce highly non-uniform outputs: output entropy is 1.07-1.88 nats vs 2.30 for uniform (Llama-2-13B-chat heavily favors 5), and similar collapse occurs for random names (Mistral-7B-Instruct picks 'Avery' ~40x more than U.S. base rates).",
+ "paper": {
+  "title": "Forcing Diffuse Distributions out of Language Models",
+  "authors": [
+   "Yiming Zhang",
+   "Avi Schwarzschild",
+   "Nicholas Carlini",
+   "Zico Kolter",
+   "Daphne Ippolito"
+  ],
+  "first_date": "2024-04-16",
+  "venue": "COLM 2024 (per common listing; not verified in text)",
+  "url": "https://arxiv.org/abs/2404.10859",
+  "citation_count": 33,
+  "citation_source": "paperclip CLI search index (`paperclip search -s arxiv`), output saved in sources/paperclip_counts_final.txt; Semantic Scholar Graph API returned HTTP 429 on every attempt 2026-09-29 (shared rate limit)",
+  "citation_checked": "2026-09-29",
+  "s2_batch_citation_count": 51,
+  "s2_batch_record_title": "Forcing Diffuse Distributions out of Language Models",
+  "s2_batch_checked": "2026-09-29"
+ },
+ "experiment": {
+  "location_in_paper": "Sec 2 (metrics: KL, entropy, coverage), Sec 4.1 (baseline failure), Fig 1, Table 1; App (fine-tuning details)",
+  "task_or_benchmark": "RNG: 'Generate a random number between 1 and 10. Output only the number between two curly braces, like this: {number}. Don't output code.'; BABYNAMES: random English first name.",
+  "intervention_or_prompts": "Prompts above; full random sampling (T=1); then the paper's LoRA distribution-matching fine-tune (not part of claim).",
+  "models_tested": [
+   "Gemma-7B-instruct",
+   "Llama-2-13B-chat",
+   "Mistral-7B-instruct"
+  ],
+  "evaluation_procedure": "Exact output probabilities over valid targets / 1,000 samples; entropy and Coverage-1000 vs natural (uniform) distribution.",
+  "metric": "Entropy (nats), Coverage-1000, KL to uniform.",
+  "main_comparison": "Baseline (untuned) model distribution vs uniform/natural distribution.",
+  "main_result": "RNG entropy: Gemma 1.16, Llama-2 1.07, Mistral 1.88 vs 2.30 uniform; coverage 8-10/10. BABYNAMES entropy 3.19-4.02 vs 6.43 natural; coverage 129-225 unique names vs 714. Baseline models would need T>10 to match tuned-model entropy."
+ },
+ "models": [
+  {
+   "name": "Llama-2-13B-Chat",
+   "version_as_reported": "Llama-2-13B-chat",
+   "organization": "Meta",
+   "release_date": "2023-07-18",
+   "release_date_source": "../2026-09-29-initial/provenance/models/models.json -> https://ai.meta.com/blog/llama-2/",
+   "parameters": "13,015,866,880 (safetensors total)",
+   "parameters_source": "https://huggingface.co/meta-llama/Llama-2-13b-chat-hf"
+  },
+  {
+   "name": "gemma-7b-it",
+   "version_as_reported": "Gemma-7B-instruct",
+   "organization": "Google",
+   "release_date": "2024-02-21",
+   "release_date_source": "../2026-09-29-initial/provenance/models/models.json -> https://blog.google/innovation-and-ai/technology/developers-tools/gemma-open-models/",
+   "parameters": "8,537,680,896 (safetensors total; nominal 7B)",
+   "parameters_source": "https://huggingface.co/google/gemma-7b-it"
+  },
+  {
+   "name": "Mistral-7B-Instruct",
+   "version_as_reported": "Mistral-7B-instruct (version not stated; repo config 'mistral-7B-instruct')",
+   "organization": "Mistral AI",
+   "release_date": "2023-09-27 (v0.1)",
+   "release_date_source": "../2026-09-29-initial/provenance/models/models.json -> https://mistral.ai/news/announcing-mistral-7b/",
+   "parameters": "7.3B (v0.1)",
+   "parameters_source": "https://mistral.ai/news/announcing-mistral-7b/"
+  }
+ ],
+ "reproducibility": {
+  "repo_url": "https://github.com/y0mingzhang/diffuse-distributions",
+  "repo_inspected": true,
+  "files_inspected": [
+   "tree: configs/all/{gemma-7b-it,llama-2-13b-chat,mistral-7B-instruct}.yaml, configs/baby-names/*, configs/leave-one-in/*, configs/leave-one-out/*, README.md (listed)"
+  ],
+  "experiment_code": "yes",
+  "analysis_code": "partial",
+  "prompts_configs": "yes",
+  "data_or_outputs": "partial",
+  "procedure_described_precisely": "yes",
+  "difficulty": "low",
+  "missing": "Trivial to re-run on any model (prompt given verbatim). Mistral-7B-instruct minor version unspecified in paper. Did not open README/code files beyond tree listing."
+ },
+ "downstream": [
+  {
+   "title": "Base Models Beat Aligned Models at Randomness and Creativity",
+   "url": "https://arxiv.org/abs/2505.00047",
+   "year": 2025,
+   "relation": "replicates",
+   "summary": "Read abstract and Sec 2.2: Llama-3.1 base vs Llama-Instruct and Tulu SFT/DPO/full on uniform integers 0-10; aligned models strongly prefer '7' with chi^2 divergence ~an order of magnitude above base; aligned models avoid repeats in sequences."
+  },
+  {
+   "title": "Instruction-Tuned Language Models Cannot Sample from Distributions They Can Describe",
+   "url": "https://arxiv.org/abs/2607.25292",
+   "year": 2026,
+   "relation": "extends_newer_models",
+   "summary": "Read abstract and Sec 3.3: gpt-4o at T=1 picks 42 in 78% of 'uniform 1-100' calls, 7 in 97% of 1-10 calls, 'heads' 85%; five other instruction-tuned families show the same favored values; instruct models worse than bases."
+  },
+  {
+   "title": "Verbalized Sampling (App G.5 dice roll)",
+   "url": "https://arxiv.org/abs/2510.01171",
+   "year": 2025,
+   "relation": "extends_newer_models",
+   "summary": "Read G.5: direct prompting to roll a die collapses (e.g., Gemini-2.5-Pro mostly '4'; mean KL 0.926 vs uniform); sequence/VS prompting near-uniform (KL ~0.06)."
+  },
+  {
+   "title": "How Random is Random? Evaluating the Randomness and Humaness of LLMs' Coin Flips",
+   "url": "https://arxiv.org/abs/2406.00092",
+   "year": 2024,
+   "relation": "replicates",
+   "summary": "Abstract/intro read: in binary random-sequence generation, GPT-4 and Llama 3 exhibit and exacerbate nearly every human randomness bias tested, while GPT-3.5 behaves more randomly - bias is model-dependent, not monotone in capability."
+  }
+ ],
+ "downstream_verdict": "supported_on_newer_models",
+ "downstream_summary": "Strongly replicated: 2025-26 work shows GPT-4o, Gemini-2.5-Pro and multiple open families collapse on single random draws, with post-training making it worse than base models; asking for sequences or verbalized distributions largely fixes it.",
+ "notability_notes": "Carlini/Ippolito/Kolter; the standard citation for LLM random-number mode collapse; extremely easy to re-test.",
+ "status_recommendation": "include",
+ "gaps": "Picked this over Hopkins et al. 2023 / Koevering & Kleinberg 2024 because verbatim prompt + exact probabilities + repo. Venue not verified. S2 count unavailable.",
+ "final_id": "C023",
+ "group": "Creativity, output diversity & homogeneity",
+ "pool_id": "CH-12",
+ "audit_corrections": []
+}

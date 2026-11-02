@@ -1,0 +1,63 @@
+# Large input files (> 5 MB) are downloaded from the original sources (DOWNLOADS.md) into the paths below,
+# so list them here to keep them out of git.
+*.partial
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.cache/
+
+# Credentials: keep real keys in .env (ignored); only the placeholder template is tracked
+.env
+.env.*
+!.env.example
+
+# Run outputs and caches you create locally
+/runs/
+/code/.cache/
+/code/data-gym-cache/
+pytest-of-*/
+*.sqlite3
+.DS_Store
+
+# --- large inputs: those in scripts/inputs.json, plus files only other variants read ---
+/code/shelflife/data/sources/C089_lost_in_conversation/data/sharded_instructions_600.json
+/code/shelflife/data/sources/C093_RGB/data/en.json
+/code/shelflife/data/sources/C104_PackageHallucination/Data/Python/pypi_package_names.csv
+/code/shelflife/data/sources/C142_sycophantic_ai_osf/extracted/OEQ_results/endorse4_elephant_oeq3k_deepseek.csv
+/code/shelflife/data/sources/C142_sycophantic_ai_osf/extracted/OEQ_results/endorse4_elephant_oeq3k_gpt4o.csv
+/code/shelflife/data/sources/C142_sycophantic_ai_osf/extracted/OEQ_results/endorse4_elephant_oeq3k_human.csv
+/code/shelflife/data/sources/C142_sycophantic_ai_osf/extracted/PAS_results/endorse4_elephant_oeq_pas_gpt4o.csv
+/code/shelflife/data/sources/C166_censorship/qwen_archived.jsonl
+/experiments/run_minimal_setups/runs/first-pass/C010/verdicts_v2.jsonl
+/experiments/initial-reproduction/claims/C014_llm-reviews-nondiscriminating/code/ReviewCritique/data/ReviewCritique.jsonl
+/experiments/initial-reproduction/claims/C024_are-you-sure-sycophancy/code/sycophancy-eval/datasets/are_you_sure.jsonl
+/experiments/initial-reproduction/claims/C024_are-you-sure-sycophancy/code/sycophancy-eval/datasets/feedback.jsonl
+/experiments/initial-reproduction/claims/C046_judge-length-bias/code/alpaca_eval/results/gpt4_1106_preview_verbose/weighted_alpaca_eval_gpt4_turbo/annotations.json
+/experiments/initial-reproduction/claims/C086_lost-in-the-middle/code/lost-in-the-middle/qa_data/10_total_documents/nq-open-10_total_documents_gold_at_0.jsonl.gz
+/experiments/initial-reproduction/claims/C086_lost-in-the-middle/code/lost-in-the-middle/qa_data/10_total_documents/nq-open-10_total_documents_gold_at_4.jsonl.gz
+/experiments/initial-reproduction/claims/C086_lost-in-the-middle/code/lost-in-the-middle/qa_data/10_total_documents/nq-open-10_total_documents_gold_at_9.jsonl.gz
+/experiments/initial-reproduction/claims/C086_lost-in-the-middle/code/lost-in-the-middle/qa_data/20_total_documents/nq-open-20_total_documents_gold_at_0.jsonl.gz
+/experiments/initial-reproduction/claims/C086_lost-in-the-middle/code/lost-in-the-middle/qa_data/20_total_documents/nq-open-20_total_documents_gold_at_14.jsonl.gz
+/experiments/initial-reproduction/claims/C086_lost-in-the-middle/code/lost-in-the-middle/qa_data/20_total_documents/nq-open-20_total_documents_gold_at_19.jsonl.gz
+/experiments/initial-reproduction/claims/C086_lost-in-the-middle/code/lost-in-the-middle/qa_data/20_total_documents/nq-open-20_total_documents_gold_at_4.jsonl.gz
+/experiments/initial-reproduction/claims/C086_lost-in-the-middle/code/lost-in-the-middle/qa_data/20_total_documents/nq-open-20_total_documents_gold_at_9.jsonl.gz
+/experiments/initial-reproduction/claims/C086_lost-in-the-middle/code/lost-in-the-middle/qa_data/30_total_documents/nq-open-30_total_documents_gold_at_0.jsonl.gz
+/experiments/initial-reproduction/claims/C086_lost-in-the-middle/code/lost-in-the-middle/qa_data/30_total_documents/nq-open-30_total_documents_gold_at_14.jsonl.gz
+/experiments/initial-reproduction/claims/C086_lost-in-the-middle/code/lost-in-the-middle/qa_data/30_total_documents/nq-open-30_total_documents_gold_at_19.jsonl.gz
+/experiments/initial-reproduction/claims/C086_lost-in-the-middle/code/lost-in-the-middle/qa_data/30_total_documents/nq-open-30_total_documents_gold_at_24.jsonl.gz
+/experiments/initial-reproduction/claims/C086_lost-in-the-middle/code/lost-in-the-middle/qa_data/30_total_documents/nq-open-30_total_documents_gold_at_29.jsonl.gz
+/experiments/initial-reproduction/claims/C086_lost-in-the-middle/code/lost-in-the-middle/qa_data/30_total_documents/nq-open-30_total_documents_gold_at_4.jsonl.gz
+/experiments/initial-reproduction/claims/C086_lost-in-the-middle/code/lost-in-the-middle/qa_data/30_total_documents/nq-open-30_total_documents_gold_at_9.jsonl.gz
+/experiments/initial-reproduction/reproductions/C026/datasets.zip
+/experiments/initial-reproduction/reproductions/C026/elephant_full_results.zip
+
+
+# --- the original papers' code, prompts and data: downloaded by scripts/install_inputs.py (see scripts/inputs.json).
+# Files the project transformed stay tracked; add a new tracked file here with `git add -f`.
+/code/shelflife/data/sources/*/**
+/experiments/initial-reproduction/claims/*/code/**

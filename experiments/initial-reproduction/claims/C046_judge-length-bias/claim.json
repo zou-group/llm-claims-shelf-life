@@ -1,0 +1,154 @@
+{
+ "id": "JR-06",
+ "topic": "judges_reviewers",
+ "claim": "GPT-4-based pairwise auto-annotators are strongly length-biased: merely prompting the same model to be more verbose or concise swings its AlpacaEval win rate from 22.9% to 64.3% (gpt-4-1106-preview vs itself), and regressing out length raises the benchmark's Spearman correlation with Chatbot Arena from 0.94 to 0.98.",
+ "paper": {
+  "title": "Length-Controlled AlpacaEval: A Simple Way to Debias Automatic Evaluators",
+  "authors": [
+   "Yann Dubois",
+   "Balazs Galambosi",
+   "Percy Liang",
+   "Tatsunori B. Hashimoto"
+  ],
+  "first_date": "2024-04-06",
+  "venue": "arXiv preprint (S2 venue: arXiv.org); later conference venue not verified in this run",
+  "url": "https://arxiv.org/abs/2404.04475",
+  "citation_count": 979,
+  "citation_source": "Semantic Scholar Graph API POST https://api.semanticscholar.org/graph/v1/paper/batch?fields=title,citationCount,publicationDate,externalIds,venue (id arXiv:2404.04475)",
+  "citation_checked": "2026-09-29",
+  "s2_batch_citation_count": 979,
+  "s2_batch_record_title": "Length-Controlled AlpacaEval: A Simple Way to Debias Automatic Evaluators",
+  "s2_batch_checked": "2026-09-29"
+ },
+ "experiment": {
+  "location_in_paper": "Section 4.1 (Figure 3 gameability), Section 4.2 (Figure 1, correlation), Table 1, Table 2 (judge self-bias)",
+  "task_or_benchmark": "AlpacaEval 2.0 (805 instructions), baseline gpt4_1106_preview; Chatbot Arena Elo for correlation.",
+  "intervention_or_prompts": "Evaluated models prompted with 'Answer with as much detail as possible.' (verbose) or 'Be as concise as possible while still providing all the necessary information to answer the question.' (concise) vs standard. LC win rate = GLM predicting preference from model identity, instruction difficulty and tanh-normalized length difference, then setting length difference to 0.",
+  "models_tested": [
+   "gpt4_1106_preview (baseline and evaluated)",
+   "Mixtral-8x7B-Instruct-v0.1",
+   "gpt4_0613",
+   "claude-2.1",
+   "gpt-3.5-turbo-1106",
+   "alpaca-7b",
+   "+ AlpacaEval leaderboard models for correlation"
+  ],
+  "evaluation_procedure": "Auto-annotator weighted_alpaca_eval_gpt4_turbo (GPT-4-1106-preview) compares each output with the baseline; gameability = normalized std of win rate across three verbosity prompts; Spearman correlation with Chatbot Arena ratings over shared models.",
+  "metric": "Win rate; LC win rate; normalized std; Spearman rho",
+  "main_comparison": "Raw vs length-controlled win rate under verbosity prompting",
+  "main_result": "Raw win rate (concise/standard/verbose): gpt4_1106_preview 22.9/50.0/64.3; claude-2.1 9.2/15.7/24.4; gpt-3.5-turbo-1106 7.4/9.2/12.8. LC: 41.9/50.0/51.6 for gpt4_1106_preview. Normalized std across prompts 25% -> 10%. Spearman with Chatbot Arena 0.94 -> 0.98. Judges also self-favor (Table 2: claude-3-opus scores 43.3 under its own judgment vs 40.4 under GPT-4)."
+ },
+ "models": [
+  {
+   "name": "gpt-4-1106-preview (annotator & baseline)",
+   "version_as_reported": "gpt-4-1106-preview (annotator & baseline)",
+   "organization": "OpenAI",
+   "release_date": "2023-11-06",
+   "release_date_source": "https://openai.com/index/new-models-and-developer-products-announced-at-devday/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "provenance_note": "prior-run registry id 'gpt-4-1106-preview' (spot-checked URL form only) | central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct.",
+   "release_date_kind": "announcement"
+  },
+  {
+   "name": "Mixtral-8x7B-Instruct-v0.1",
+   "version_as_reported": "Mixtral-8x7B-Instruct-v0.1",
+   "organization": "Mistral AI",
+   "release_date": "2023-12-11",
+   "release_date_source": "https://mistral.ai/news/mixtral-of-experts/",
+   "parameters": "46.7B",
+   "parameters_source": "https://mistral.ai/news/mixtral-of-experts/",
+   "provenance_note": "prior-run registry id 'Mixtral-8x7B-Instruct-v0.1' (spot-checked URL form only); registry ambiguity: Earlier torrent availability requires separate evidence; initial announcement date retained."
+  },
+  {
+   "name": "gpt-4-0613",
+   "version_as_reported": "gpt-4-0613",
+   "organization": "OpenAI",
+   "release_date": "2023-06-13",
+   "release_date_source": "https://openai.com/index/function-calling-and-other-api-updates/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "provenance_note": "prior-run registry id 'gpt-4-0613' (spot-checked URL form only) | central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct.",
+   "release_date_kind": "announcement"
+  },
+  {
+   "name": "claude-2.1",
+   "version_as_reported": "claude-2.1",
+   "organization": "Anthropic",
+   "release_date": "2023-11-21",
+   "release_date_source": "https://www.anthropic.com/news/claude-2-1",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "provenance_note": "prior-run registry id 'claude-2.1' (spot-checked URL form only) | central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct.",
+   "release_date_kind": "announcement"
+  },
+  {
+   "name": "gpt-3.5-turbo-1106",
+   "version_as_reported": "gpt-3.5-turbo-1106",
+   "organization": "OpenAI",
+   "release_date": "2023-11-06",
+   "release_date_source": "https://openai.com/index/new-models-and-developer-products-announced-at-devday/",
+   "parameters": "unknown",
+   "parameters_source": "not disclosed",
+   "provenance_note": "prior-run registry id 'gpt-3.5-turbo-1106' (spot-checked URL form only) | central provenance pass: Confirmed existing date; source: provider canonical announcement URL (taken from prior registry ../2026-09-29-initial/provenance/models/models.json where the model is listed there, otherwise the provider's announcement page); date matches existing claims_100 value; not independently re-fetched in this run (openai.com/anthropic.com fetches blocked or not attempted). Parameters not disclosed by provider (closed model); 'unknown' is correct.",
+   "release_date_kind": "announcement"
+  },
+  {
+   "name": "alpaca-7b",
+   "version_as_reported": "alpaca-7b",
+   "organization": "Stanford",
+   "release_date": "2023-03-13",
+   "release_date_source": "https://crfm.stanford.edu/2023/03/13/alpaca.html",
+   "parameters": "7B",
+   "parameters_source": "https://crfm.stanford.edu/2023/03/13/alpaca.html",
+   "provenance_note": "Stanford Alpaca 7B (2023-03-13 blog); not re-verified in this run | central provenance pass: Stanford CRFM blog (dated 2023/03/13 in URL): 'We introduce Alpaca 7B, a model fine-tuned from the LLaMA 7B model'. Weight diff released later (tatsu-lab/alpaca-7b-wdiff, HF 2023-04-13).",
+   "release_date_kind": "announcement"
+  }
+ ],
+ "reproducibility": {
+  "repo_url": "https://github.com/tatsu-lab/alpaca_eval",
+  "repo_inspected": true,
+  "files_inspected": [
+   "README.md (raw.githubusercontent; LC win-rate and annotator sections)"
+  ],
+  "experiment_code": "yes",
+  "analysis_code": "yes",
+  "prompts_configs": "yes",
+  "data_or_outputs": "yes",
+  "procedure_described_precisely": "yes",
+  "difficulty": "low",
+  "missing": "Verbosity-prompted outputs for all models may not be stored; re-generation cheap. README states correlation '0.93 to 0.98' (vs 0.94 in paper) - minor discrepancy. Repo not cloned (README only)."
+ },
+ "downstream": [
+  {
+   "title": "Explaining Length Bias in LLM-Based Preference Evaluations",
+   "url": "https://arxiv.org/abs/2407.01085",
+   "year": 2024,
+   "relation": "replicates",
+   "summary": "Decomposes win rate into length-independent desirability and length-dependent information mass; confirms judges favor longer responses and proposes AdapAlpaca length-matched comparison (abstract/intro read)."
+  },
+  {
+   "title": "Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge",
+   "url": "https://arxiv.org/abs/2410.02736",
+   "year": 2024,
+   "relation": "extends_newer_models",
+   "summary": "Verbosity bias measured for 2024 judges: Claude-3.5 robustness 1.00 and GPT-4-Turbo 0.90 on their verbosity test (Table L97), i.e. newer judges are less swayed in that setup."
+  },
+  {
+   "title": "Cheating Automatic LLM Benchmarks",
+   "url": "https://arxiv.org/abs/2410.07137",
+   "year": 2024,
+   "relation": "related",
+   "summary": "Shows LC does not protect against non-length gaming (JR-05)."
+  }
+ ],
+ "downstream_verdict": "supported",
+ "downstream_summary": "Length bias of LLM judges is widely replicated and LC win rates became the AlpacaEval default; some 2024+ judges show reduced verbosity bias in controlled tests, so magnitude on current annotators is an open question.",
+ "notability_notes": "979 S2 citations; LC-AlpacaEval is a standard leaderboard metric.",
+ "status_recommendation": "include",
+ "gaps": "The 22.9->64.3 swing uses the annotator's own model family as evaluated model and baseline; effect on other annotators (Claude/Gemini) not tested here. Venue beyond arXiv not verified.",
+ "final_id": "C046",
+ "group": "LLM judges & evaluation validity",
+ "pool_id": "JR-06",
+ "audit_corrections": []
+}

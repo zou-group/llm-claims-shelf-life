@@ -1,0 +1,9 @@
+Snapshots of the official HF collection liweijiang/artificial-hivemind (https://huggingface.co/collections/liweijiang/artificial-hivemind-6826e108da3260c02a1a2ec0), downloaded 2026-10-09 at pinned revisions:
+- infinite-chats-eval @ e6177df454f82f6f0ed140d74b8b4844264b40fe: 100 queries (Infinity-Chat100), column 'query'. sha256 eec7277f...
+- infinite-chats-human-absolute @ b5134adae8b0e9879c32b7f7d1eb1f9526833d95: 750 rows = 50 queries x 15 model responses, 25 human 1-5 ratings each.
+  Columns user_query, response, human_labels, human_labels_raw, form_id, question_id. No model label. sha256 2b187eda...
+- infinite-chats-human-pairwise @ 84d2272326620b07c133d1ba394d7d8830c549ba: 500 rows = 50 queries x 10 pairs, 25 labels each. sha256 4ee28c33...
+The 15 responses per query were picked by clustering the pooled 50-sample outputs of all models and taking one per cluster
+(App. "Annotation data preparation"), so they are diversity-selected and carry no model id: NOT usable for within/cross-model similarity.
+Not mirrored here (large): infinite-chats-taxonomy @ 256dbe3c... (26,066 queries, 89.8 MB) is in
+experiments/run_minimal_setups/runs/added-b/data/hivemind/infinite-chats-taxonomy/train.parquet (sha256 1c0dad74...).

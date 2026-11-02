@@ -1,0 +1,21 @@
+record_id,model,developer,release_date,provider,model_id,input_usd_per_1m,output_usd_per_1m,total_params_b,active_params_b,weights,role
+M015,GPT-4o mini,OpenAI,2024-07-18,OpenRouter,openai/gpt-4o-mini-2024-07-18,0.15,0.6,,,closed,2024 anchor; small closed (OpenAI mini tier)
+M017,Llama 3.1 70B Instruct,Meta,2024-07-23,OpenRouter,meta-llama/llama-3.1-70b-instruct,0.4,0.4,70,,open_weights,2024 anchor; 70B dense open
+M025,Qwen2.5-72B-Instruct,Alibaba / Qwen,2024-09-19,OpenRouter,qwen/qwen-2.5-72b-instruct,0.36,0.4,72.7,,open_weights,2024 anchor; 72B dense open
+M045,DeepSeek V3,DeepSeek,2024-12-26,OpenRouter,deepseek/deepseek-chat,0.2574,1.0287,671,37,open_weights,"2024 anchor (Dec); 671B MoE open, cheap"
+M049,Mistral Small 3 (2501),Mistral AI,2025-01-30,OpenRouter,mistralai/mistral-small-24b-instruct-2501,0.05,0.08,24,,open_weights,2025; smallest open model (24B dense)
+M066,Llama 4 Maverick,Meta,2025-04-05,OpenRouter,meta-llama/llama-4-maverick,0.1875,0.6525,400,17,open_weights,2025; 400B MoE open (Meta)
+M090,Gemini 2.5 Flash,Google,2025-05-20,OpenRouter,google/gemini-2.5-flash,0.3,2.5,,,closed,2025; small closed (Google Flash tier)
+M102,gpt-oss-120b,OpenAI,2025-08-05,Together AI,openai/gpt-oss-120b,0.15,0.6,116.83,5.13,open_weights,2025; 117B MoE open with 5B active
+M119,Claude Haiku 4.5,Anthropic,2025-10-15,OpenRouter,anthropic/claude-haiku-4.5,1.0,5.0,,,closed,2025; Anthropic's cheapest tier (Haiku)
+M133,GPT-5.2,OpenAI,2025-12-11,OpenAI (direct),gpt-5.2,1.75,14.0,,,closed,2025 (Dec); OpenAI flagship tier
+M140,Claude Opus 4.6,Anthropic,2026-02-05,Anthropic (direct),claude-opus-4-6,5.0,25.0,,,closed,2026 (Feb); Anthropic flagship tier
+M143,GLM-5,Z.ai / Zhipu AI,2026-02-12,OpenRouter,z-ai/glm-5,0.6,1.92,744,40,open_weights,"2026; 744B MoE open, cheap for its size"
+M171,Qwen3.7-Max,Alibaba / Qwen,2026-05-20,OpenRouter,qwen/qwen3.7-max,1.475,4.425,,,closed,"2026 Q2; large closed (Qwen Max tier), fills the May-Jun 2026 quarter"
+M183,Qwen3.7-Flash,Alibaba / Qwen,2026-07-21,OpenRouter,qwen/qwen3.7-flash,0.03,0.13,,,closed,2026; cheapest model in the table (Qwen Flash tier)
+M190,DeepSeek V4 Pro 0813,DeepSeek,2026-08-13,OpenRouter,deepseek/deepseek-v4-pro-0813,1.32,3.96,1600,49,open_weights,2026; largest open model (1.6T MoE)
+M196,GLM-5.3-Flash,Z.ai / Zhipu AI,2026-08-26,Together AI,zai-org/GLM-5.3-Flash,0.15,0.5,320,18,open_weights,"2026; 320B MoE open, Flash tier"
+M199,Gemini 3.8 Flash,Google,2026-09-02,OpenRouter,google/gemini-3.8-flash,0.75,3.75,,,closed,2026; latest Google Flash
+M204,GPT-6 Luna,OpenAI,2026-09-22,OpenRouter,openai/gpt-6-luna,0.1,0.5,,,closed,2026; latest small OpenAI tier (Luna)
+M206,Claude Sonnet 5.5,Anthropic,2026-09-28,OpenRouter,anthropic/claude-sonnet-5.5,2.0,10.0,,,closed,2026; latest Anthropic flagship at the lowest flagship price
+M207,GPT-6.1 Sol,OpenAI,2026-09-29,OpenRouter,openai/gpt-6.1-sol,2.0,10.0,,,closed,2026; latest OpenAI flagship at the lowest flagship price

@@ -1,0 +1,118 @@
+{
+  "openai-direct/gpt-4o-2024-05-13": {
+    "per_prompt": {
+      "r_toy": {
+        "n": 10,
+        "scored": 10,
+        "failed_calls": 0,
+        "truncated": 0,
+        "empty": 0,
+        "unparsed": 0,
+        "k_correct": 6,
+        "accuracy": 0.6,
+        "accuracy_ci95_exact": [
+          0.26237807660694507,
+          0.8784477418801728
+        ],
+        "accuracy_bounds_with_missing": [
+          0.6,
+          0.6
+        ],
+        "accuracy_first_number_rule": 0.6,
+        "agreement_stated_vs_cleaned_last": 1.0,
+        "bound_share": 1.0,
+        "answer_counts": {
+          "2": 4,
+          "3": 6
+        },
+        "share_answered_two": 0.4
+      },
+      "s_control": {
+        "n": 10,
+        "scored": 10,
+        "failed_calls": 0,
+        "truncated": 0,
+        "empty": 0,
+        "unparsed": 0,
+        "k_correct": 10,
+        "accuracy": 1.0,
+        "accuracy_ci95_exact": [
+          0.6915028921812392,
+          1.0
+        ],
+        "accuracy_bounds_with_missing": [
+          1.0,
+          1.0
+        ],
+        "accuracy_first_number_rule": 1.0,
+        "agreement_stated_vs_cleaned_last": 1.0,
+        "bound_share": 1.0,
+        "answer_counts": {
+          "1": 10
+        },
+        "share_answered_two": 0.0
+      },
+      "r_wording": {
+        "n": 10,
+        "scored": 10,
+        "failed_calls": 0,
+        "truncated": 0,
+        "empty": 0,
+        "unparsed": 0,
+        "k_correct": 1,
+        "accuracy": 0.1,
+        "accuracy_ci95_exact": [
+          0.0025285785444617848,
+          0.4450161170281954
+        ],
+        "accuracy_bounds_with_missing": [
+          0.1,
+          0.1
+        ],
+        "accuracy_first_number_rule": 0.1,
+        "agreement_stated_vs_cleaned_last": 1.0,
+        "bound_share": 1.0,
+        "answer_counts": {
+          "2": 9,
+          "3": 1
+        },
+        "share_answered_two": 0.9
+      }
+    },
+    "headline_reliable": true,
+    "persists": true,
+    "shelflife": {
+      "metric": "acc_control_minus_acc_r",
+      "value": 0.4,
+      "ci": [
+        0.0383858208880023,
+        0.6873262302663417
+      ],
+      "n": 20,
+      "direction": 1,
+      "null_value": 0.0,
+      "paper_value": null,
+      "paper_value_note": "no paper number exists for this prompt; the anchor is our reproduction on openai-direct/gpt-4o-2024-05-13 (gpt-4o alias during the viral 2024 period)",
+      "anchor_model": "openai-direct/gpt-4o-2024-05-13",
+      "headline_reliable": true,
+      "primary_metric": "acc_r_toy",
+      "primary_value": 0.6,
+      "primary_ci": [
+        0.26237807660694507,
+        0.8784477418801728
+      ],
+      "primary_direction": -1,
+      "control_accuracy": 1.0,
+      "control_gate": 0.8,
+      "difference_interpretable": true,
+      "difference_note": null,
+      "share_r_toy_answered_two": 0.4,
+      "scoring_deviations": [
+        "clean() keeps \"N letter(s)/character(s)\" when a single (optionally quoted) letter follows, and \"N letters 'x'\" is a bound count (earlier pipeline validation 2026-10-05; was erased -> false incorrect, mostly on the control)",
+        "acc(r_toy) reported as shelflife.primary_value; the difference shelflife.value is flagged difference_interpretable=False when control accuracy < CONTROL_GATE (0.8)"
+      ],
+      "definition": "Accuracy of the stated count (== 1) on \"How many s's are in strawberry?\" minus accuracy (== 3) on \"How many r's are in strawberry?\", 10 samples each; Newcombe score CI."
+    },
+    "diagnostic_first_number_rule_value": 0.4
+  }
+}
