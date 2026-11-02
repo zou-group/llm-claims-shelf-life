@@ -34,15 +34,13 @@ substantially diminished effects. What we know about AI may have a surprisingly 
   behaviours, and the post's claim cards show each model's value.
 
 <p align="center">
-  <img src="assets/02-citations-over-time.png" width="720" alt="Fabricated citations by model release date with fitted trend and 95% intervals: 55% in the original paper, 1.4% for Claude Sonnet 5.5 and 0% for GPT-6.1 Sol; the claim expired in April 2026.">
+  <img src="assets/05-example-trajectories.png" width="900" alt="Three examples by model release date: lost-in-the-middle retrieval has expired, answer-order bias has weakened, and left-leaning political views persist. Points show model measurements; curves and shading show fitted trends and 95% intervals. Effects are relative to the original paper.">
 </p>
 
 <p align="center">
-  <img src="assets/08-expired-claim-lifespans.png" width="720" alt="Months from publication to estimated expiration for the 22 expired claims, by research area; median 14.7 months.">
-</p>
-
-<p align="center">
-  <img src="assets/06-three-strengthened.png" width="600" alt="Three strengthened findings, effect relative to the original paper with 95% intervals: judges favoring their own answers 2.36x, praise following the user's preference 1.85x, uneven random-number choices 1.70x.">
+  <img src="assets/08-expired-claim-lifespans.png" width="900" alt="Months from publication to estimated expiration for the 22 expired claims, by research area. Blue points are individual claims; black ticks and the right column show area means.">
+  <br>
+  <img src="assets/06-three-strengthened.png" width="900" alt="Three strengthened findings, effect relative to the original paper with 95% intervals: judges favoring their own answers 2.36x, praise following the user's preference 1.85x, uneven random-number choices 1.70x.">
 </p>
 
 The selected claims are not a random sample of the literature, and the panel is 20 models chosen for cost and size
