@@ -33,15 +33,17 @@ substantially diminished effects. What we know about AI may have a surprisingly 
 - **Individual models still differ.** A verdict describes the fitted trend. Some recent models still show expired
   behaviours, and the post's claim cards show each model's value.
 
+Three examples show how findings change across model releases. Losing facts in the middle of a long context has
+largely faded; judges' sensitivity to answer order has weakened; left-leaning responses on political orientation
+tests persist.
+
 <p align="center">
   <img src="assets/05-example-trajectories.png" width="900" alt="Three examples by model release date: lost-in-the-middle retrieval has expired, answer-order bias has weakened, and left-leaning political views persist. Points show model measurements; curves and shading show fitted trends and 95% intervals. Effects are relative to the original paper.">
 </p>
 
-<p align="center">
-  <img src="assets/08-expired-claim-lifespans.png" width="900" alt="Months from publication to estimated expiration for the 22 expired claims, by research area. Blue points are individual claims; black ticks and the right column show area means.">
-  <br>
-  <img src="assets/06-three-strengthened.png" width="900" alt="Three strengthened findings, effect relative to the original paper with 95% intervals: judges favoring their own answers 2.36x, praise following the user's preference 1.85x, uneven random-number choices 1.70x.">
-</p>
+Each point is a model release. Curves show fitted trends, with shaded 95% intervals; effects are scaled relative
+to the original paper. The [interactive post](https://zou-group.github.io/llm-claims-shelf-life/) includes every
+claim, its model-level measurements, and the lifespan and strengthened-finding plots.
 
 The selected claims are not a random sample of the literature, and the panel is 20 models chosen for cost and size
 coverage. The post's methods and caveats sections give the details.
