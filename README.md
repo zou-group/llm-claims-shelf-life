@@ -252,8 +252,6 @@ release.
   the original data was never released; their configs use labelled reconstructions.
 - **Paper-model substitutes.** Several paper models are retired, so some reproductions use the nearest surviving
   snapshot (`repro_model` in [`claims/claims.csv`](claims/claims.csv)).
-- **Earlier-pipeline outputs.** Some values come from an earlier run of the same protocol, rescored with the current
-  scorer (the `source` column of `panel_values.csv`).
 
 ## Feedback, citation and licence
 
